@@ -1,20 +1,20 @@
-"use server"
+"use server";
 
-import { Resend } from "resend"
+import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend("re_4MJLhXwm_DTLWfHcDbbd8XqQTnuAX5vLH");
 
 export async function submitConsultation(data: {
-  name: string
-  phone: string
-  serviceType: string
-  date: string
-  time: string
-  contactMethod: string
-  insideQatar: string
-  preferredLanguage: string
-  role: string
-  note?: string
+  name: string;
+  phone: string;
+  serviceType: string;
+  date: string;
+  time: string;
+  contactMethod: string;
+  insideQatar: string;
+  preferredLanguage: string;
+  role: string;
+  note: string;
 }) {
   try {
     await resend.emails.send({
@@ -34,11 +34,11 @@ export async function submitConsultation(data: {
         <p><strong>Preferred Language:</strong> ${data.preferredLanguage === "en" ? "English" : "Arabic"}</p>
         ${data.note ? `<p><strong>Additional Notes:</strong> ${data.note}</p>` : ""}
       `,
-    })
+    });
 
-    return { success: true }
+    return { success: true };
   } catch (error) {
-    console.error("Failed to send consultation email:", error)
-    return { success: false, error: "Failed to send email" }
+    console.error("Failed to send consultation email:", error);
+    return { success: false, error: "Failed to send consultation request" };
   }
 }

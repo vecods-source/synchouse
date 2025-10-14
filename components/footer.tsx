@@ -159,19 +159,22 @@ export function Footer() {
             </p>
             <div className="flex flex-wrap justify-center gap-6 font-mono text-sm md:gap-8">
               <a
-                href="#"
+                href="https://www.privacypolicies.com/live/61b17a48-6e23-470d-b57b-4eea6c7e3e95"
+                target="_blank"
                 className="text-background/60 hover:text-background transition-colors"
               >
                 PRIVACY
               </a>
               <a
-                href="#"
+                href="https://www.privacypolicies.com/live/61b17a48-6e23-470d-b57b-4eea6c7e3e95"
+                target="_blank"
                 className="text-background/60 hover:text-background transition-colors"
               >
                 TERMS
               </a>
               <a
-                href="#"
+                href="https://www.privacypolicies.com/live/61b17a48-6e23-470d-b57b-4eea6c7e3e95"
+                target="_blank"
                 className="text-background/60 hover:text-background transition-colors"
               >
                 COOKIES

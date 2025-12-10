@@ -192,14 +192,6 @@ export function Footer() {
                   {t.footer.termsOfService}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/cookies"
-                  className="text-background/70 hover:text-background transition-colors"
-                >
-                  {t.footer.cookiePolicy}
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -222,12 +214,6 @@ export function Footer() {
                 className="text-background/60 hover:text-background transition-colors"
               >
                 {t.footer.terms}
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-background/60 hover:text-background transition-colors"
-              >
-                {t.footer.cookies}
               </Link>
             </div>
           </div>

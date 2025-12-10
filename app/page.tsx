@@ -5,12 +5,10 @@ import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { ScrollProgress } from "@/components/scroll-progress"
-import { PageLoader } from "@/components/page-loader"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <PageLoader />
       <ScrollProgress />
       <Header />
       <div className="pt-20">

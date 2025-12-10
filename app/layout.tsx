@@ -2,9 +2,17 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
+import { Noto_Kufi_Arabic } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
+import { LanguageProvider } from "@/lib/language-context"
+
+const notoKufiArabic = Noto_Kufi_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Synchouse - Digital Solutions Synchronized",
@@ -20,8 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={null}>{children}</Suspense>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${notoKufiArabic.variable} antialiased`}>
+        <LanguageProvider>
+          <Suspense fallback={null}>{children}</Suspense>
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

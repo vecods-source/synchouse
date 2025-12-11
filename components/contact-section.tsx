@@ -226,7 +226,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <Label className="mb-3 block text-sm font-semibold">
+                  <Label className={`mb-3 block text-sm font-semibold ${isRTL ? "text-right" : ""}`}>
                     {t("form.contactMethod")}
                   </Label>
                   <RadioGroup
@@ -235,9 +235,9 @@ export function ContactSection() {
                     onValueChange={(value) =>
                       setFormData({ ...formData, contactMethod: value })
                     }
-                    className="flex flex-row gap-6"
+                    className={`flex flex-row gap-6 ${isRTL ? "justify-end" : ""}`}
                   >
-                    <div className="flex items-center space-x-2">
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <RadioGroupItem value="call" id="call" />
                       <Label
                         htmlFor="call"
@@ -246,7 +246,7 @@ export function ContactSection() {
                         {t("form.call")}
                       </Label>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <RadioGroupItem value="whatsapp" id="whatsapp" />
                       <Label
                         htmlFor="whatsapp"

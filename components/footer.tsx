@@ -5,7 +5,6 @@ import type React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Instagram } from "lucide-react";
-import { SiTiktok, SiX } from "react-icons/si";
 import { useTranslations, useLocale } from "next-intl";
 import { isRtlLocale, type Locale } from "@/i18n/config";
 
@@ -55,24 +54,6 @@ export function Footer() {
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://x.com/synchouse_qa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center border-2 border-background bg-background text-foreground transition-colors hover:bg-background/90 pixel-corners"
-                aria-label="X (Twitter)"
-              >
-                <SiX className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@synchouse.qa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center border-2 border-background bg-background text-foreground transition-colors hover:bg-background/90 pixel-corners"
-                aria-label="TikTok"
-              >
-                <SiTiktok className="h-5 w-5" />
               </a>
             </div>
           </div>

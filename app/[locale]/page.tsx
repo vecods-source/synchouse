@@ -1,5 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { ServicesSection } from "@/components/services-section"
+import { TechStackSection } from "@/components/tech-stack-section"
+import { PortfolioSection } from "@/components/portfolio-section"
 import { WhyUsSection } from "@/components/why-us-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
@@ -19,13 +21,13 @@ export default async function Home({ params }: Props) {
     <main className="min-h-screen bg-background">
       <ScrollProgress />
       <Header />
-      <div className="pt-20">
-        <HeroSection />
-        <ServicesSection />
-        <WhyUsSection />
-        <ContactSection />
-        <Footer />
-      </div>
+      <HeroSection />
+      <ServicesSection />
+      <TechStackSection />
+      <PortfolioSection />
+      <WhyUsSection />
+      <ContactSection />
+      <Footer />
     </main>
   )
 }

@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   title: "Synchouse - Digital Solutions Synchronized",
   description:
     "Enterprise-grade software solutions including ERP, CRM, E-Commerce, Mobile Apps, AI Agents, and Appointment Management Systems",
+  icons: {
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20design%20%287%29-s9g2TccXOz5oRKVDabl7LjfxxjMyCF.png",
+    apple: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20design%20%287%29-s9g2TccXOz5oRKVDabl7LjfxxjMyCF.png",
+  },
 }
 
 export function generateStaticParams() {

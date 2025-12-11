@@ -1,6 +1,7 @@
 {
   "header": {
     "services": "Services",
+    "portfolio": "Our Work",
     "whyUs": "Why Us",
     "contact": "Contact",
     "getStarted": "Get Started"
@@ -18,37 +19,104 @@
       "success": "Success"
     }
   },
+  "portfolio": {
+    "badge": "OUR WORK",
+    "title1": "Projects We're",
+    "title2": "Proud Of",
+    "description": "We've helped leading brands build exceptional digital experiences. Here are some of the projects we've worked on.",
+    "projects": {
+      "ounass": {
+        "name": "Ounass",
+        "description": "Luxury fashion e-commerce platform for the Gulf region",
+        "tag": "Fashion & Luxury"
+      },
+      "namshi": {
+        "name": "Namshi",
+        "description": "Leading online fashion destination in the Middle East",
+        "tag": "E-commerce"
+      },
+      "dasparfum": {
+        "name": "Das Parfum",
+        "description": "Premium beauty and fragrance retailer worldwide",
+        "tag": "Beauty & Perfumes"
+      },
+      "flaconi": {
+        "name": "Flaconi",
+        "description": "Germany's leading online beauty and cosmetics store",
+        "tag": "Beauty & Cosmetics"
+      }
+    }
+  },
   "services": {
     "badge": "Our Services",
     "title1": "Digital Solutions for",
     "title2": "Modern Businesses",
     "description": "We deliver cutting-edge software solutions tailored to your unique business needs",
+    "learnMore": "Get Started",
+    "popular": "Popular",
+    "modal": {
+      "problem": "The Problem",
+      "solution": "Our Solution",
+      "whatsappCTA": "Chat with Us on WhatsApp",
+      "whatsappMessage": "Hi! I'm interested in {service}. Can you tell me more about pricing and features?",
+      "responseTime": "We typically respond within 1 hour during business hours"
+    },
+    "pricing": {
+      "title": "Flexible Pricing for Every Business",
+      "description": "We believe great software should be accessible to everyone. That's why we offer customized pricing plans that fit your budget and scale with your growth.",
+      "startup": "Startups",
+      "startupDesc": "Perfect for new businesses launching their first digital product",
+      "smallBusiness": "Small & Medium",
+      "smallBusinessDesc": "Ideal for growing companies ready to scale operations",
+      "enterprise": "Enterprise",
+      "enterpriseDesc": "Full-featured solutions for large organizations",
+      "flexiblePricing": "No hidden fees. No surprises. Just transparent pricing tailored to your needs.",
+      "whatsappCTA": "Get a Free Quote on WhatsApp",
+      "whatsappMessage": "Hi! I'd like to discuss pricing for your services. Can you provide more information?"
+    },
     "items": {
       "erp": {
         "title": "ERP Systems",
-        "description": "Comprehensive enterprise resource planning solutions that streamline your operations and boost efficiency."
+        "description": "Comprehensive enterprise resource planning solutions that streamline your operations and boost efficiency.",
+        "problem": "Managing inventory, finances, HR, and operations across multiple spreadsheets or disconnected systems leads to data errors, wasted time, and poor decision-making. Teams work in silos, and getting a clear picture of your business becomes nearly impossible.",
+        "solution": "Our custom ERP systems unify all your business processes into one powerful platform. Real-time dashboards, automated workflows, and integrated modules for inventory, accounting, HR, and more – all working together seamlessly. Make data-driven decisions with confidence."
       },
       "crm": {
         "title": "CRM Solutions",
-        "description": "Customer relationship management platforms that help you build lasting relationships and drive growth."
+        "description": "Customer relationship management platforms that help you build lasting relationships and drive growth.",
+        "problem": "Losing track of customer interactions, missing follow-ups, and having no visibility into your sales pipeline costs you deals and damages relationships. Without proper customer data management, your team wastes hours on manual tracking.",
+        "solution": "Our CRM solutions give you a 360° view of every customer. Track interactions, automate follow-ups, manage your sales pipeline, and get AI-powered insights to close more deals. Turn customer data into your competitive advantage."
       },
       "ecommerce": {
         "title": "E-Commerce",
-        "description": "Scalable online stores with seamless payment integration and exceptional user experiences."
+        "description": "Scalable online stores with seamless payment integration and exceptional user experiences.",
+        "problem": "Your competitors are selling online 24/7 while you're limited to store hours. High cart abandonment rates, slow loading times, and complicated checkout processes are costing you sales every single day.",
+        "solution": "We build lightning-fast, mobile-first e-commerce stores that convert visitors into customers. Seamless payment integration, optimized checkout flows, inventory management, and analytics – everything you need to dominate online sales."
       },
       "mobile": {
         "title": "Mobile Apps",
-        "description": "Native and cross-platform mobile applications that engage users on iOS and Android."
+        "description": "Native and cross-platform mobile applications that engage users on iOS and Android.",
+        "problem": "Your customers expect to interact with your business from their phones. Without a mobile presence, you're invisible to millions of potential customers who prefer apps over websites for convenience and speed.",
+        "solution": "We create stunning, high-performance mobile apps for iOS and Android that your customers will love. Push notifications, offline functionality, seamless payments, and beautiful UX – put your business in every customer's pocket."
       },
       "ai": {
         "title": "AI Agents",
-        "description": "Intelligent automation and AI-powered solutions that transform how you work and serve customers."
+        "description": "Intelligent automation and AI-powered solutions that transform how you work and serve customers.",
+        "problem": "Your team spends countless hours on repetitive tasks – answering the same questions, processing data, handling routine requests. This burns out your staff and slows down your business while customers wait for responses.",
+        "solution": "Our AI agents work 24/7, handling customer inquiries, processing documents, automating workflows, and learning from every interaction. Free your team for high-value work while AI handles the rest – faster and more accurately than ever."
       },
       "appointment": {
         "title": "Appointment Systems",
-        "description": "Smart scheduling and booking platforms that optimize time management and reduce no-shows."
+        "description": "Smart scheduling and booking platforms that optimize time management and reduce no-shows.",
+        "problem": "Phone tag for scheduling, double bookings, no-shows, and manual calendar management waste hours every week. Your staff spends more time coordinating appointments than serving customers.",
+        "solution": "Our smart booking systems let customers schedule 24/7, send automatic reminders, handle rescheduling, and sync with your team's calendars. Reduce no-shows by up to 80% and reclaim hours of admin time every week."
       }
     }
+  },
+  "techStack": {
+    "badge": "Our Tech Stack",
+    "title": "Built with Modern Technologies",
+    "description": "We use industry-leading tools and frameworks to build scalable, secure, and high-performance solutions"
   },
   "whyUs": {
     "badge": "WHY CHOOSE US",
@@ -129,12 +197,16 @@
     "title1": "Let's Build Something",
     "title2": "Amazing Together",
     "description": "Have a project in mind? We'd love to hear about it. Send us a message and we'll respond within 24 hours.",
-    "whatsappUs": "WhatsApp Us",
+    "whatsapp": "WhatsApp",
+    "whatsappDesc": "Chat with us instantly",
+    "phone": "Call Us",
+    "phoneDesc": "Speak directly with our team",
     "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
-    "locationDoha": "Doha, QA",
-    "locationBerlin": "Berlin, DE",
+    "emailDesc": "Send us a message anytime",
+    "location": "Our Locations",
+    "locationDoha": "Doha, Qatar",
+    "locationBerlin": "Berlin, Germany",
+    "formTitle": "Send Us a Message",
     "form": {
       "name": "Name *",
       "email": "Email",
@@ -167,7 +239,9 @@
     "copyright": "© 2025 SYNCHOUSE. ALL RIGHTS RESERVED.",
     "privacy": "PRIVACY",
     "terms": "TERMS",
-    "cookies": "COOKIES"
+    "cookies": "COOKIES",
+    "adminOnly": "Admin Only",
+    "adminTooltip": "Secret tool in development - not available yet"
   },
   "language": {
     "en": "English",

@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
+import { isRtlLocale, type Locale } from "@/i18n/config"
 
 function useCountAnimation(end: number, duration: number = 2000, startOnView: boolean = true) {
   const [count, setCount] = useState(0)
@@ -89,6 +90,8 @@ function AnimatedStat({ value, suffix, label }: { value: number; suffix: string;
 
 export function HeroSection() {
   const t = useTranslations("hero")
+  const locale = useLocale() as Locale
+  const isRTL = isRtlLocale(locale)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -105,7 +108,84 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-secondary/30 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-background min-h-screen flex items-center">
+      {/* Aurora Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Green blob #87c66b */}
+        <div
+          className="absolute -top-1/2 -left-1/4 w-[80%] h-[80%] opacity-40 dark:opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #87c66b 0%, transparent 70%)',
+            animation: 'aurora1 8s ease-in-out infinite',
+          }}
+        />
+        {/* Blue blob #3ea0d6 */}
+        <div
+          className="absolute -top-1/4 -right-1/4 w-[70%] h-[70%] opacity-40 dark:opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #3ea0d6 0%, transparent 70%)',
+            animation: 'aurora2 10s ease-in-out infinite',
+          }}
+        />
+        {/* Green blob bottom */}
+        <div
+          className="absolute bottom-0 left-1/4 w-[60%] h-[60%] opacity-30 dark:opacity-20 blur-3xl"
+          style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #87c66b 0%, transparent 70%)',
+            animation: 'aurora3 12s ease-in-out infinite',
+          }}
+        />
+        {/* Blue blob bottom right */}
+        <div
+          className="absolute -bottom-1/4 right-0 w-[50%] h-[50%] opacity-35 dark:opacity-20 blur-3xl"
+          style={{
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #3ea0d6 0%, transparent 70%)',
+            animation: 'aurora4 9s ease-in-out infinite',
+          }}
+        />
+        {/* Center blend */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-20 dark:opacity-15 blur-3xl"
+          style={{
+            background: 'radial-gradient(ellipse 80% 60% at 50% 50%, #87c66b 0%, #3ea0d6 50%, transparent 80%)',
+            animation: 'aurora5 15s ease-in-out infinite',
+          }}
+        />
+      </div>
+
+      {/* Aurora Animation Keyframes */}
+      <style jsx>{`
+        @keyframes aurora1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+          25% { transform: translate(50px, -30px) rotate(5deg) scale(1.1); }
+          50% { transform: translate(80px, 20px) rotate(-3deg) scale(1.05); }
+          75% { transform: translate(-20px, 40px) rotate(-5deg) scale(0.95); }
+        }
+        @keyframes aurora2 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+          25% { transform: translate(-60px, 30px) rotate(-8deg) scale(1.15); }
+          50% { transform: translate(-30px, -40px) rotate(5deg) scale(0.9); }
+          75% { transform: translate(40px, -20px) rotate(3deg) scale(1.1); }
+        }
+        @keyframes aurora3 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+          33% { transform: translate(40px, -50px) rotate(10deg) scale(1.2); }
+          66% { transform: translate(-50px, 30px) rotate(-8deg) scale(0.9); }
+        }
+        @keyframes aurora4 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+          50% { transform: translate(-40px, -50px) rotate(-10deg) scale(1.3); }
+        }
+        @keyframes aurora5 {
+          0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.2; }
+          33% { transform: translate(-45%, -55%) rotate(5deg) scale(1.1); opacity: 0.25; }
+          66% { transform: translate(-55%, -45%) rotate(-5deg) scale(0.95); opacity: 0.15; }
+        }
+      `}</style>
+
+      {/* Gradient overlay for smooth transition */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+
       {/* Decorative dots */}
       <div className="absolute left-10 top-20 h-2 w-2 bg-accent/30 animate-pulse-subtle" />
       <div
@@ -131,7 +211,7 @@ export function HeroSection() {
 
       <div className="container relative mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-balance md:text-7xl">
+          <h1 className={`mb-6 text-5xl font-bold tracking-tight text-balance md:text-7xl ${isRTL ? "leading-relaxed" : "leading-tight"}`}>
             {t("title1")}
             <br />
             <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent">

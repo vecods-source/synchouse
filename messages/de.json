@@ -1,6 +1,7 @@
 {
   "header": {
     "services": "Leistungen",
+    "portfolio": "Unsere Arbeit",
     "whyUs": "Warum Wir",
     "contact": "Kontakt",
     "getStarted": "Loslegen"
@@ -18,37 +19,104 @@
       "success": "Erfolg"
     }
   },
+  "portfolio": {
+    "badge": "UNSERE ARBEIT",
+    "title1": "Projekte, auf die wir",
+    "title2": "Stolz sind",
+    "description": "Wir haben führenden Marken geholfen, außergewöhnliche digitale Erlebnisse zu schaffen. Hier sind einige unserer Projekte.",
+    "projects": {
+      "ounass": {
+        "name": "Ounass",
+        "description": "Luxus-Mode E-Commerce-Plattform für die Golfregion",
+        "tag": "Mode & Luxus"
+      },
+      "namshi": {
+        "name": "Namshi",
+        "description": "Führende Online-Mode-Destination im Nahen Osten",
+        "tag": "E-Commerce"
+      },
+      "dasparfum": {
+        "name": "Das Parfum",
+        "description": "Premium Beauty- und Dufthändler weltweit",
+        "tag": "Beauty & Parfüm"
+      },
+      "flaconi": {
+        "name": "Flaconi",
+        "description": "Deutschlands führender Online-Beauty- und Kosmetikshop",
+        "tag": "Beauty & Kosmetik"
+      }
+    }
+  },
   "services": {
     "badge": "Unsere Leistungen",
     "title1": "Digitale Lösungen für",
     "title2": "Moderne Unternehmen",
     "description": "Wir liefern modernste Softwarelösungen, die auf Ihre individuellen Geschäftsanforderungen zugeschnitten sind",
+    "learnMore": "Jetzt Starten",
+    "popular": "Beliebt",
+    "modal": {
+      "problem": "Das Problem",
+      "solution": "Unsere Lösung",
+      "whatsappCTA": "Per WhatsApp kontaktieren",
+      "whatsappMessage": "Hallo! Ich interessiere mich für {service}. Können Sie mir mehr über Preise und Funktionen erzählen?",
+      "responseTime": "Wir antworten in der Regel innerhalb von 1 Stunde während der Geschäftszeiten"
+    },
+    "pricing": {
+      "title": "Flexible Preise für jedes Unternehmen",
+      "description": "Wir glauben, dass großartige Software für jeden zugänglich sein sollte. Deshalb bieten wir maßgeschneiderte Preispläne, die zu Ihrem Budget passen.",
+      "startup": "Startups",
+      "startupDesc": "Perfekt für neue Unternehmen, die ihr erstes digitales Produkt starten",
+      "smallBusiness": "Klein & Mittel",
+      "smallBusinessDesc": "Ideal für wachsende Unternehmen, die skalieren möchten",
+      "enterprise": "Enterprise",
+      "enterpriseDesc": "Vollständige Lösungen für große Organisationen",
+      "flexiblePricing": "Keine versteckten Gebühren. Keine Überraschungen. Nur transparente Preise.",
+      "whatsappCTA": "Kostenloses Angebot per WhatsApp",
+      "whatsappMessage": "Hallo! Ich möchte die Preise für Ihre Dienstleistungen besprechen. Können Sie mir mehr Informationen geben?"
+    },
     "items": {
       "erp": {
         "title": "ERP-Systeme",
-        "description": "Umfassende Enterprise-Resource-Planning-Lösungen, die Ihre Abläufe optimieren und die Effizienz steigern."
+        "description": "Umfassende Enterprise-Resource-Planning-Lösungen, die Ihre Abläufe optimieren und die Effizienz steigern.",
+        "problem": "Die Verwaltung von Inventar, Finanzen, Personal und Betrieb über mehrere Tabellenkalkulationen oder getrennte Systeme führt zu Datenfehlern, Zeitverschwendung und schlechten Entscheidungen. Teams arbeiten isoliert, und ein klares Bild Ihres Unternehmens zu bekommen wird nahezu unmöglich.",
+        "solution": "Unsere maßgeschneiderten ERP-Systeme vereinen alle Ihre Geschäftsprozesse in einer leistungsstarken Plattform. Echtzeit-Dashboards, automatisierte Workflows und integrierte Module für Inventar, Buchhaltung, Personal und mehr – alles arbeitet nahtlos zusammen."
       },
       "crm": {
         "title": "CRM-Lösungen",
-        "description": "Kundenbeziehungsmanagement-Plattformen, die Ihnen helfen, dauerhafte Beziehungen aufzubauen und Wachstum zu fördern."
+        "description": "Kundenbeziehungsmanagement-Plattformen, die Ihnen helfen, dauerhafte Beziehungen aufzubauen und Wachstum zu fördern.",
+        "problem": "Den Überblick über Kundeninteraktionen zu verlieren, Follow-ups zu verpassen und keine Sicht auf Ihre Verkaufspipeline zu haben, kostet Sie Geschäfte und beschädigt Beziehungen. Ohne ordentliches Kundendatenmanagement verschwendet Ihr Team Stunden mit manueller Nachverfolgung.",
+        "solution": "Unsere CRM-Lösungen geben Ihnen einen 360°-Blick auf jeden Kunden. Verfolgen Sie Interaktionen, automatisieren Sie Follow-ups, verwalten Sie Ihre Verkaufspipeline und erhalten Sie KI-gestützte Einblicke, um mehr Geschäfte abzuschließen."
       },
       "ecommerce": {
         "title": "E-Commerce",
-        "description": "Skalierbare Online-Shops mit nahtloser Zahlungsintegration und außergewöhnlicher Benutzererfahrung."
+        "description": "Skalierbare Online-Shops mit nahtloser Zahlungsintegration und außergewöhnlicher Benutzererfahrung.",
+        "problem": "Ihre Konkurrenten verkaufen rund um die Uhr online, während Sie auf Ladenöffnungszeiten beschränkt sind. Hohe Warenkorbabbruchraten, langsame Ladezeiten und komplizierte Checkout-Prozesse kosten Sie jeden Tag Umsatz.",
+        "solution": "Wir bauen blitzschnelle, mobile-first E-Commerce-Shops, die Besucher in Kunden verwandeln. Nahtlose Zahlungsintegration, optimierte Checkout-Abläufe, Bestandsverwaltung und Analysen – alles, was Sie brauchen, um online zu dominieren."
       },
       "mobile": {
         "title": "Mobile Apps",
-        "description": "Native und plattformübergreifende mobile Anwendungen, die Nutzer auf iOS und Android begeistern."
+        "description": "Native und plattformübergreifende mobile Anwendungen, die Nutzer auf iOS und Android begeistern.",
+        "problem": "Ihre Kunden erwarten, mit Ihrem Unternehmen über ihr Handy zu interagieren. Ohne mobile Präsenz sind Sie für Millionen potenzieller Kunden unsichtbar, die Apps gegenüber Websites bevorzugen.",
+        "solution": "Wir erstellen atemberaubende, hochperformante mobile Apps für iOS und Android, die Ihre Kunden lieben werden. Push-Benachrichtigungen, Offline-Funktionalität, nahtlose Zahlungen und schönes UX – bringen Sie Ihr Unternehmen in jede Tasche."
       },
       "ai": {
         "title": "KI-Agenten",
-        "description": "Intelligente Automatisierung und KI-gestützte Lösungen, die Ihre Arbeitsweise und Kundenbetreuung transformieren."
+        "description": "Intelligente Automatisierung und KI-gestützte Lösungen, die Ihre Arbeitsweise und Kundenbetreuung transformieren.",
+        "problem": "Ihr Team verbringt unzählige Stunden mit repetitiven Aufgaben – dieselben Fragen beantworten, Daten verarbeiten, Routineanfragen bearbeiten. Das erschöpft Ihre Mitarbeiter und verlangsamt Ihr Geschäft, während Kunden auf Antworten warten.",
+        "solution": "Unsere KI-Agenten arbeiten 24/7, bearbeiten Kundenanfragen, verarbeiten Dokumente, automatisieren Workflows und lernen aus jeder Interaktion. Befreien Sie Ihr Team für wertvolle Arbeit, während KI den Rest erledigt – schneller und genauer als je zuvor."
       },
       "appointment": {
         "title": "Terminbuchungssysteme",
-        "description": "Intelligente Terminplanungs- und Buchungsplattformen, die das Zeitmanagement optimieren und Ausfälle reduzieren."
+        "description": "Intelligente Terminplanungs- und Buchungsplattformen, die das Zeitmanagement optimieren und Ausfälle reduzieren.",
+        "problem": "Telefon-Pingpong für Terminvereinbarungen, Doppelbuchungen, Nichterscheinen und manuelle Kalenderverwaltung verschwenden jede Woche Stunden. Ihr Personal verbringt mehr Zeit mit der Koordination von Terminen als mit der Betreuung von Kunden.",
+        "solution": "Unsere intelligenten Buchungssysteme ermöglichen Kunden die Terminbuchung rund um die Uhr, senden automatische Erinnerungen, handhaben Umbuchungen und synchronisieren sich mit den Kalendern Ihres Teams. Reduzieren Sie Nichterscheinen um bis zu 80%."
       }
     }
+  },
+  "techStack": {
+    "badge": "Unsere Technologien",
+    "title": "Mit modernsten Technologien gebaut",
+    "description": "Wir nutzen branchenführende Tools und Frameworks für skalierbare, sichere und leistungsstarke Lösungen"
   },
   "whyUs": {
     "badge": "WARUM WIR",
@@ -129,12 +197,16 @@
     "title1": "Lassen Sie uns etwas",
     "title2": "Großartiges Bauen",
     "description": "Haben Sie ein Projekt im Sinn? Wir würden gerne davon hören. Senden Sie uns eine Nachricht und wir antworten innerhalb von 24 Stunden.",
-    "whatsappUs": "WhatsApp Schreiben",
+    "whatsapp": "WhatsApp",
+    "whatsappDesc": "Chatten Sie direkt mit uns",
+    "phone": "Anrufen",
+    "phoneDesc": "Sprechen Sie direkt mit unserem Team",
     "email": "E-Mail",
-    "phone": "Telefon",
-    "location": "Standort",
-    "locationDoha": "Doha, QA",
-    "locationBerlin": "Berlin, DE",
+    "emailDesc": "Schreiben Sie uns jederzeit",
+    "location": "Unsere Standorte",
+    "locationDoha": "Doha, Katar",
+    "locationBerlin": "Berlin, Deutschland",
+    "formTitle": "Nachricht Senden",
     "form": {
       "name": "Name *",
       "email": "E-Mail",
@@ -167,7 +239,9 @@
     "copyright": "© 2025 SYNCHOUSE. ALLE RECHTE VORBEHALTEN.",
     "privacy": "DATENSCHUTZ",
     "terms": "AGB",
-    "cookies": "COOKIES"
+    "cookies": "COOKIES",
+    "adminOnly": "Nur Admin",
+    "adminTooltip": "Geheimes Tool in Entwicklung - noch nicht verfügbar"
   },
   "language": {
     "en": "English",

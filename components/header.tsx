@@ -53,6 +53,12 @@ export function Header() {
             {t("services")}
           </button>
           <button
+            onClick={() => scrollToSection("portfolio")}
+            className="text-sm font-medium hover:text-accent transition-colors duration-200"
+          >
+            {t("portfolio")}
+          </button>
+          <button
             onClick={() => scrollToSection("why-us")}
             className="text-sm font-medium hover:text-accent transition-colors duration-200"
           >

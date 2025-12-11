@@ -157,23 +157,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support section */}
-          <div>
-            <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
-              {t("support")}
-            </h3>
-            <ul className={`space-y-3 text-sm ${isRTL ? "" : "font-mono"}`}>
-              <li>
-                <Link
-                  href={`/${locale}/faq`}
-                  className="text-background/70 hover:text-background transition-colors"
-                >
-                  {t("faq")}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Legal section */}
           <div>
             <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
@@ -194,6 +177,23 @@ export function Footer() {
                   className="text-background/70 hover:text-background transition-colors"
                 >
                   {t("termsOfService")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Support section */}
+          <div>
+            <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
+              {t("support")}
+            </h3>
+            <ul className={`space-y-3 text-sm ${isRTL ? "" : "font-mono"}`}>
+              <li>
+                <Link
+                  href={`/${locale}/faq`}
+                  className="text-background/70 hover:text-background transition-colors"
+                >
+                  {t("faq")}
                 </Link>
               </li>
             </ul>

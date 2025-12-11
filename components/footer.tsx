@@ -30,10 +30,10 @@ export function Footer() {
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-16 md:px-8 md:py-20 lg:px-12">
         {/* Main footer content */}
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
+        <div className={`grid gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-12 ${isRTL ? "direction-rtl" : ""}`} style={isRTL ? { direction: 'rtl' } : undefined}>
           {/* Brand section - spans full width on mobile, 2 cols on desktop */}
-          <div className="md:col-span-2 lg:col-span-1">
-            <div className={`mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
+          <div className="md:col-span-2 lg:col-span-1" style={isRTL ? { direction: 'rtl' } : undefined}>
+            <div className={`mb-6 flex items-center gap-3 ${isRTL ? "flex-row-reverse justify-end" : ""}`}>
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20design%20%287%29-s9g2TccXOz5oRKVDabl7LjfxxjMyCF.png"
                 alt="Synchouse"
@@ -43,10 +43,10 @@ export function Footer() {
               />
               <span className={`text-2xl font-bold ${isRTL ? "" : "font-mono"}`}>SYNCHOUSE</span>
             </div>
-            <p className="mb-8 max-w-md text-base leading-relaxed text-background/80">
+            <p className={`mb-8 max-w-md text-base leading-relaxed text-background/80 ${isRTL ? "text-right" : ""}`}>
               {t("description")}
             </p>
-            <div className="flex gap-4">
+            <div className={`flex gap-4 ${isRTL ? "justify-end" : ""}`}>
               <a
                 href="https://www.instagram.com/synchouse.qa/"
                 target="_blank"

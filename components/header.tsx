@@ -3,7 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import { useRouter, usePathname } from "next/navigation"
-import { locales, localeFlags, type Locale } from "@/i18n/config"
+import { locales, localeNames, type Locale } from "@/i18n/config"
+import { ChevronDown } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,6 +29,13 @@ export function Header() {
     const segments = pathname.split('/')
     segments[1] = newLocale
     router.push(segments.join('/'))
+  }
+
+  const renderLocaleName = (loc: Locale) => {
+    if (loc === 'ar') {
+      return <span style={{ fontFamily: 'var(--font-arabic), sans-serif' }}>{localeNames[loc]}</span>
+    }
+    return localeNames[loc]
   }
 
   return (
@@ -61,21 +69,22 @@ export function Header() {
         <div className="flex items-center gap-3">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-9 w-9">
-                <span className="text-lg">
-                  {localeFlags[locale]}
+              <Button variant="ghost" className="h-9 px-3 gap-1">
+                <span className="text-sm font-medium">
+                  {renderLocaleName(locale)}
                 </span>
+                <ChevronDown className="h-4 w-4 opacity-50" />
                 <span className="sr-only">Toggle language</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="min-w-0">
+            <DropdownMenuContent align="end" className="min-w-[120px]">
               {locales.map((loc) => (
                 <DropdownMenuItem
                   key={loc}
                   onClick={() => switchLocale(loc)}
-                  className={`justify-center text-xl px-3 ${locale === loc ? "bg-accent/10" : ""}`}
+                  className={`text-sm px-3 py-2 ${locale === loc ? "bg-accent/10" : ""}`}
                 >
-                  {localeFlags[loc]}
+                  {renderLocaleName(loc)}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>

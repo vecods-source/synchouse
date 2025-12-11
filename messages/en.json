@@ -1,0 +1,271 @@
+{
+  "header": {
+    "services": "Services",
+    "whyUs": "Why Us",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title1": "Digital Solutions",
+    "title2": "Synchronized",
+    "description": "We build enterprise-grade software solutions that transform your business. From ERP systems to AI agents, we synchronize technology with your vision.",
+    "startProject": "Start Your Project",
+    "viewServices": "View Services",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "years": "Years",
+      "success": "Success"
+    }
+  },
+  "services": {
+    "badge": "Our Services",
+    "title1": "Digital Solutions for",
+    "title2": "Modern Businesses",
+    "description": "We deliver cutting-edge software solutions tailored to your unique business needs",
+    "items": {
+      "erp": {
+        "title": "ERP Systems",
+        "description": "Comprehensive enterprise resource planning solutions that streamline your operations and boost efficiency."
+      },
+      "crm": {
+        "title": "CRM Solutions",
+        "description": "Customer relationship management platforms that help you build lasting relationships and drive growth."
+      },
+      "ecommerce": {
+        "title": "E-Commerce",
+        "description": "Scalable online stores with seamless payment integration and exceptional user experiences."
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Native and cross-platform mobile applications that engage users on iOS and Android."
+      },
+      "ai": {
+        "title": "AI Agents",
+        "description": "Intelligent automation and AI-powered solutions that transform how you work and serve customers."
+      },
+      "appointment": {
+        "title": "Appointment Systems",
+        "description": "Smart scheduling and booking platforms that optimize time management and reduce no-shows."
+      }
+    }
+  },
+  "whyUs": {
+    "badge": "WHY CHOOSE US",
+    "title1": "BUILT FOR PERFORMANCE",
+    "title2": "DESIGNED FOR SUCCESS",
+    "description": "We combine technical excellence with business acumen to deliver solutions that drive real results",
+    "cta": {
+      "title": "READY TO TRANSFORM YOUR BUSINESS?",
+      "description": "Let's discuss how we can help you achieve your digital goals",
+      "button": "SCHEDULE A CONSULTATION"
+    },
+    "reasons": {
+      "fastDelivery": {
+        "title": "Fast Delivery",
+        "description": "Agile development process ensures rapid deployment without compromising quality."
+      },
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Bank-level security protocols protect your data and your customers' trust."
+      },
+      "team": {
+        "title": "Expert Team",
+        "description": "Seasoned developers and designers with proven track records in enterprise software."
+      },
+      "scalable": {
+        "title": "Scalable Solutions",
+        "description": "Future-proof architecture that grows with your business needs."
+      },
+      "warranty": {
+        "title": "Warranty & Maintenance",
+        "description": "Comprehensive warranty coverage and ongoing maintenance services to keep your systems running smoothly."
+      },
+      "contract": {
+        "title": "Contract & In-Person Meetings",
+        "description": "Professional contracts and face-to-face consultations to ensure clear communication and guaranteed deliverables."
+      }
+    },
+    "dialog": {
+      "title": "Schedule a Consultation",
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "Abdullah Al Mamun",
+      "phone": "Phone Number *",
+      "phonePlaceholder": "+974 55600224",
+      "serviceType": "Service Type *",
+      "selectService": "Select a service",
+      "webApp": "Web Application",
+      "mobileApp": "Mobile Application",
+      "managementSystem": "Management System",
+      "ecommerce": "E-Commerce",
+      "aiAgent": "AI Agent",
+      "role": "Your Role *",
+      "rolePlaceholder": "e.g., CEO, Manager, Developer",
+      "preferredDate": "Preferred Date *",
+      "preferredTime": "Preferred Time *",
+      "insideQatar": "Inside Qatar? *",
+      "yes": "Yes",
+      "no": "No",
+      "preferredLanguage": "Preferred Language *",
+      "english": "English",
+      "arabic": "Arabic",
+      "german": "German",
+      "contactMethod": "Preferred Contact Method *",
+      "phoneCall": "Phone Call",
+      "whatsapp": "WhatsApp",
+      "additionalNotes": "Additional Notes (Optional)",
+      "notesPlaceholder": "Any specific requirements or questions...",
+      "scheduling": "Scheduling...",
+      "confirmConsultation": "Confirm Consultation",
+      "successTitle": "Consultation Scheduled!",
+      "successDescription": "We'll contact you at your preferred time.",
+      "errorTitle": "Error",
+      "errorDescription": "Failed to schedule consultation. Please try again.",
+      "genericError": "Something went wrong. Please try again."
+    }
+  },
+  "contact": {
+    "badge": "GET IN TOUCH",
+    "title1": "Let's Build Something",
+    "title2": "Amazing Together",
+    "description": "Have a project in mind? We'd love to hear about it. Send us a message and we'll respond within 24 hours.",
+    "whatsappUs": "WhatsApp Us",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "locationDoha": "Doha, QA",
+    "locationBerlin": "Berlin, DE",
+    "form": {
+      "name": "Name *",
+      "email": "Email",
+      "company": "Company Name",
+      "contactNumber": "Contact Number *",
+      "contactMethod": "Preferred Contact Method *",
+      "call": "call",
+      "whatsapp": "WhatsApp",
+      "preferredDate": "Preferred Date *",
+      "preferredTime": "Preferred Time *",
+      "message": "Message *",
+      "sending": "SENDING...",
+      "sendMessage": "SEND MESSAGE",
+      "successMessage": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+      "errorMessage": "Sorry, there was an error sending your message. Please try again."
+    }
+  },
+  "footer": {
+    "description": "Building enterprise-grade digital solutions that synchronize technology with your business vision.",
+    "services": "SERVICES",
+    "agency": "AGENCY",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "support": "SUPPORT",
+    "faq": "FAQ",
+    "legal": "LEGAL",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "© 2025 SYNCHOUSE. ALL RIGHTS RESERVED.",
+    "privacy": "PRIVACY",
+    "terms": "TERMS",
+    "cookies": "COOKIES"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch",
+    "ar": "العربية"
+  },
+  "legal": {
+    "backHome": "Back to Home",
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated",
+      "date": "January 2025",
+      "sections": {
+        "intro": {
+          "title": "Introduction",
+          "content": "At Synchouse, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services."
+        },
+        "dataCollection": {
+          "title": "Information We Collect",
+          "content": "We collect information you provide directly to us, such as your name, email address, phone number, and company information when you fill out contact forms, request consultations, or communicate with us. We may also collect technical information about your device and how you interact with our website."
+        },
+        "dataUse": {
+          "title": "How We Use Your Information",
+          "content": "We use the information we collect to provide, maintain, and improve our services, to communicate with you about our services, to respond to your inquiries, and to send you technical notices and support messages. We may also use your information to analyze trends and improve user experience."
+        },
+        "dataSecurity": {
+          "title": "Data Security",
+          "content": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure."
+        },
+        "contact": {
+          "title": "Contact Us",
+          "content": "If you have any questions about this Privacy Policy, please contact us at synchouse26@gmail.com or call us at +974 55600224."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last Updated",
+      "date": "January 2025",
+      "sections": {
+        "acceptance": {
+          "title": "Acceptance of Terms",
+          "content": "By accessing and using Synchouse's website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services."
+        },
+        "services": {
+          "title": "Our Services",
+          "content": "Synchouse provides software development services including but not limited to ERP systems, CRM solutions, e-commerce platforms, mobile applications, AI agents, and appointment management systems. All services are provided subject to separate service agreements."
+        },
+        "intellectual": {
+          "title": "Intellectual Property",
+          "content": "All content, features, and functionality on our website, including but not limited to text, graphics, logos, and software, are owned by Synchouse and are protected by international copyright, trademark, and other intellectual property laws."
+        },
+        "liability": {
+          "title": "Limitation of Liability",
+          "content": "Synchouse shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services. Our total liability shall not exceed the amount paid by you for our services."
+        },
+        "changes": {
+          "title": "Changes to Terms",
+          "content": "We reserve the right to modify these terms at any time. We will notify you of any changes by posting the new terms on our website. Your continued use of our services after such modifications constitutes acceptance of the updated terms."
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our services and processes.",
+    "stillHaveQuestions": "Still Have Questions?",
+    "contactUs": "Can't find the answer you're looking for? Our team is here to help.",
+    "contactButton": "Contact Us",
+    "questions": [
+      {
+        "question": "What services does Synchouse offer?",
+        "answer": "We offer a comprehensive range of software development services including ERP systems, CRM solutions, e-commerce platforms, mobile applications (iOS and Android), AI agents and automation, and appointment management systems. Each solution is tailored to meet your specific business needs."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while a comprehensive ERP system could take 3-6 months. We provide detailed timelines during our initial consultation and keep you updated throughout the development process."
+      },
+      {
+        "question": "Do you provide ongoing support and maintenance?",
+        "answer": "Yes, we offer comprehensive warranty coverage and ongoing maintenance services for all our projects. This includes bug fixes, security updates, performance optimization, and technical support to ensure your systems run smoothly."
+      },
+      {
+        "question": "What is your development process?",
+        "answer": "We follow an agile development methodology that includes discovery and planning, design, development, testing, deployment, and ongoing support. We maintain clear communication throughout and provide regular progress updates."
+      },
+      {
+        "question": "Do you offer in-person consultations?",
+        "answer": "Yes, we offer both in-person and virtual consultations. For clients in Qatar, we can arrange face-to-face meetings. For international clients, we conduct consultations via video call. All projects include professional contracts with clear deliverables."
+      },
+      {
+        "question": "What technologies do you use?",
+        "answer": "We use modern, industry-standard technologies including React, Next.js, Node.js, Python, and various cloud platforms. We select the best technology stack based on your project requirements to ensure scalability, security, and performance."
+      },
+      {
+        "question": "How do I get started with a project?",
+        "answer": "Simply schedule a free consultation through our website or contact us directly. We'll discuss your requirements, provide recommendations, and create a detailed proposal including timeline and pricing. Once approved, we'll begin the development process."
+      }
+    ]
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "header": {
+    "services": "Leistungen",
+    "whyUs": "Warum Wir",
+    "contact": "Kontakt",
+    "getStarted": "Loslegen"
+  },
+  "hero": {
+    "title1": "Digitale Lösungen",
+    "title2": "Synchronisiert",
+    "description": "Wir entwickeln unternehmenstaugliche Softwarelösungen, die Ihr Geschäft transformieren. Von ERP-Systemen bis zu KI-Agenten - wir synchronisieren Technologie mit Ihrer Vision.",
+    "startProject": "Projekt Starten",
+    "viewServices": "Leistungen Ansehen",
+    "stats": {
+      "projects": "Projekte",
+      "clients": "Kunden",
+      "years": "Jahre",
+      "success": "Erfolg"
+    }
+  },
+  "services": {
+    "badge": "Unsere Leistungen",
+    "title1": "Digitale Lösungen für",
+    "title2": "Moderne Unternehmen",
+    "description": "Wir liefern modernste Softwarelösungen, die auf Ihre individuellen Geschäftsanforderungen zugeschnitten sind",
+    "items": {
+      "erp": {
+        "title": "ERP-Systeme",
+        "description": "Umfassende Enterprise-Resource-Planning-Lösungen, die Ihre Abläufe optimieren und die Effizienz steigern."
+      },
+      "crm": {
+        "title": "CRM-Lösungen",
+        "description": "Kundenbeziehungsmanagement-Plattformen, die Ihnen helfen, dauerhafte Beziehungen aufzubauen und Wachstum zu fördern."
+      },
+      "ecommerce": {
+        "title": "E-Commerce",
+        "description": "Skalierbare Online-Shops mit nahtloser Zahlungsintegration und außergewöhnlicher Benutzererfahrung."
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Native und plattformübergreifende mobile Anwendungen, die Nutzer auf iOS und Android begeistern."
+      },
+      "ai": {
+        "title": "KI-Agenten",
+        "description": "Intelligente Automatisierung und KI-gestützte Lösungen, die Ihre Arbeitsweise und Kundenbetreuung transformieren."
+      },
+      "appointment": {
+        "title": "Terminbuchungssysteme",
+        "description": "Intelligente Terminplanungs- und Buchungsplattformen, die das Zeitmanagement optimieren und Ausfälle reduzieren."
+      }
+    }
+  },
+  "whyUs": {
+    "badge": "WARUM WIR",
+    "title1": "FÜR LEISTUNG GEBAUT",
+    "title2": "FÜR ERFOLG DESIGNED",
+    "description": "Wir kombinieren technische Exzellenz mit Geschäftssinn, um Lösungen zu liefern, die echte Ergebnisse erzielen",
+    "cta": {
+      "title": "BEREIT, IHR UNTERNEHMEN ZU TRANSFORMIEREN?",
+      "description": "Lassen Sie uns besprechen, wie wir Ihnen helfen können, Ihre digitalen Ziele zu erreichen",
+      "button": "BERATUNG VEREINBAREN"
+    },
+    "reasons": {
+      "fastDelivery": {
+        "title": "Schnelle Lieferung",
+        "description": "Agiler Entwicklungsprozess gewährleistet schnelle Bereitstellung ohne Qualitätseinbußen."
+      },
+      "security": {
+        "title": "Enterprise-Sicherheit",
+        "description": "Sicherheitsprotokolle auf Bankniveau schützen Ihre Daten und das Vertrauen Ihrer Kunden."
+      },
+      "team": {
+        "title": "Expertenteam",
+        "description": "Erfahrene Entwickler und Designer mit nachgewiesener Erfolgsbilanz in Unternehmenssoftware."
+      },
+      "scalable": {
+        "title": "Skalierbare Lösungen",
+        "description": "Zukunftssichere Architektur, die mit Ihren Geschäftsanforderungen wächst."
+      },
+      "warranty": {
+        "title": "Garantie & Wartung",
+        "description": "Umfassende Garantieabdeckung und laufende Wartungsdienste, um Ihre Systeme reibungslos am Laufen zu halten."
+      },
+      "contract": {
+        "title": "Vertrag & Persönliche Meetings",
+        "description": "Professionelle Verträge und persönliche Beratungen für klare Kommunikation und garantierte Ergebnisse."
+      }
+    },
+    "dialog": {
+      "title": "Beratung Vereinbaren",
+      "fullName": "Vollständiger Name *",
+      "fullNamePlaceholder": "Max Mustermann",
+      "phone": "Telefonnummer *",
+      "phonePlaceholder": "+49 123 456789",
+      "serviceType": "Dienstleistungsart *",
+      "selectService": "Dienst auswählen",
+      "webApp": "Web-Anwendung",
+      "mobileApp": "Mobile Anwendung",
+      "managementSystem": "Management-System",
+      "ecommerce": "E-Commerce",
+      "aiAgent": "KI-Agent",
+      "role": "Ihre Rolle *",
+      "rolePlaceholder": "z.B. CEO, Manager, Entwickler",
+      "preferredDate": "Bevorzugtes Datum *",
+      "preferredTime": "Bevorzugte Uhrzeit *",
+      "insideQatar": "In Katar? *",
+      "yes": "Ja",
+      "no": "Nein",
+      "preferredLanguage": "Bevorzugte Sprache *",
+      "english": "Englisch",
+      "arabic": "Arabisch",
+      "german": "Deutsch",
+      "contactMethod": "Bevorzugte Kontaktmethode *",
+      "phoneCall": "Telefonanruf",
+      "whatsapp": "WhatsApp",
+      "additionalNotes": "Zusätzliche Anmerkungen (Optional)",
+      "notesPlaceholder": "Spezifische Anforderungen oder Fragen...",
+      "scheduling": "Wird geplant...",
+      "confirmConsultation": "Beratung Bestätigen",
+      "successTitle": "Beratung Geplant!",
+      "successDescription": "Wir kontaktieren Sie zur gewünschten Zeit.",
+      "errorTitle": "Fehler",
+      "errorDescription": "Beratung konnte nicht geplant werden. Bitte versuchen Sie es erneut.",
+      "genericError": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
+    }
+  },
+  "contact": {
+    "badge": "KONTAKTIEREN SIE UNS",
+    "title1": "Lassen Sie uns etwas",
+    "title2": "Großartiges Bauen",
+    "description": "Haben Sie ein Projekt im Sinn? Wir würden gerne davon hören. Senden Sie uns eine Nachricht und wir antworten innerhalb von 24 Stunden.",
+    "whatsappUs": "WhatsApp Schreiben",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "location": "Standort",
+    "locationDoha": "Doha, QA",
+    "locationBerlin": "Berlin, DE",
+    "form": {
+      "name": "Name *",
+      "email": "E-Mail",
+      "company": "Firmenname",
+      "contactNumber": "Kontaktnummer *",
+      "contactMethod": "Bevorzugte Kontaktmethode *",
+      "call": "Anruf",
+      "whatsapp": "WhatsApp",
+      "preferredDate": "Bevorzugtes Datum *",
+      "preferredTime": "Bevorzugte Uhrzeit *",
+      "message": "Nachricht *",
+      "sending": "WIRD GESENDET...",
+      "sendMessage": "NACHRICHT SENDEN",
+      "successMessage": "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns bald bei Ihnen.",
+      "errorMessage": "Entschuldigung, beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+    }
+  },
+  "footer": {
+    "description": "Wir entwickeln unternehmenstaugliche digitale Lösungen, die Technologie mit Ihrer Geschäftsvision synchronisieren.",
+    "services": "LEISTUNGEN",
+    "agency": "AGENTUR",
+    "aboutUs": "Über Uns",
+    "contact": "Kontakt",
+    "support": "SUPPORT",
+    "faq": "FAQ",
+    "legal": "RECHTLICHES",
+    "privacyPolicy": "Datenschutzerklärung",
+    "termsOfService": "Nutzungsbedingungen",
+    "cookiePolicy": "Cookie-Richtlinie",
+    "copyright": "© 2025 SYNCHOUSE. ALLE RECHTE VORBEHALTEN.",
+    "privacy": "DATENSCHUTZ",
+    "terms": "AGB",
+    "cookies": "COOKIES"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch",
+    "ar": "العربية"
+  },
+  "legal": {
+    "backHome": "Zurück zur Startseite",
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "lastUpdated": "Zuletzt aktualisiert",
+      "date": "Januar 2025",
+      "sections": {
+        "intro": {
+          "title": "Einleitung",
+          "content": "Bei Synchouse verpflichten wir uns zum Schutz Ihrer Privatsphäre. Diese Datenschutzerklärung erläutert, wie wir Ihre Informationen erfassen, verwenden, offenlegen und schützen, wenn Sie unsere Website besuchen oder unsere Dienste nutzen."
+        },
+        "dataCollection": {
+          "title": "Welche Daten wir erfassen",
+          "content": "Wir erfassen Informationen, die Sie uns direkt mitteilen, wie Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und Firmeninformationen, wenn Sie Kontaktformulare ausfüllen, Beratungen anfordern oder mit uns kommunizieren."
+        },
+        "dataUse": {
+          "title": "Wie wir Ihre Daten verwenden",
+          "content": "Wir verwenden die gesammelten Informationen, um unsere Dienste bereitzustellen, zu pflegen und zu verbessern, um mit Ihnen über unsere Dienste zu kommunizieren, auf Ihre Anfragen zu antworten und Ihnen technische Hinweise zu senden."
+        },
+        "dataSecurity": {
+          "title": "Datensicherheit",
+          "content": "Wir setzen angemessene technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre persönlichen Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen."
+        },
+        "contact": {
+          "title": "Kontakt",
+          "content": "Bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter synchouse26@gmail.com oder rufen Sie uns an unter +974 55600224."
+        }
+      }
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen",
+      "lastUpdated": "Zuletzt aktualisiert",
+      "date": "Januar 2025",
+      "sections": {
+        "acceptance": {
+          "title": "Annahme der Bedingungen",
+          "content": "Durch den Zugriff auf und die Nutzung der Website und Dienste von Synchouse akzeptieren Sie diese Nutzungsbedingungen. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie bitte unsere Dienste nicht."
+        },
+        "services": {
+          "title": "Unsere Dienstleistungen",
+          "content": "Synchouse bietet Softwareentwicklungsdienstleistungen an, einschließlich ERP-Systeme, CRM-Lösungen, E-Commerce-Plattformen, Mobile Apps, KI-Agenten und Terminverwaltungssysteme."
+        },
+        "intellectual": {
+          "title": "Geistiges Eigentum",
+          "content": "Alle Inhalte, Funktionen und Funktionalitäten auf unserer Website sind Eigentum von Synchouse und durch internationale Urheberrechts-, Marken- und andere Gesetze zum Schutz geistigen Eigentums geschützt."
+        },
+        "liability": {
+          "title": "Haftungsbeschränkung",
+          "content": "Synchouse haftet nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden, die aus Ihrer Nutzung oder Unfähigkeit zur Nutzung unserer Dienste resultieren."
+        },
+        "changes": {
+          "title": "Änderungen der Bedingungen",
+          "content": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wir werden Sie über Änderungen informieren, indem wir die neuen Bedingungen auf unserer Website veröffentlichen."
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Finden Sie Antworten auf häufige Fragen zu unseren Dienstleistungen und Prozessen.",
+    "stillHaveQuestions": "Noch Fragen?",
+    "contactUs": "Sie finden nicht die Antwort, die Sie suchen? Unser Team hilft Ihnen gerne.",
+    "contactButton": "Kontaktieren Sie uns",
+    "questions": [
+      {
+        "question": "Welche Dienstleistungen bietet Synchouse an?",
+        "answer": "Wir bieten ein umfassendes Spektrum an Softwareentwicklungsdienstleistungen, darunter ERP-Systeme, CRM-Lösungen, E-Commerce-Plattformen, Mobile Apps (iOS und Android), KI-Agenten und Automatisierung sowie Terminverwaltungssysteme."
+      },
+      {
+        "question": "Wie lange dauert ein typisches Projekt?",
+        "answer": "Die Projektzeiten variieren je nach Komplexität und Umfang. Eine einfache Website kann 2-4 Wochen dauern, während ein umfassendes ERP-System 3-6 Monate in Anspruch nehmen kann."
+      },
+      {
+        "question": "Bieten Sie laufenden Support und Wartung an?",
+        "answer": "Ja, wir bieten umfassende Garantie und laufende Wartungsdienste für alle unsere Projekte. Dies umfasst Fehlerbehebungen, Sicherheitsupdates, Leistungsoptimierung und technischen Support."
+      },
+      {
+        "question": "Wie ist Ihr Entwicklungsprozess?",
+        "answer": "Wir folgen einer agilen Entwicklungsmethodik, die Entdeckung und Planung, Design, Entwicklung, Tests, Deployment und laufenden Support umfasst."
+      },
+      {
+        "question": "Bieten Sie persönliche Beratungen an?",
+        "answer": "Ja, wir bieten sowohl persönliche als auch virtuelle Beratungen an. Für Kunden in Katar können wir persönliche Treffen arrangieren. Für internationale Kunden führen wir Beratungen per Videoanruf durch."
+      },
+      {
+        "question": "Welche Technologien verwenden Sie?",
+        "answer": "Wir verwenden moderne, branchenübliche Technologien wie React, Next.js, Node.js, Python und verschiedene Cloud-Plattformen."
+      },
+      {
+        "question": "Wie starte ich ein Projekt?",
+        "answer": "Vereinbaren Sie einfach eine kostenlose Beratung über unsere Website oder kontaktieren Sie uns direkt. Wir besprechen Ihre Anforderungen und erstellen einen detaillierten Vorschlag."
+      }
+    ]
+  }
+}

@@ -24,10 +24,13 @@ import {
 } from "@/components/ui/select";
 import { submitConsultation } from "@/app/actions/consultation";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/lib/language-context";
+import { useTranslations, useLocale } from "next-intl";
+import { isRtlLocale, type Locale } from "@/i18n/config";
 
 export function WhyUsSection() {
-  const { t, isRTL } = useLanguage();
+  const t = useTranslations("whyUs");
+  const locale = useLocale() as Locale;
+  const isRTL = isRtlLocale(locale);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -37,33 +40,33 @@ export function WhyUsSection() {
   const reasons = [
     {
       icon: Zap,
-      title: t.whyUs.reasons.fastDelivery.title,
-      description: t.whyUs.reasons.fastDelivery.description,
+      title: t("reasons.fastDelivery.title"),
+      description: t("reasons.fastDelivery.description"),
     },
     {
       icon: Shield,
-      title: t.whyUs.reasons.security.title,
-      description: t.whyUs.reasons.security.description,
+      title: t("reasons.security.title"),
+      description: t("reasons.security.description"),
     },
     {
       icon: Users,
-      title: t.whyUs.reasons.team.title,
-      description: t.whyUs.reasons.team.description,
+      title: t("reasons.team.title"),
+      description: t("reasons.team.description"),
     },
     {
       icon: Rocket,
-      title: t.whyUs.reasons.scalable.title,
-      description: t.whyUs.reasons.scalable.description,
+      title: t("reasons.scalable.title"),
+      description: t("reasons.scalable.description"),
     },
     {
       icon: Wrench,
-      title: t.whyUs.reasons.warranty.title,
-      description: t.whyUs.reasons.warranty.description,
+      title: t("reasons.warranty.title"),
+      description: t("reasons.warranty.description"),
     },
     {
       icon: FileCheck,
-      title: t.whyUs.reasons.contract.title,
-      description: t.whyUs.reasons.contract.description,
+      title: t("reasons.contract.title"),
+      description: t("reasons.contract.description"),
     },
   ];
 
@@ -108,8 +111,8 @@ export function WhyUsSection() {
 
       if (result.success) {
         toast({
-          title: t.whyUs.dialog.successTitle,
-          description: t.whyUs.dialog.successDescription,
+          title: t("dialog.successTitle"),
+          description: t("dialog.successDescription"),
         });
         setConsultationData({
           name: "",
@@ -126,15 +129,15 @@ export function WhyUsSection() {
         setIsDialogOpen(false);
       } else {
         toast({
-          title: t.whyUs.dialog.errorTitle,
-          description: result.error || t.whyUs.dialog.errorDescription,
+          title: t("dialog.errorTitle"),
+          description: result.error || t("dialog.errorDescription"),
           variant: "destructive",
         });
       }
     } catch (error) {
       toast({
-        title: t.whyUs.dialog.errorTitle,
-        description: t.whyUs.dialog.genericError,
+        title: t("dialog.errorTitle"),
+        description: t("dialog.genericError"),
         variant: "destructive",
       });
     } finally {
@@ -151,16 +154,16 @@ export function WhyUsSection() {
         <div className="mb-16 text-center">
           <div className="mb-4 inline-block border-4 border-foreground bg-foreground px-4 py-2 pixel-corners">
             <span className={`text-sm font-bold text-background ${isRTL ? "" : "font-mono"}`}>
-              {t.whyUs.badge}
+              {t("badge")}
             </span>
           </div>
           <h2 className={`mb-4 text-4xl font-bold tracking-tight md:text-5xl text-balance ${isRTL ? "leading-tight" : "font-mono"}`}>
-            {t.whyUs.title1}
+            {t("title1")}
             <br />
-            <span className="text-accent">{t.whyUs.title2}</span>
+            <span className="text-accent">{t("title2")}</span>
           </h2>
           <p className={`mx-auto max-w-2xl text-lg text-muted-foreground text-pretty ${isRTL ? "leading-loose" : ""}`}>
-            {t.whyUs.description}
+            {t("description")}
           </p>
         </div>
 
@@ -196,17 +199,17 @@ export function WhyUsSection() {
 
         <div className="mt-16 border-4 border-foreground bg-accent p-12 text-center pixel-corners">
           <h3 className={`mb-4 text-3xl font-bold text-accent-foreground ${isRTL ? "leading-relaxed" : "font-mono"}`}>
-            {t.whyUs.cta.title}
+            {t("cta.title")}
           </h3>
           <p className={`mb-6 text-lg text-accent-foreground/90 ${isRTL ? "leading-loose" : ""}`}>
-            {t.whyUs.cta.description}
+            {t("cta.description")}
           </p>
           <Button
             onClick={() => setIsDialogOpen(true)}
             size="lg"
             className={`bg-foreground text-background hover:bg-background hover:text-foreground border-4 border-foreground text-sm font-bold pixel-corners ${isRTL ? "" : "font-mono"}`}
           >
-            {t.whyUs.cta.button}
+            {t("cta.button")}
           </Button>
         </div>
 
@@ -214,7 +217,7 @@ export function WhyUsSection() {
           <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold">
-                {t.whyUs.dialog.title}
+                {t("dialog.title")}
               </DialogTitle>
             </DialogHeader>
             <form
@@ -227,13 +230,13 @@ export function WhyUsSection() {
                     htmlFor="consultation-name"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.whyUs.dialog.fullName}
+                    {t("dialog.fullName")}
                   </Label>
                   <Input
                     id="consultation-name"
                     type="text"
                     required
-                    placeholder={t.whyUs.dialog.fullNamePlaceholder}
+                    placeholder={t("dialog.fullNamePlaceholder")}
                     value={consultationData.name}
                     onChange={(e) =>
                       setConsultationData({
@@ -249,13 +252,13 @@ export function WhyUsSection() {
                     htmlFor="consultation-phone"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.whyUs.dialog.phone}
+                    {t("dialog.phone")}
                   </Label>
                   <Input
                     id="consultation-phone"
                     type="tel"
                     required
-                    placeholder={t.whyUs.dialog.phonePlaceholder}
+                    placeholder={t("dialog.phonePlaceholder")}
                     value={consultationData.phone}
                     onChange={(e) =>
                       setConsultationData({
@@ -273,7 +276,7 @@ export function WhyUsSection() {
                     htmlFor="consultation-service"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.whyUs.dialog.serviceType}
+                    {t("dialog.serviceType")}
                   </Label>
                   <Select
                     required
@@ -286,20 +289,20 @@ export function WhyUsSection() {
                     }
                   >
                     <SelectTrigger id="consultation-service">
-                      <SelectValue placeholder={t.whyUs.dialog.selectService} />
+                      <SelectValue placeholder={t("dialog.selectService")} />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="web-application">
-                        {t.whyUs.dialog.webApp}
+                        {t("dialog.webApp")}
                       </SelectItem>
                       <SelectItem value="mobile-application">
-                        {t.whyUs.dialog.mobileApp}
+                        {t("dialog.mobileApp")}
                       </SelectItem>
                       <SelectItem value="management-system">
-                        {t.whyUs.dialog.managementSystem}
+                        {t("dialog.managementSystem")}
                       </SelectItem>
-                      <SelectItem value="e-commerce">{t.whyUs.dialog.ecommerce}</SelectItem>
-                      <SelectItem value="ai-agent">{t.whyUs.dialog.aiAgent}</SelectItem>
+                      <SelectItem value="e-commerce">{t("dialog.ecommerce")}</SelectItem>
+                      <SelectItem value="ai-agent">{t("dialog.aiAgent")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -309,13 +312,13 @@ export function WhyUsSection() {
                     htmlFor="consultation-role"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.whyUs.dialog.role}
+                    {t("dialog.role")}
                   </Label>
                   <Input
                     id="consultation-role"
                     type="text"
                     required
-                    placeholder={t.whyUs.dialog.rolePlaceholder}
+                    placeholder={t("dialog.rolePlaceholder")}
                     value={consultationData.role}
                     onChange={(e) =>
                       setConsultationData({
@@ -333,7 +336,7 @@ export function WhyUsSection() {
                     htmlFor="consultation-date"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.whyUs.dialog.preferredDate}
+                    {t("dialog.preferredDate")}
                   </Label>
                   <Input
                     id="consultation-date"
@@ -355,7 +358,7 @@ export function WhyUsSection() {
                     htmlFor="consultation-time"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.whyUs.dialog.preferredTime}
+                    {t("dialog.preferredTime")}
                   </Label>
                   <Input
                     id="consultation-time"
@@ -376,7 +379,7 @@ export function WhyUsSection() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label className="mb-3 block text-sm font-semibold">
-                    {t.whyUs.dialog.insideQatar}
+                    {t("dialog.insideQatar")}
                   </Label>
                   <RadioGroup
                     required
@@ -395,7 +398,7 @@ export function WhyUsSection() {
                         htmlFor="qatar-yes"
                         className="cursor-pointer font-normal"
                       >
-                        {t.whyUs.dialog.yes}
+                        {t("dialog.yes")}
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -404,7 +407,7 @@ export function WhyUsSection() {
                         htmlFor="qatar-no"
                         className="cursor-pointer font-normal"
                       >
-                        {t.whyUs.dialog.no}
+                        {t("dialog.no")}
                       </Label>
                     </div>
                   </RadioGroup>
@@ -412,7 +415,7 @@ export function WhyUsSection() {
 
                 <div>
                   <Label className="mb-3 block text-sm font-semibold">
-                    {t.whyUs.dialog.preferredLanguage}
+                    {t("dialog.preferredLanguage")}
                   </Label>
                   <RadioGroup
                     required
@@ -431,7 +434,7 @@ export function WhyUsSection() {
                         htmlFor="lang-en"
                         className="cursor-pointer font-normal"
                       >
-                        {t.whyUs.dialog.english}
+                        {t("dialog.english")}
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -440,7 +443,7 @@ export function WhyUsSection() {
                         htmlFor="lang-ar"
                         className="cursor-pointer font-normal"
                       >
-                        {t.whyUs.dialog.arabic}
+                        {t("dialog.arabic")}
                       </Label>
                     </div>
                   </RadioGroup>
@@ -449,7 +452,7 @@ export function WhyUsSection() {
 
               <div>
                 <Label className="mb-3 block text-sm font-semibold">
-                  {t.whyUs.dialog.contactMethod}
+                  {t("dialog.contactMethod")}
                 </Label>
                 <RadioGroup
                   required
@@ -468,7 +471,7 @@ export function WhyUsSection() {
                       htmlFor="consultation-call"
                       className="cursor-pointer font-normal"
                     >
-                      {t.whyUs.dialog.phoneCall}
+                      {t("dialog.phoneCall")}
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -480,7 +483,7 @@ export function WhyUsSection() {
                       htmlFor="consultation-whatsapp"
                       className="cursor-pointer font-normal"
                     >
-                      {t.whyUs.dialog.whatsapp}
+                      {t("dialog.whatsapp")}
                     </Label>
                   </div>
                 </RadioGroup>
@@ -491,12 +494,12 @@ export function WhyUsSection() {
                   htmlFor="consultation-note"
                   className="mb-2 block text-sm font-semibold"
                 >
-                  {t.whyUs.dialog.additionalNotes}
+                  {t("dialog.additionalNotes")}
                 </Label>
                 <Textarea
                   id="consultation-note"
                   rows={3}
-                  placeholder={t.whyUs.dialog.notesPlaceholder}
+                  placeholder={t("dialog.notesPlaceholder")}
                   value={consultationData.note}
                   onChange={(e) =>
                     setConsultationData({
@@ -514,7 +517,7 @@ export function WhyUsSection() {
                 className="w-full text-base font-semibold bg-accent hover:bg-accent/90"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? t.whyUs.dialog.scheduling : t.whyUs.dialog.confirmConsultation}
+                {isSubmitting ? t("dialog.scheduling") : t("dialog.confirmConsultation")}
               </Button>
             </form>
           </DialogContent>

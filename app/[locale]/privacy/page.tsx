@@ -1,13 +1,16 @@
 "use client";
 
-import { useLanguage } from "@/lib/language-context";
+import { useTranslations, useLocale } from "next-intl";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { isRtlLocale, type Locale } from "@/i18n/config";
 
 export default function PrivacyPage() {
-  const { t, isRTL } = useLanguage();
+  const t = useTranslations();
+  const locale = useLocale() as Locale;
+  const isRTL = isRtlLocale(locale);
 
   return (
     <main className="min-h-screen bg-background">
@@ -15,64 +18,64 @@ export default function PrivacyPage() {
       <div className="pt-32 pb-24">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <Link
-            href="/"
+            href={`/${locale}`}
             className={`inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors ${isRTL ? "flex-row-reverse" : ""}`}
           >
             <ArrowLeft className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
-            {t.legal.backHome}
+            {t("legal.backHome")}
           </Link>
 
           <h1 className={`text-4xl font-bold mb-8 ${isRTL ? "leading-relaxed" : ""}`}>
-            {t.legal.privacy.title}
+            {t("legal.privacy.title")}
           </h1>
 
           <p className={`text-muted-foreground mb-8 ${isRTL ? "leading-loose" : ""}`}>
-            {t.legal.privacy.lastUpdated}: {t.legal.privacy.date}
+            {t("legal.privacy.lastUpdated")}: {t("legal.privacy.date")}
           </p>
 
           <div className={`prose prose-lg max-w-none ${isRTL ? "leading-loose" : ""}`}>
             <section className="mb-8">
               <h2 className={`text-2xl font-bold mb-4 ${isRTL ? "leading-relaxed" : ""}`}>
-                {t.legal.privacy.sections.intro.title}
+                {t("legal.privacy.sections.intro.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                {t.legal.privacy.sections.intro.content}
+                {t("legal.privacy.sections.intro.content")}
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className={`text-2xl font-bold mb-4 ${isRTL ? "leading-relaxed" : ""}`}>
-                {t.legal.privacy.sections.dataCollection.title}
+                {t("legal.privacy.sections.dataCollection.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                {t.legal.privacy.sections.dataCollection.content}
+                {t("legal.privacy.sections.dataCollection.content")}
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className={`text-2xl font-bold mb-4 ${isRTL ? "leading-relaxed" : ""}`}>
-                {t.legal.privacy.sections.dataUse.title}
+                {t("legal.privacy.sections.dataUse.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                {t.legal.privacy.sections.dataUse.content}
+                {t("legal.privacy.sections.dataUse.content")}
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className={`text-2xl font-bold mb-4 ${isRTL ? "leading-relaxed" : ""}`}>
-                {t.legal.privacy.sections.dataSecurity.title}
+                {t("legal.privacy.sections.dataSecurity.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                {t.legal.privacy.sections.dataSecurity.content}
+                {t("legal.privacy.sections.dataSecurity.content")}
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className={`text-2xl font-bold mb-4 ${isRTL ? "leading-relaxed" : ""}`}>
-                {t.legal.privacy.sections.contact.title}
+                {t("legal.privacy.sections.contact.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                {t.legal.privacy.sections.contact.content}
+                {t("legal.privacy.sections.contact.content")}
               </p>
             </section>
           </div>

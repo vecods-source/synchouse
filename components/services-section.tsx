@@ -1,41 +1,44 @@
 "use client"
 
 import { Database, ShoppingCart, Smartphone, Bot, Calendar, BarChart3 } from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
+import { useTranslations, useLocale } from "next-intl"
+import { isRtlLocale, type Locale } from "@/i18n/config"
 
 export function ServicesSection() {
-  const { t, isRTL } = useLanguage()
+  const t = useTranslations("services")
+  const locale = useLocale() as Locale
+  const isRTL = isRtlLocale(locale)
 
   const services = [
     {
       icon: Database,
-      title: t.services.items.erp.title,
-      description: t.services.items.erp.description,
+      title: t("items.erp.title"),
+      description: t("items.erp.description"),
     },
     {
       icon: BarChart3,
-      title: t.services.items.crm.title,
-      description: t.services.items.crm.description,
+      title: t("items.crm.title"),
+      description: t("items.crm.description"),
     },
     {
       icon: ShoppingCart,
-      title: t.services.items.ecommerce.title,
-      description: t.services.items.ecommerce.description,
+      title: t("items.ecommerce.title"),
+      description: t("items.ecommerce.description"),
     },
     {
       icon: Smartphone,
-      title: t.services.items.mobile.title,
-      description: t.services.items.mobile.description,
+      title: t("items.mobile.title"),
+      description: t("items.mobile.description"),
     },
     {
       icon: Bot,
-      title: t.services.items.ai.title,
-      description: t.services.items.ai.description,
+      title: t("items.ai.title"),
+      description: t("items.ai.description"),
     },
     {
       icon: Calendar,
-      title: t.services.items.appointment.title,
-      description: t.services.items.appointment.description,
+      title: t("items.appointment.title"),
+      description: t("items.appointment.description"),
     },
   ]
 
@@ -44,20 +47,20 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center">
           <div className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-2 border border-accent/20">
-            <span className="text-sm font-semibold text-accent">{t.services.badge}</span>
+            <span className="text-sm font-semibold text-accent">{t("badge")}</span>
           </div>
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl text-balance">
-            {t.services.title1}
+            {t("title1")}
             <br />
-            {t.services.title2}
+            {t("title2")}
           </h2>
           <p className={`mx-auto max-w-2xl text-lg text-muted-foreground text-pretty ${isRTL ? "leading-loose" : ""}`}>
-            {t.services.description}
+            {t("description")}
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.title}
               className="group relative rounded-2xl border border-border/50 bg-card p-8 shadow-md transition-all duration-200 hover:shadow-xl hover:border-accent/30"

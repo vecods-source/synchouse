@@ -6,10 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Instagram } from "lucide-react";
 import { SiTiktok, SiX } from "react-icons/si";
-import { useLanguage } from "@/lib/language-context";
+import { useTranslations, useLocale } from "next-intl";
+import { isRtlLocale, type Locale } from "@/i18n/config";
 
 export function Footer() {
-  const { t, isRTL } = useLanguage();
+  const t = useTranslations("footer");
+  const tServices = useTranslations("services.items");
+  const locale = useLocale() as Locale;
+  const isRTL = isRtlLocale(locale);
 
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -40,7 +44,7 @@ export function Footer() {
               <span className={`text-2xl font-bold ${isRTL ? "" : "font-mono"}`}>SYNCHOUSE</span>
             </div>
             <p className="mb-8 max-w-md text-base leading-relaxed text-background/80">
-              {t.footer.description}
+              {t("description")}
             </p>
             <div className="flex gap-4">
               <a
@@ -76,7 +80,7 @@ export function Footer() {
           {/* Services section */}
           <div>
             <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
-              {t.footer.services}
+              {t("services")}
             </h3>
             <ul className={`space-y-3 text-sm ${isRTL ? "" : "font-mono"}`}>
               <li>
@@ -85,7 +89,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#services")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.services.items.erp.title}
+                  {tServices("erp.title")}
                 </a>
               </li>
               <li>
@@ -94,7 +98,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#services")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.services.items.crm.title}
+                  {tServices("crm.title")}
                 </a>
               </li>
               <li>
@@ -103,7 +107,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#services")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.services.items.ecommerce.title}
+                  {tServices("ecommerce.title")}
                 </a>
               </li>
               <li>
@@ -112,7 +116,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#services")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.services.items.mobile.title}
+                  {tServices("mobile.title")}
                 </a>
               </li>
               <li>
@@ -121,7 +125,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#services")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.services.items.ai.title}
+                  {tServices("ai.title")}
                 </a>
               </li>
             </ul>
@@ -129,7 +133,7 @@ export function Footer() {
 
           <div>
             <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
-              {t.footer.agency}
+              {t("agency")}
             </h3>
             <ul className={`space-y-3 text-sm ${isRTL ? "" : "font-mono"}`}>
               <li>
@@ -138,7 +142,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#why-us")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.footer.aboutUs}
+                  {t("aboutUs")}
                 </a>
               </li>
               <li>
@@ -147,7 +151,7 @@ export function Footer() {
                   onClick={(e) => handleScroll(e, "#contact")}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.footer.contact}
+                  {t("contact")}
                 </a>
               </li>
             </ul>
@@ -156,15 +160,15 @@ export function Footer() {
           {/* Support section */}
           <div>
             <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
-              {t.footer.support}
+              {t("support")}
             </h3>
             <ul className={`space-y-3 text-sm ${isRTL ? "" : "font-mono"}`}>
               <li>
                 <Link
-                  href="/faq"
+                  href={`/${locale}/faq`}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.footer.faq}
+                  {t("faq")}
                 </Link>
               </li>
             </ul>
@@ -173,23 +177,23 @@ export function Footer() {
           {/* Legal section */}
           <div>
             <h3 className={`mb-6 text-sm font-bold tracking-wider ${isRTL ? "" : "font-mono"}`}>
-              {t.footer.legal}
+              {t("legal")}
             </h3>
             <ul className={`space-y-3 text-sm ${isRTL ? "" : "font-mono"}`}>
               <li>
                 <Link
-                  href="/privacy"
+                  href={`/${locale}/privacy`}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.footer.privacyPolicy}
+                  {t("privacyPolicy")}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href={`/${locale}/terms`}
                   className="text-background/70 hover:text-background transition-colors"
                 >
-                  {t.footer.termsOfService}
+                  {t("termsOfService")}
                 </Link>
               </li>
             </ul>
@@ -200,20 +204,20 @@ export function Footer() {
         <div className="mt-16 border-t-4 border-background/20 pt-8">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row md:gap-4">
             <p className={`text-sm text-background/60 ${isRTL ? "" : "font-mono"}`}>
-              {t.footer.copyright}
+              {t("copyright")}
             </p>
             <div className={`flex flex-wrap justify-center gap-6 text-sm md:gap-8 ${isRTL ? "" : "font-mono"}`}>
               <Link
-                href="/privacy"
+                href={`/${locale}/privacy`}
                 className="text-background/60 hover:text-background transition-colors"
               >
-                {t.footer.privacy}
+                {t("privacy")}
               </Link>
               <Link
-                href="/terms"
+                href={`/${locale}/terms`}
                 className="text-background/60 hover:text-background transition-colors"
               >
-                {t.footer.terms}
+                {t("terms")}
               </Link>
             </div>
           </div>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd multi-language support (EN/DE/AR) with legal pages and FAQ\n\n- Add language context with useSyncExternalStore for SSR-safe localStorage\n- Add full translations for English, German, and Arabic\n- Add RTL support for Arabic with Noto Kufi Arabic font\n- Create legal pages: Privacy Policy, Terms of Service, Cookie Policy\n- Create FAQ page with accordion component\n- Update footer with Support and Legal sections\n- Add flag icons to language switcher dropdown\n- Add animated count-up for hero stats\n- Fix phone number RTL display\n- Add Germany contact (Berlin, +49 number)\n- Dynamic WhatsApp number based on language (Qatar/Germany)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(npx vercel --prod)",
+      "Bash(npx vercel:*)",
+      "Bash(npm install:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

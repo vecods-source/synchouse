@@ -10,10 +10,13 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { submitContactForm } from "@/app/actions/contact";
-import { useLanguage } from "@/lib/language-context";
+import { useTranslations, useLocale } from "next-intl";
+import { isRtlLocale, type Locale } from "@/i18n/config";
 
 export function ContactSection() {
-  const { t, isRTL, language } = useLanguage();
+  const t = useTranslations("contact");
+  const locale = useLocale() as Locale;
+  const isRTL = isRtlLocale(locale);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -59,7 +62,7 @@ export function ContactSection() {
   };
 
   const handleWhatsAppClick = () => {
-    const whatsappNumber = language === "de" ? "4915215928643" : "97455600224";
+    const whatsappNumber = locale === "de" ? "4915215928643" : "97455600224";
     window.open(`https://wa.me/${whatsappNumber}`, "_blank");
   };
 
@@ -72,16 +75,16 @@ export function ContactSection() {
         <div className="mb-16 text-center">
           <div className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-2">
             <span className="text-sm font-semibold text-primary">
-              {t.contact.badge}
+              {t("badge")}
             </span>
           </div>
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl text-balance">
-            {t.contact.title1}
+            {t("title1")}
             <br />
-            <span className="text-primary">{t.contact.title2}</span>
+            <span className="text-primary">{t("title2")}</span>
           </h2>
           <p className={`mx-auto max-w-2xl text-lg text-muted-foreground text-pretty ${isRTL ? "leading-loose" : ""}`}>
-            {t.contact.description}
+            {t("description")}
           </p>
         </div>
 
@@ -93,14 +96,14 @@ export function ContactSection() {
               className="w-full gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white"
             >
               <MessageCircle className="h-5 w-5" />
-              {t.contact.whatsappUs}
+              {t("whatsappUs")}
             </Button>
 
             <div className="rounded-lg border border-border/40 bg-card p-4 shadow-sm hover:shadow-md transition-shadow">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                 <Mail className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="mb-1 text-base font-semibold">{t.contact.email}</h3>
+              <h3 className="mb-1 text-base font-semibold">{t("email")}</h3>
               <p className="text-sm text-muted-foreground">
                 synchouse26@gmail.com
               </p>
@@ -110,7 +113,7 @@ export function ContactSection() {
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                 <Phone className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="mb-1 text-base font-semibold">{t.contact.phone}</h3>
+              <h3 className="mb-1 text-base font-semibold">{t("phone")}</h3>
               <div className={`space-y-1 ${isRTL ? "text-right" : ""}`}>
                 <a
                   href="tel:+97455600224"
@@ -133,9 +136,9 @@ export function ContactSection() {
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                 <MapPin className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="mb-1 text-base font-semibold">{t.contact.location}</h3>
-              <p className="text-sm text-muted-foreground">{t.contact.locationDoha}</p>
-              <p className="text-sm text-muted-foreground">{t.contact.locationBerlin}</p>
+              <h3 className="mb-1 text-base font-semibold">{t("location")}</h3>
+              <p className="text-sm text-muted-foreground">{t("locationDoha")}</p>
+              <p className="text-sm text-muted-foreground">{t("locationBerlin")}</p>
             </div>
           </div>
 
@@ -151,7 +154,7 @@ export function ContactSection() {
                       htmlFor="name"
                       className="mb-2 block text-sm font-semibold"
                     >
-                      {t.contact.form.name}
+                      {t("form.name")}
                     </Label>
                     <Input
                       id="name"
@@ -168,7 +171,7 @@ export function ContactSection() {
                       htmlFor="email"
                       className="mb-2 block text-sm font-semibold"
                     >
-                      {t.contact.form.email}
+                      {t("form.email")}
                     </Label>
                     <Input
                       id="email"
@@ -188,7 +191,7 @@ export function ContactSection() {
                       htmlFor="company"
                       className="mb-2 block text-sm font-semibold"
                     >
-                      {t.contact.form.company}
+                      {t("form.company")}
                     </Label>
                     <Input
                       id="company"
@@ -204,7 +207,7 @@ export function ContactSection() {
                       htmlFor="contactNumber"
                       className="mb-2 block text-sm font-semibold"
                     >
-                      {t.contact.form.contactNumber}
+                      {t("form.contactNumber")}
                     </Label>
                     <Input
                       id="contactNumber"
@@ -224,7 +227,7 @@ export function ContactSection() {
 
                 <div>
                   <Label className="mb-3 block text-sm font-semibold">
-                    {t.contact.form.contactMethod}
+                    {t("form.contactMethod")}
                   </Label>
                   <RadioGroup
                     required
@@ -240,7 +243,7 @@ export function ContactSection() {
                         htmlFor="call"
                         className="cursor-pointer font-normal"
                       >
-                        {t.contact.form.call}
+                        {t("form.call")}
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -249,7 +252,7 @@ export function ContactSection() {
                         htmlFor="whatsapp"
                         className="cursor-pointer font-normal"
                       >
-                        {t.contact.form.whatsapp}
+                        {t("form.whatsapp")}
                       </Label>
                     </div>
                   </RadioGroup>
@@ -262,7 +265,7 @@ export function ContactSection() {
                         htmlFor="preferredDate"
                         className="mb-2 block text-sm font-semibold"
                       >
-                        {t.contact.form.preferredDate}
+                        {t("form.preferredDate")}
                       </Label>
                       <Input
                         id="preferredDate"
@@ -284,7 +287,7 @@ export function ContactSection() {
                         htmlFor="preferredTime"
                         className="mb-2 block text-sm font-semibold"
                       >
-                        {t.contact.form.preferredTime}
+                        {t("form.preferredTime")}
                       </Label>
                       <Input
                         id="preferredTime"
@@ -308,7 +311,7 @@ export function ContactSection() {
                     htmlFor="message"
                     className="mb-2 block text-sm font-semibold"
                   >
-                    {t.contact.form.message}
+                    {t("form.message")}
                   </Label>
                   <Textarea
                     id="message"
@@ -324,12 +327,12 @@ export function ContactSection() {
 
                 {submitStatus === "success" && (
                   <div className={`rounded-lg bg-green-50 p-4 text-sm text-green-800 ${isRTL ? "leading-relaxed" : ""}`}>
-                    {t.contact.form.successMessage}
+                    {t("form.successMessage")}
                   </div>
                 )}
                 {submitStatus === "error" && (
                   <div className={`rounded-lg bg-red-50 p-4 text-sm text-red-800 ${isRTL ? "leading-relaxed" : ""}`}>
-                    {t.contact.form.errorMessage}
+                    {t("form.errorMessage")}
                   </div>
                 )}
 
@@ -339,7 +342,7 @@ export function ContactSection() {
                   disabled={isSubmitting}
                   className="w-full text-base font-semibold bg-accent hover:bg-accent/90"
                 >
-                  {isSubmitting ? t.contact.form.sending : t.contact.form.sendMessage}
+                  {isSubmitting ? t("form.sending") : t("form.sendMessage")}
                 </Button>
               </div>
             </form>

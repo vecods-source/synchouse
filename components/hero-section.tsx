@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
+import { useTranslations } from "next-intl"
 
 function useCountAnimation(end: number, duration: number = 2000, startOnView: boolean = true) {
   const [count, setCount] = useState(0)
@@ -88,7 +88,7 @@ function AnimatedStat({ value, suffix, label }: { value: number; suffix: string;
 }
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const t = useTranslations("hero")
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -98,10 +98,10 @@ export function HeroSection() {
   }
 
   const stats = [
-    { value: 50, suffix: "+", label: t.hero.stats.projects },
-    { value: 30, suffix: "+", label: t.hero.stats.clients },
-    { value: 5, suffix: "+", label: t.hero.stats.years },
-    { value: 100, suffix: "%", label: t.hero.stats.success },
+    { value: 50, suffix: "+", label: t("stats.projects") },
+    { value: 30, suffix: "+", label: t("stats.clients") },
+    { value: 5, suffix: "+", label: t("stats.years") },
+    { value: 100, suffix: "%", label: t("stats.success") },
   ]
 
   return (
@@ -132,15 +132,15 @@ export function HeroSection() {
       <div className="container relative mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-balance md:text-7xl">
-            {t.hero.title1}
+            {t("title1")}
             <br />
             <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent">
-              {t.hero.title2}
+              {t("title2")}
             </span>
           </h1>
 
           <p className="mb-10 text-lg leading-relaxed text-muted-foreground md:text-xl text-pretty">
-            {t.hero.description}
+            {t("description")}
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -149,7 +149,7 @@ export function HeroSection() {
               size="lg"
               className="relative bg-accent text-base font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-xl group"
             >
-              {t.hero.startProject}
+              {t("startProject")}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               <span className="absolute -right-1 -top-1 h-2 w-2 bg-foreground/20" />
             </Button>
@@ -159,7 +159,7 @@ export function HeroSection() {
               variant="outline"
               className="relative border-2 border-accent text-accent text-base font-semibold hover:bg-accent hover:text-white transition-all duration-200 hover:shadow-lg"
             >
-              {t.hero.viewServices}
+              {t("viewServices")}
               <span className="absolute -right-1 -top-1 h-2 w-2 bg-accent/20" />
             </Button>
           </div>

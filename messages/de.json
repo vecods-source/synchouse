@@ -20,31 +20,39 @@
     }
   },
   "portfolio": {
-    "badge": "UNSERE ARBEIT",
-    "title1": "Projekte, auf die wir",
-    "title2": "Stolz sind",
-    "description": "Wir haben führenden Marken geholfen, außergewöhnliche digitale Erlebnisse zu schaffen. Hier sind einige unserer Projekte.",
-    "projects": {
-      "ounass": {
-        "name": "Ounass",
-        "description": "Luxus-Mode E-Commerce-Plattform für die Golfregion",
-        "tag": "Mode & Luxus"
+    "badge": "BRANCHEN",
+    "title1": "Lösungen für",
+    "title2": "Verschiedene Branchen",
+    "description": "Wir haben erfolgreiche Projekte in diversen Sektoren umgesetzt und Unternehmen bei der Transformation unterstützt.",
+    "industries": {
+      "ecommerce": {
+        "title": "E-Commerce & Einzelhandel",
+        "description": "Online-Shops & Lagersysteme"
       },
-      "namshi": {
-        "name": "Namshi",
-        "description": "Führende Online-Mode-Destination im Nahen Osten",
-        "tag": "E-Commerce"
+      "enterprise": {
+        "title": "Unternehmen & Konzerne",
+        "description": "ERP & Management-Plattformen"
       },
-      "dasparfum": {
-        "name": "Das Parfum",
-        "description": "Premium Beauty- und Dufthändler weltweit",
-        "tag": "Beauty & Parfüm"
+      "education": {
+        "title": "Bildung & E-Learning",
+        "description": "Lernmanagementsysteme"
       },
-      "flaconi": {
-        "name": "Flaconi",
-        "description": "Deutschlands führender Online-Beauty- und Kosmetikshop",
-        "tag": "Beauty & Kosmetik"
+      "fintech": {
+        "title": "FinTech & Banking",
+        "description": "Zahlungs- & Finanzsysteme"
+      },
+      "logistics": {
+        "title": "Logistik & Lieferkette",
+        "description": "Tracking- & Lieferplattformen"
+      },
+      "hospitality": {
+        "title": "Gastgewerbe & Gastronomie",
+        "description": "Buchungs- & Restaurantsysteme"
       }
+    },
+    "cta": {
+      "description": "Möchten Sie relevante Arbeiten in Ihrer Branche sehen? Vereinbaren Sie eine private Demo.",
+      "button": "Fallstudien anfordern"
     }
   },
   "services": {

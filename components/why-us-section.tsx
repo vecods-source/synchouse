@@ -214,9 +214,9 @@ export function WhyUsSection() {
         </div>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto" dir={isRTL ? "rtl" : "ltr"}>
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold">
+              <DialogTitle className={`text-2xl font-bold ${isRTL ? "text-right" : ""}`}>
                 {t("dialog.title")}
               </DialogTitle>
             </DialogHeader>
@@ -390,9 +390,9 @@ export function WhyUsSection() {
                         insideQatar: value,
                       })
                     }
-                    className="flex flex-row gap-6"
+                    className={`flex flex-row gap-6 ${isRTL ? "justify-end" : ""}`}
                   >
-                    <div className="flex items-center space-x-2">
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <RadioGroupItem value="yes" id="qatar-yes" />
                       <Label
                         htmlFor="qatar-yes"
@@ -401,7 +401,7 @@ export function WhyUsSection() {
                         {t("dialog.yes")}
                       </Label>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <RadioGroupItem value="no" id="qatar-no" />
                       <Label
                         htmlFor="qatar-no"
@@ -426,9 +426,9 @@ export function WhyUsSection() {
                         preferredLanguage: value,
                       })
                     }
-                    className="flex flex-row gap-6"
+                    className={`flex flex-row gap-6 ${isRTL ? "justify-end" : ""}`}
                   >
-                    <div className="flex items-center space-x-2">
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <RadioGroupItem value="en" id="lang-en" />
                       <Label
                         htmlFor="lang-en"
@@ -437,7 +437,7 @@ export function WhyUsSection() {
                         {t("dialog.english")}
                       </Label>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <RadioGroupItem value="ar" id="lang-ar" />
                       <Label
                         htmlFor="lang-ar"
@@ -463,9 +463,9 @@ export function WhyUsSection() {
                       contactMethod: value,
                     })
                   }
-                  className="flex flex-row gap-6"
+                  className={`flex flex-row gap-6 ${isRTL ? "justify-end" : ""}`}
                 >
-                  <div className="flex items-center space-x-2">
+                  <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                     <RadioGroupItem value="call" id="consultation-call" />
                     <Label
                       htmlFor="consultation-call"
@@ -474,7 +474,7 @@ export function WhyUsSection() {
                       {t("dialog.phoneCall")}
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
                     <RadioGroupItem
                       value="whatsapp"
                       id="consultation-whatsapp"

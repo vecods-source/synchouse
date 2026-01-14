@@ -20,31 +20,39 @@
     }
   },
   "portfolio": {
-    "badge": "OUR WORK",
-    "title1": "Projects We're",
-    "title2": "Proud Of",
-    "description": "We've helped leading brands build exceptional digital experiences. Here are some of the projects we've worked on.",
-    "projects": {
-      "ounass": {
-        "name": "Ounass",
-        "description": "Luxury fashion e-commerce platform for the Gulf region",
-        "tag": "Fashion & Luxury"
+    "badge": "INDUSTRIES WE SERVE",
+    "title1": "Building Solutions",
+    "title2": "Across Industries",
+    "description": "We've delivered successful projects across diverse sectors, helping businesses transform their operations.",
+    "industries": {
+      "ecommerce": {
+        "title": "E-Commerce & Retail",
+        "description": "Online stores & inventory systems"
       },
-      "namshi": {
-        "name": "Namshi",
-        "description": "Leading online fashion destination in the Middle East",
-        "tag": "E-commerce"
+      "enterprise": {
+        "title": "Enterprise & Corporate",
+        "description": "ERP & management platforms"
       },
-      "dasparfum": {
-        "name": "Das Parfum",
-        "description": "Premium beauty and fragrance retailer worldwide",
-        "tag": "Beauty & Perfumes"
+      "education": {
+        "title": "Education & E-Learning",
+        "description": "Learning management systems"
       },
-      "flaconi": {
-        "name": "Flaconi",
-        "description": "Germany's leading online beauty and cosmetics store",
-        "tag": "Beauty & Cosmetics"
+      "fintech": {
+        "title": "FinTech & Banking",
+        "description": "Payment & financial systems"
+      },
+      "logistics": {
+        "title": "Logistics & Supply Chain",
+        "description": "Tracking & delivery platforms"
+      },
+      "hospitality": {
+        "title": "Hospitality & F&B",
+        "description": "Booking & restaurant systems"
       }
+    },
+    "cta": {
+      "description": "Want to see relevant work in your industry? Let's schedule a private demo.",
+      "button": "Request Case Studies"
     }
   },
   "services": {

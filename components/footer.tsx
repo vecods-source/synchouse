@@ -4,7 +4,7 @@ import type React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, ShieldAlert } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { isRtlLocale, type Locale } from "@/i18n/config";
 
@@ -225,22 +225,6 @@ export function Footer() {
                 className="text-background/60 hover:text-background transition-colors"
               >
                 {t("terms")}
-              </Link>
-              <Link
-                href="/admin"
-                className={`group relative inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold bg-red-600/20 text-red-400 border border-red-500/30 rounded transition-all duration-300 hover:bg-red-600/30 hover:text-red-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:border-red-400/50 ${isRTL ? "flex-row-reverse" : ""}`}
-              >
-                <ShieldAlert className="h-3.5 w-3.5 transition-all duration-300 group-hover:animate-pulse group-hover:drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
-                <span>{t("adminOnly")}</span>
-                {/* Tooltip */}
-                <span
-                  className={`absolute bottom-full mb-2 px-3 py-2 text-xs bg-red-950 text-red-200 border border-red-500/40 rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-lg ${isRTL ? "right-0" : "left-0"}`}
-                >
-                  {t("adminTooltip")}
-                  <span
-                    className={`absolute top-full ${isRTL ? "right-4" : "left-4"} border-4 border-transparent border-t-red-950`}
-                  />
-                </span>
               </Link>
             </div>
           </div>

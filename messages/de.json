@@ -17,6 +17,12 @@
       "clients": "Kunden",
       "years": "Jahre",
       "success": "Erfolg"
+    },
+    "features": {
+      "fastDelivery": "Schnelle Lieferung",
+      "secureCode": "Sicherer Code",
+      "support": "24/7 Support",
+      "communication": "Direkter Kontakt"
     }
   },
   "portfolio": {
@@ -310,6 +316,67 @@
           "title": "Änderungen der Bedingungen",
           "content": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wir werden Sie über Änderungen informieren, indem wir die neuen Bedingungen auf unserer Website veröffentlichen."
         }
+      }
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "scrollToTop": "Nach oben scrollen"
+  },
+  "cookies": {
+    "title": "Wir schätzen Ihre Privatsphäre",
+    "description": "Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern und unseren Datenverkehr zu analysieren. Durch Klicken auf \"Akzeptieren\" stimmen Sie der Verwendung von Cookies zu.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "close": "Schließen"
+  },
+  "bento": {
+    "emailCopied": "E-Mail kopiert!",
+    "copyEmail": "E-Mail kopieren",
+    "items": {
+      "collaboration": {
+        "title": "Wir priorisieren Zusammenarbeit mit Kunden und offene Kommunikation"
+      },
+      "global": {
+        "title": "Kunden in Katar, Deutschland & weltweit betreuen",
+        "description": "Globale Reichweite"
+      },
+      "techStack": {
+        "title": "Unser Tech Stack",
+        "description": "Wir versuchen uns stetig zu verbessern"
+      },
+      "passion": {
+        "title": "Tech-Enthusiasten mit Leidenschaft für Entwicklung."
+      },
+      "innovation": {
+        "title": "OpenAI & KI-Lösungen für Ihr Unternehmen",
+        "description": "Neueste Technik"
+      },
+      "cta": {
+        "title": "Möchten Sie ein Projekt zusammen starten?"
+      }
+    }
+  },
+  "approach": {
+    "badge": "UNSER PROZESS",
+    "title1": "Wie wir",
+    "title2": "Ergebnisse liefern",
+    "description": "Eine bewährte Methodik, die den Erfolg Ihres Projekts von der Konzeption bis zum Launch sicherstellt",
+    "phases": {
+      "discovery": {
+        "phase": "Phase 1",
+        "title": "Entdeckung & Strategie",
+        "description": "Wir tauchen tief in Ihre Geschäftsziele, Zielgruppe und technischen Anforderungen ein. Gemeinsam planen wir Projektumfang, Zeitrahmen und Erfolgskriterien."
+      },
+      "development": {
+        "phase": "Phase 2",
+        "title": "Design & Entwicklung",
+        "description": "Unser Team verwandelt Ihre Vision in Realität. Von Wireframes bis zum fertigen Code halten wir Sie mit regelmäßigen Demos und Feedback-Sitzungen auf dem Laufenden."
+      },
+      "launch": {
+        "phase": "Phase 3",
+        "title": "Launch & Support",
+        "description": "Wir sorgen für einen reibungslosen Einsatz mit gründlichen Tests und Optimierung. Nach dem Launch bieten wir kontinuierlichen Support und Wartung."
       }
     }
   },

@@ -1,89 +1,16 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Zap, Shield, Clock, Headphones } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import { isRtlLocale, type Locale } from "@/i18n/config"
+import { Spotlight } from "@/components/ui/spotlight"
 
-function useCountAnimation(end: number, duration: number = 2000, startOnView: boolean = true) {
-  const [count, setCount] = useState(0)
-  const [hasStarted, setHasStarted] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!startOnView) {
-      setHasStarted(true)
-      return
-    }
-
-    // Check if element is already in view on mount
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect()
-      const isInView = rect.top < window.innerHeight && rect.bottom > 0
-      if (isInView) {
-        setHasStarted(true)
-        return
-      }
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true)
-        }
-      },
-      { threshold: 0.1, rootMargin: "50px" }
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [startOnView, hasStarted])
-
-  useEffect(() => {
-    if (!hasStarted) return
-
-    let startTime: number
-    let animationFrame: number
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
-
-      // Easing function for smooth animation
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
-      setCount(Math.floor(easeOutQuart * end))
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate)
-      }
-    }
-
-    animationFrame = requestAnimationFrame(animate)
-
-    return () => cancelAnimationFrame(animationFrame)
-  }, [end, duration, hasStarted])
-
-  return { count, ref }
-}
-
-function AnimatedStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const { count, ref } = useCountAnimation(value, 2000)
-
+function FeatureItem({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
   return (
-    <div
-      ref={ref}
-      className="relative rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-6 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-    >
-      <div className="text-3xl font-bold text-accent">
-        {count}
-        {suffix}
-      </div>
-      <div className="mt-1 text-sm text-muted-foreground">{label}</div>
-      <span className="absolute -right-1 -top-1 h-2 w-2 bg-accent/20" />
+    <div className="flex items-center gap-2 text-muted-foreground">
+      <Icon className="w-4 h-4 text-accent" />
+      <span className="text-sm">{label}</span>
     </div>
   )
 }
@@ -100,54 +27,70 @@ export function HeroSection() {
     }
   }
 
-  const stats = [
-    { value: 50, suffix: "+", label: t("stats.projects") },
-    { value: 30, suffix: "+", label: t("stats.clients") },
-    { value: 5, suffix: "+", label: t("stats.years") },
-    { value: 100, suffix: "%", label: t("stats.success") },
+  const features = [
+    { icon: Zap, label: t("features.fastDelivery") },
+    { icon: Shield, label: t("features.secureCode") },
+    { icon: Clock, label: t("features.support") },
+    { icon: Headphones, label: t("features.communication") },
   ]
 
   return (
-    <section className="relative overflow-hidden bg-background min-h-screen flex items-center">
-      {/* Aurora Background */}
+    <section className="relative overflow-hidden bg-background min-h-screen flex items-center pt-16 md:pt-0">
+      {/* Spotlight Effects */}
+      <div>
+        <Spotlight
+          className="-left-10 -top-40 h-screen md:-left-32 md:-top-20"
+          fill="#008080"
+        />
+        <Spotlight
+          className="left-full top-10 h-[80vh] w-[50vw]"
+          fill="#000080"
+        />
+        <Spotlight
+          className="left-80 top-28 h-[80vh] w-[50vw]"
+          fill="#008080"
+        />
+      </div>
+
+      {/* Aurora Background - Teal & Navy Blue */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Green blob #87c66b */}
+        {/* Teal blob #008080 */}
         <div
-          className="absolute -top-1/2 -left-1/4 w-[80%] h-[80%] opacity-40 dark:opacity-25 blur-3xl"
+          className="absolute -top-1/2 -left-1/4 w-[80%] h-[80%] opacity-50 dark:opacity-30 blur-3xl"
           style={{
-            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #87c66b 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #008080 0%, transparent 70%)',
             animation: 'aurora1 8s ease-in-out infinite',
           }}
         />
-        {/* Blue blob #3ea0d6 */}
+        {/* Navy blue blob #000080 */}
         <div
-          className="absolute -top-1/4 -right-1/4 w-[70%] h-[70%] opacity-40 dark:opacity-25 blur-3xl"
+          className="absolute -top-1/4 -right-1/4 w-[70%] h-[70%] opacity-50 dark:opacity-35 blur-3xl"
           style={{
-            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #3ea0d6 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #000080 0%, transparent 70%)',
             animation: 'aurora2 10s ease-in-out infinite',
           }}
         />
-        {/* Green blob bottom */}
+        {/* Teal blob bottom */}
         <div
-          className="absolute bottom-0 left-1/4 w-[60%] h-[60%] opacity-30 dark:opacity-20 blur-3xl"
+          className="absolute bottom-0 left-1/4 w-[60%] h-[60%] opacity-40 dark:opacity-25 blur-3xl"
           style={{
-            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #87c66b 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #008080 0%, transparent 70%)',
             animation: 'aurora3 12s ease-in-out infinite',
           }}
         />
-        {/* Blue blob bottom right */}
+        {/* Navy blue blob bottom right */}
         <div
-          className="absolute -bottom-1/4 right-0 w-[50%] h-[50%] opacity-35 dark:opacity-20 blur-3xl"
+          className="absolute -bottom-1/4 right-0 w-[50%] h-[50%] opacity-45 dark:opacity-30 blur-3xl"
           style={{
-            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #3ea0d6 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #000080 0%, transparent 70%)',
             animation: 'aurora4 9s ease-in-out infinite',
           }}
         />
         {/* Center blend */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-20 dark:opacity-15 blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-25 dark:opacity-20 blur-3xl"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 50%, #87c66b 0%, #3ea0d6 50%, transparent 80%)',
+            background: 'radial-gradient(ellipse 80% 60% at 50% 50%, #008080 0%, #000080 50%, transparent 80%)',
             animation: 'aurora5 15s ease-in-out infinite',
           }}
         />
@@ -183,6 +126,11 @@ export function HeroSection() {
         }
       `}</style>
 
+      {/* Grid Background */}
+      <div className="absolute left-0 top-0 flex h-screen w-full items-center justify-center bg-grid dark:bg-grid">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-background mask-radial" />
+      </div>
+
       {/* Gradient overlay for smooth transition */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
 
@@ -211,47 +159,49 @@ export function HeroSection() {
 
       <div className="container relative mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className={`mb-6 text-5xl font-bold tracking-tight text-balance md:text-7xl ${isRTL ? "leading-relaxed" : "leading-tight"}`}>
+          <h1 className={`mb-4 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-balance ${isRTL ? "leading-relaxed" : "leading-tight"}`}>
             {t("title1")}
             <br />
-            <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent">
+            <span className="text-accent">
               {t("title2")}
             </span>
           </h1>
 
-          <p className="mb-10 text-lg leading-relaxed text-muted-foreground md:text-xl text-pretty">
+          <p className="mb-6 md:mb-10 text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground text-pretty px-2">
             {t("description")}
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4" role="group" aria-label="Call to action buttons">
             <Button
               onClick={() => scrollToSection("contact")}
               size="lg"
-              className="relative bg-accent text-base font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-xl group"
+              className="relative w-full sm:w-auto bg-accent text-sm md:text-base font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-xl group focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              aria-label={t("startProject")}
             >
               {t("startProject")}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              <span className="absolute -right-1 -top-1 h-2 w-2 bg-foreground/20" />
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <span className="absolute -right-1 -top-1 h-2 w-2 bg-foreground/20 hidden md:block" aria-hidden="true" />
             </Button>
             <Button
               onClick={() => scrollToSection("services")}
               size="lg"
               variant="outline"
-              className="relative border-2 border-accent text-accent text-base font-semibold hover:bg-accent hover:text-white transition-all duration-200 hover:shadow-lg"
+              className="relative w-full sm:w-auto border-2 border-accent text-accent text-sm md:text-base font-semibold hover:bg-accent hover:text-white transition-all duration-200 hover:shadow-lg focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              aria-label={t("viewServices")}
             >
               {t("viewServices")}
-              <span className="absolute -right-1 -top-1 h-2 w-2 bg-accent/20" />
+              <span className="absolute -right-1 -top-1 h-2 w-2 bg-accent/20 hidden md:block" aria-hidden="true" />
             </Button>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
-            {stats.map((stat) => (
-              <AnimatedStat
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
+          <div className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-4 md:gap-6" role="list" aria-label="Key features">
+            {features.map((feature, index) => (
+              <div key={feature.label} className="flex items-center gap-4 md:gap-6">
+                <FeatureItem icon={feature.icon} label={feature.label} />
+                {index < features.length - 1 && (
+                  <div className="hidden sm:block h-4 w-px bg-border" />
+                )}
+              </div>
             ))}
           </div>
         </div>

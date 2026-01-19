@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import { useRouter, usePathname } from "next/navigation"
-import { locales, localeNames, type Locale } from "@/i18n/config"
-import { ChevronDown } from "lucide-react"
+import { locales, localeNames, type Locale, isRtlLocale } from "@/i18n/config"
+import { ChevronDown, Briefcase, FolderOpen, Award, MessageCircle } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,6 +17,7 @@ export function Header() {
   const locale = useLocale() as Locale
   const router = useRouter()
   const pathname = usePathname()
+  const isRTL = isRtlLocale(locale)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -38,73 +39,96 @@ export function Header() {
     return localeNames[loc]
   }
 
+  const navItems = [
+    { id: "services", label: t("services"), icon: Briefcase },
+    { id: "portfolio", label: t("portfolio"), icon: FolderOpen },
+    { id: "why-us", label: t("whyUs"), icon: Award },
+    { id: "contact", label: t("contact"), icon: MessageCircle },
+  ]
+
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl rounded-2xl border border-border/40 bg-background/80 backdrop-blur-md shadow-lg">
-      <div className="container mx-auto flex h-16 items-center justify-between px-6">
-        <div className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight">Synchouse</span>
+    <>
+      {/* Top Header */}
+      <header
+        className="fixed top-0 left-0 right-0 md:top-4 md:left-1/2 md:-translate-x-1/2 z-50 w-full md:w-[95%] md:max-w-7xl md:rounded-2xl border-b md:border border-border/40 bg-background/95 md:bg-background/80 backdrop-blur-md md:shadow-lg"
+        role="banner"
+      >
+        <div className="container mx-auto flex h-14 md:h-16 items-center justify-between px-4 md:px-6">
+          <a href="#main-content" className="flex items-center gap-2" aria-label="Synchouse - Home">
+            <span className="text-lg md:text-xl font-bold tracking-tight">Synchouse</span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-6 lg:gap-8 md:flex" role="navigation" aria-label="Main navigation">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-sm font-medium hover:text-accent transition-colors duration-200"
+                aria-label={`Navigate to ${item.label} section`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 md:gap-3">
+            {/* Language Switcher */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 md:h-9 px-2 md:px-3 gap-1">
+                  <span className="text-xs md:text-sm font-medium">
+                    {renderLocaleName(locale)}
+                  </span>
+                  <ChevronDown className="h-3 w-3 md:h-4 md:w-4 opacity-50" />
+                  <span className="sr-only">Toggle language</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[120px]">
+                {locales.map((loc) => (
+                  <DropdownMenuItem
+                    key={loc}
+                    onClick={() => switchLocale(loc)}
+                    className={`text-sm px-3 py-2 ${locale === loc ? "bg-accent/10" : ""}`}
+                  >
+                    {renderLocaleName(loc)}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Desktop CTA Button */}
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="hidden md:flex relative bg-accent font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg"
+            >
+              {t("getStarted")}
+              <span className="absolute -right-1 -top-1 h-2 w-2 bg-foreground/20" aria-hidden="true" />
+            </Button>
+          </div>
         </div>
+      </header>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          <button
-            onClick={() => scrollToSection("services")}
-            className="text-sm font-medium hover:text-accent transition-colors duration-200"
-          >
-            {t("services")}
-          </button>
-          <button
-            onClick={() => scrollToSection("portfolio")}
-            className="text-sm font-medium hover:text-accent transition-colors duration-200"
-          >
-            {t("portfolio")}
-          </button>
-          <button
-            onClick={() => scrollToSection("why-us")}
-            className="text-sm font-medium hover:text-accent transition-colors duration-200"
-          >
-            {t("whyUs")}
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="text-sm font-medium hover:text-accent transition-colors duration-200"
-          >
-            {t("contact")}
-          </button>
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-9 px-3 gap-1">
-                <span className="text-sm font-medium">
-                  {renderLocaleName(locale)}
-                </span>
-                <ChevronDown className="h-4 w-4 opacity-50" />
-                <span className="sr-only">Toggle language</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="min-w-[120px]">
-              {locales.map((loc) => (
-                <DropdownMenuItem
-                  key={loc}
-                  onClick={() => switchLocale(loc)}
-                  className={`text-sm px-3 py-2 ${locale === loc ? "bg-accent/10" : ""}`}
-                >
-                  {renderLocaleName(loc)}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button
-            onClick={() => scrollToSection("contact")}
-            className="relative bg-accent font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg"
-          >
-            {t("getStarted")}
-            <span className="absolute -right-1 -top-1 h-2 w-2 bg-foreground/20" />
-          </Button>
+      {/* Mobile Bottom Tab Navigation */}
+      <nav
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border/40 bg-background/95 backdrop-blur-md"
+        role="navigation"
+        aria-label="Mobile navigation"
+      >
+        <div className={`flex items-center justify-around h-16 px-2 ${isRTL ? "flex-row-reverse" : ""}`}>
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="flex flex-col items-center justify-center gap-1 px-3 py-2 text-muted-foreground hover:text-accent active:text-accent transition-colors"
+              aria-label={`Navigate to ${item.label} section`}
+            >
+              <item.icon className="h-5 w-5" />
+              <span className="text-[10px] font-medium">{item.label}</span>
+            </button>
+          ))}
         </div>
-      </div>
-    </header>
+      </nav>
+    </>
   )
 }

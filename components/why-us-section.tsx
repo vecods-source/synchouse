@@ -214,15 +214,23 @@ export function WhyUsSection() {
         </div>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto" dir={isRTL ? "rtl" : "ltr"}>
+          <DialogContent
+            className="sm:max-w-2xl max-h-[90vh] overflow-y-auto"
+            dir={isRTL ? "rtl" : "ltr"}
+            aria-describedby="consultation-form-description"
+          >
             <DialogHeader>
               <DialogTitle className={`text-2xl font-bold ${isRTL ? "text-right" : ""}`}>
                 {t("dialog.title")}
               </DialogTitle>
+              <p id="consultation-form-description" className="sr-only">
+                Fill out the form below to schedule a consultation with our team.
+              </p>
             </DialogHeader>
             <form
               onSubmit={handleConsultationSubmit}
               className="space-y-6 mt-4"
+              aria-label="Consultation booking form"
             >
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -514,11 +522,22 @@ export function WhyUsSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full text-base font-semibold bg-accent hover:bg-accent/90"
+                className="w-full text-base font-semibold bg-accent hover:bg-accent/90 focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 disabled={isSubmitting}
+                aria-busy={isSubmitting}
               >
-                {isSubmitting ? t("dialog.scheduling") : t("dialog.confirmConsultation")}
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" aria-hidden="true" />
+                    <span>{t("dialog.scheduling")}</span>
+                  </span>
+                ) : (
+                  t("dialog.confirmConsultation")
+                )}
               </Button>
+              <div aria-live="polite" aria-atomic="true" className="sr-only">
+                {isSubmitting && "Submitting form, please wait..."}
+              </div>
             </form>
           </DialogContent>
         </Dialog>

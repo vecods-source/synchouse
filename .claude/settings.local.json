@@ -14,7 +14,15 @@
       "Bash(find:*)",
       "Bash(pnpm add:*)",
       "Bash(pnpm approve-builds:*)",
-      "Bash(pnpm drizzle-kit push:*)"
+      "Bash(pnpm drizzle-kit push:*)",
+      "Bash(ls:*)",
+      "Bash(timeout:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(ping:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx --yes kill-port:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pkill:*)"
     ]
   }
 }

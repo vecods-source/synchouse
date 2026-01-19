@@ -17,6 +17,12 @@
       "clients": "Clients",
       "years": "Years",
       "success": "Success"
+    },
+    "features": {
+      "fastDelivery": "Fast Delivery",
+      "secureCode": "Secure Code",
+      "support": "24/7 Support",
+      "communication": "Direct Contact"
     }
   },
   "portfolio": {
@@ -310,6 +316,67 @@
           "title": "Changes to Terms",
           "content": "We reserve the right to modify these terms at any time. We will notify you of any changes by posting the new terms on our website. Your continued use of our services after such modifications constitutes acceptance of the updated terms."
         }
+      }
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "scrollToTop": "Scroll to top"
+  },
+  "cookies": {
+    "title": "We value your privacy",
+    "description": "We use cookies to enhance your browsing experience and analyze our traffic. By clicking \"Accept\", you consent to our use of cookies.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "close": "Close"
+  },
+  "bento": {
+    "emailCopied": "Email copied!",
+    "copyEmail": "Copy our email",
+    "items": {
+      "collaboration": {
+        "title": "We prioritize client collaboration, fostering open communication"
+      },
+      "global": {
+        "title": "Serving clients in Qatar, Germany & worldwide",
+        "description": "Global Reach"
+      },
+      "techStack": {
+        "title": "Our tech stack",
+        "description": "We constantly try to improve"
+      },
+      "passion": {
+        "title": "Tech enthusiasts with a passion for development."
+      },
+      "innovation": {
+        "title": "OpenAI & AI solutions for your business",
+        "description": "Latest Tech"
+      },
+      "cta": {
+        "title": "Do you want to start a project together?"
+      }
+    }
+  },
+  "approach": {
+    "badge": "OUR PROCESS",
+    "title1": "How We",
+    "title2": "Deliver Results",
+    "description": "A proven methodology that ensures your project succeeds from concept to launch",
+    "phases": {
+      "discovery": {
+        "phase": "Phase 1",
+        "title": "Discovery & Strategy",
+        "description": "We dive deep into understanding your business goals, target audience, and technical requirements. Together, we map out the project scope, timeline, and success metrics."
+      },
+      "development": {
+        "phase": "Phase 2",
+        "title": "Design & Development",
+        "description": "Our team transforms your vision into reality. From wireframes to polished code, we keep you updated at every milestone with regular demos and feedback sessions."
+      },
+      "launch": {
+        "phase": "Phase 3",
+        "title": "Launch & Support",
+        "description": "We ensure a smooth deployment with thorough testing and optimization. Post-launch, we provide ongoing support and maintenance to keep your solution running flawlessly."
       }
     }
   },

@@ -46,12 +46,14 @@ export default clerkMiddleware(async (auth, req) => {
     return NextResponse.next()
   }
 
-  // Handle locale routes with intl middleware
+  // Handle all other routes (including root /) with intl middleware
   return intlMiddleware(req)
 })
 
 export const config = {
   matcher: [
+    // Match root path
+    '/',
     // Match all pathnames except static files
     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
     '/(api|trpc)(.*)',

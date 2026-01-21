@@ -9,7 +9,8 @@ import "./globals.css"
 const notoKufiArabic = Noto_Kufi_Arabic({
   subsets: ["arabic"],
   variable: "--font-arabic",
-  display: "swap",
+  display: "block",
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -30,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="preload"
           href="https://fonts.gstatic.com/s/notokufiarabic/v21/CSRp4ydQnPyaDxEXLFF6LZVLKrodhu8t57o1kDc5Wh5v3obPnLSmf5yD.woff2"

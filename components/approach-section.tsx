@@ -13,21 +13,21 @@ export function ApproachSection() {
   const phases = [
     {
       key: "discovery",
-      colors: [[0, 128, 128]], // Teal #008080
-      containerClassName: "bg-[#006666]",
+      colors: [[60, 120, 120]], // Soft teal
+      containerClassName: "bg-[#0d2626]",
     },
     {
       key: "development",
       colors: [
-        [0, 128, 128], // Teal
-        [0, 0, 128], // Navy
+        [60, 110, 110], // Soft teal
+        [50, 60, 100], // Soft navy
       ],
-      containerClassName: "bg-[#001a4d]",
+      containerClassName: "bg-[#0d1a2a]",
     },
     {
       key: "launch",
-      colors: [[0, 0, 128]], // Navy #000080
-      containerClassName: "bg-[#000060]",
+      colors: [[50, 60, 95]], // Soft navy
+      containerClassName: "bg-[#0d1520]",
     },
   ]
 
@@ -81,11 +81,16 @@ function ApproachCard({
 }: ApproachCardProps) {
   const [hovered, setHovered] = useState(false)
 
+  const handleTouch = () => {
+    setHovered((prev) => !prev)
+  }
+
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm p-4 transition-all duration-300 hover:border-accent/30 hover:shadow-lg lg:h-[28rem]"
+      onClick={handleTouch}
+      className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-xl border border-border/50 bg-card/50 keep-card backdrop-blur-sm p-4 transition-all duration-300 hover:border-accent/30 hover:shadow-lg lg:h-[28rem] cursor-pointer"
     >
       <Icon className="absolute -left-2 -top-2 h-5 w-5 text-muted-foreground/50 transition-colors group-hover/canvas-card:text-accent" />
       <Icon className="absolute -bottom-2 -left-2 h-5 w-5 text-muted-foreground/50 transition-colors group-hover/canvas-card:text-accent" />
@@ -105,6 +110,7 @@ function ApproachCard({
               containerClassName={containerClassName}
               colors={colors}
               dotSize={2}
+              opacities={[0.6, 0.7, 0.7, 0.8, 0.8, 0.9, 0.9, 1, 1, 1]}
             />
           </motion.div>
         )}
@@ -114,7 +120,7 @@ function ApproachCard({
         <div
           className={cn(
             "absolute left-1/2 top-1/2 mx-auto flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center transition duration-300",
-            "group-hover/canvas-card:-translate-y-6 group-hover/canvas-card:opacity-0"
+            hovered ? "-translate-y-6 opacity-0" : "group-hover/canvas-card:-translate-y-6 group-hover/canvas-card:opacity-0"
           )}
         >
           <div className="inline-block border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent rounded-md">
@@ -124,8 +130,10 @@ function ApproachCard({
 
         <h3
           className={cn(
-            "relative z-10 mt-4 text-xl md:text-2xl font-bold text-center opacity-0 transition duration-300",
-            "text-foreground group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100"
+            "relative z-10 mt-4 text-xl md:text-2xl font-bold text-center transition duration-300",
+            hovered
+              ? "-translate-y-2 text-white opacity-100"
+              : "opacity-0 text-foreground group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100"
           )}
         >
           {title}
@@ -133,8 +141,10 @@ function ApproachCard({
 
         <p
           className={cn(
-            "relative z-10 mt-4 text-sm text-center opacity-0 transition duration-300 leading-relaxed",
-            "text-muted-foreground group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white/90 group-hover/canvas-card:opacity-100"
+            "relative z-10 mt-4 text-sm text-center transition duration-300 leading-relaxed",
+            hovered
+              ? "-translate-y-2 text-white/90 opacity-100"
+              : "opacity-0 text-muted-foreground group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white/90 group-hover/canvas-card:opacity-100"
           )}
         >
           {description}

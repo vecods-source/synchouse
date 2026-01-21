@@ -10,7 +10,6 @@ import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { CookieConsent } from "@/components/cookie-consent"
-import { SkipToContent } from "@/components/skip-to-content"
 import { setRequestLocale } from "next-intl/server"
 
 type Props = {
@@ -23,8 +22,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
-      <SkipToContent />
-      <main id="main-content" className="min-h-screen bg-background" tabIndex={-1}>
+      <main className="min-h-screen bg-background">
         <Header />
         <HeroSection />
         <AboutSection />

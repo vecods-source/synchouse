@@ -4,7 +4,8 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { IoCopyOutline } from "react-icons/io5"
 import dynamic from "next/dynamic"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
+import { isRtlLocale, type Locale } from "@/i18n/config"
 
 import { cn } from "@/lib/utils"
 import { BackgroundGradientAnimation } from "./background-gradient-animation"
@@ -55,6 +56,8 @@ export function BentoGridItem({
 }) {
   const [copied, setCopied] = useState(false)
   const t = useTranslations("bento")
+  const locale = useLocale() as Locale
+  const isRTL = isRtlLocale(locale)
 
   const handleCopy = () => {
     navigator.clipboard.writeText("synchouse26@gmail.com")
@@ -89,7 +92,11 @@ export function BentoGridItem({
               height={541}
               src={img}
               alt=""
-              className={cn("object-cover object-center", imgClassName)}
+              className={cn(
+                "object-cover object-center",
+                imgClassName,
+                id === 5 && isRTL && "bottom-[-20%] md:bottom-[-10%]"
+              )}
             />
           )}
         </div>
@@ -130,11 +137,11 @@ export function BentoGridItem({
             titleClassName
           )}
         >
-          <div className="z-10 font-sans text-sm font-extralight text-muted-foreground md:text-xs lg:text-base">
+          <div className="z-10 text-sm font-extralight text-muted-foreground md:text-xs lg:text-base">
             {description}
           </div>
 
-          <div className="z-10 max-w-96 font-sans text-lg font-bold text-foreground lg:text-3xl">
+          <div className="z-10 max-w-96 text-lg font-bold text-foreground lg:text-3xl">
             {title}
           </div>
 

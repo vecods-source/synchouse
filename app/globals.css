@@ -141,6 +141,87 @@ html::-webkit-scrollbar {
     width: 0;
     background: transparent;
   }
+
+  /* Arabic font for RTL content */
+  [dir="rtl"],
+  [dir="rtl"] * {
+    font-family: var(--font-arabic), var(--font-geist-sans), system-ui, sans-serif;
+  }
+
+  /* Global Typography - LTR (English/German) */
+  h1 {
+    @apply text-3xl md:text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+  }
+
+  /* Global Typography - RTL (Arabic) */
+  [dir="rtl"] h1 {
+    @apply text-xl md:text-2xl leading-relaxed;
+  }
+
+  [dir="rtl"] h2 {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  [dir="rtl"] h3 {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+
+  [dir="rtl"] p {
+    @apply text-xs md:text-sm leading-loose;
+  }
+
+  /* Links in RTL */
+  [dir="rtl"] a {
+    @apply text-xs md:text-sm;
+  }
+
+  /* Hide card backgrounds and borders on mobile, reduce padding/margin */
+  @media (max-width: 767px) {
+    .bg-card\/30:not(.keep-card),
+    .bg-card\/50:not(.keep-card) {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+    }
+
+    .mb-16 {
+      margin-bottom: 2rem !important;
+    }
+
+    .p-6:not(.keep-card) {
+      padding: 0 !important;
+    }
+
+    .p-8:not(.keep-card) {
+      padding: 0 !important;
+    }
+
+    /* Smaller location cards on mobile */
+    .text-3xl {
+      font-size: 1.5rem !important;
+    }
+
+    .gap-6 {
+      gap: 0.75rem !important;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.5rem !important;
+    }
+  }
 }
 
 .pixel-accent {

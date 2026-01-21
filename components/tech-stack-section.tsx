@@ -179,14 +179,14 @@ export function TechStackSection() {
   return (
     <section className="bg-muted/30 py-16 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 mb-10">
-        <div className="text-center">
-          <div className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-2 border border-accent/20">
-            <span className="text-sm font-semibold text-accent">{t("badge")}</span>
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-block border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
+            {t("badge")}
           </div>
-          <h2 className={`mb-4 text-3xl font-bold tracking-tight md:text-4xl ${isRTL ? "leading-relaxed" : ""}`}>
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 ${isRTL ? "leading-relaxed" : ""}`}>
             {t("title")}
           </h2>
-          <p className={`mx-auto max-w-2xl text-muted-foreground ${isRTL ? "leading-loose" : ""}`}>
+          <p className={`text-muted-foreground text-base md:text-lg max-w-2xl mx-auto ${isRTL ? "leading-loose" : ""}`}>
             {t("description")}
           </p>
         </div>

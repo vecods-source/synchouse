@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import { useRouter, usePathname } from "next/navigation"
+import Link from "next/link"
 import { locales, localeNames, type Locale, isRtlLocale } from "@/i18n/config"
 import { ChevronDown, Briefcase, FolderOpen, Award, MessageCircle } from "lucide-react"
 import {
@@ -19,10 +20,19 @@ export function Header() {
   const pathname = usePathname()
   const isRTL = isRtlLocale(locale)
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+  // Check if we're on the home page
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
+
+  const navigateToSection = (sectionId: string) => {
+    if (isHomePage) {
+      // On home page, just scroll
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      // On other pages, navigate to home with hash
+      router.push(`/${locale}#${sectionId}`)
     }
   }
 
@@ -50,20 +60,20 @@ export function Header() {
     <>
       {/* Top Header */}
       <header
-        className="fixed top-0 left-0 right-0 md:top-4 md:left-1/2 md:-translate-x-1/2 z-50 w-full md:w-[95%] md:max-w-7xl md:rounded-2xl border-b md:border border-border/40 bg-background/95 md:bg-background/80 backdrop-blur-md md:shadow-lg"
+        className="fixed top-0 inset-x-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-md"
         role="banner"
       >
         <div className="container mx-auto flex h-14 md:h-16 items-center justify-between px-4 md:px-6">
-          <a href="#main-content" className="flex items-center gap-2" aria-label="Synchouse - Home">
+          <Link href={`/${locale}`} className="flex items-center gap-2" aria-label="Synchouse - Home">
             <span className="text-lg md:text-xl font-bold tracking-tight">Synchouse</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-6 lg:gap-8 md:flex" role="navigation" aria-label="Main navigation">
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => navigateToSection(item.id)}
                 className="text-sm font-medium hover:text-accent transition-colors duration-200"
                 aria-label={`Navigate to ${item.label} section`}
               >
@@ -99,7 +109,7 @@ export function Header() {
 
             {/* Desktop CTA Button */}
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => navigateToSection("contact")}
               className="hidden md:flex relative bg-accent font-semibold hover:bg-accent/90 transition-all duration-200 hover:shadow-lg"
             >
               {t("getStarted")}
@@ -119,12 +129,12 @@ export function Header() {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => navigateToSection(item.id)}
               className="flex flex-col items-center justify-center gap-1 px-3 py-2 text-muted-foreground hover:text-accent active:text-accent transition-colors"
               aria-label={`Navigate to ${item.label} section`}
             >
               <item.icon className="h-5 w-5" />
-              <span className="text-[10px] font-medium">{item.label}</span>
+              <span className="text-xs font-medium">{item.label}</span>
             </button>
           ))}
         </div>

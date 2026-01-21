@@ -28,7 +28,30 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" dir="ltr" className="dark scroll-smooth">
+    <html lang="en" dir="ltr" className="dark scroll-smooth" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/notokufiarabic/v21/CSRp4ydQnPyaDxEXLFF6LZVLKrodhu8t57o1kDc5Wh5v3obPnLSmf5yD.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var path = window.location.pathname;
+                var isArabic = path.startsWith('/ar') || path === '/ar';
+                if (isArabic) {
+                  document.documentElement.lang = 'ar';
+                  document.documentElement.dir = 'rtl';
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${notoKufiArabic.variable} antialiased`}
       >

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -18,19 +18,31 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 import { Badge } from "@/components/ui/badge"
-import { Plus, Search, MoreHorizontal, Upload, Trash2, Mail } from "lucide-react"
+import { Plus, Search, MoreHorizontal, Upload, Trash2, Mail, Loader2 } from "lucide-react"
 
-// Placeholder data - will be replaced with database data
-const placeholderLeads: Array<{
-  id: string
+interface Lead {
+  id: number
   name: string
   email: string
-  company: string
+  company: string | null
+  role: string | null
+  website: string | null
+  linkedIn: string | null
   status: "new" | "contacted" | "replied" | "converted"
   source: string
   createdAt: string
-}> = []
+}
 
 const statusColors = {
   new: "bg-blue-500/10 text-blue-500",
@@ -41,10 +53,91 @@ const statusColors = {
 
 export default function LeadsPage() {
   const [searchQuery, setSearchQuery] = useState("")
-  const leads = placeholderLeads
+  const [leads, setLeads] = useState<Lead[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [deleteId, setDeleteId] = useState<number | null>(null)
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+
+  const fetchLeads = async () => {
+    try {
+      const response = await fetch("/api/admin/leads")
+      const data = await response.json()
+      setLeads(data.leads || [])
+    } catch (error) {
+      console.error("Failed to fetch leads:", error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchLeads()
+  }, [])
+
+  const handleDeleteClick = (id: number) => {
+    setDeleteId(id)
+    setShowDeleteDialog(true)
+  }
+
+  const handleDeleteConfirm = async () => {
+    if (!deleteId) return
+
+    setIsDeleting(true)
+    try {
+      const response = await fetch(`/api/admin/leads?id=${deleteId}`, {
+        method: "DELETE",
+      })
+
+      if (response.ok) {
+        await fetchLeads()
+      }
+    } catch (error) {
+      console.error("Failed to delete lead:", error)
+    } finally {
+      setIsDeleting(false)
+      setShowDeleteDialog(false)
+      setDeleteId(null)
+    }
+  }
+
+  const filteredLeads = leads.filter((lead) =>
+    lead.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    lead.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    lead.company?.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <div className="space-y-6">
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Lead</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to delete this lead? This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDeleteConfirm}
+              disabled={isDeleting}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {isDeleting ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Deleting...
+                </>
+              ) : (
+                "Delete"
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -88,11 +181,15 @@ export default function LeadsPage() {
         <CardHeader>
           <CardTitle>All Leads</CardTitle>
           <CardDescription>
-            {leads.length} total leads in your database
+            {filteredLeads.length} total leads in your database
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {leads.length === 0 ? (
+          {isLoading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+            </div>
+          ) : filteredLeads.length === 0 ? (
             <div className="text-center py-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
                 <Search className="h-8 w-8 text-muted-foreground" />
@@ -126,18 +223,20 @@ export default function LeadsPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {leads.map((lead) => (
+                {filteredLeads.map((lead) => (
                   <TableRow key={lead.id}>
                     <TableCell className="font-medium">{lead.name}</TableCell>
                     <TableCell>{lead.email}</TableCell>
-                    <TableCell>{lead.company}</TableCell>
+                    <TableCell>{lead.company || "-"}</TableCell>
                     <TableCell>
                       <Badge variant="secondary" className={statusColors[lead.status]}>
                         {lead.status}
                       </Badge>
                     </TableCell>
                     <TableCell>{lead.source}</TableCell>
-                    <TableCell>{lead.createdAt}</TableCell>
+                    <TableCell>
+                      {new Date(lead.createdAt).toLocaleDateString()}
+                    </TableCell>
                     <TableCell>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -150,7 +249,10 @@ export default function LeadsPage() {
                             <Mail className="h-4 w-4 mr-2" />
                             Send Email
                           </DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">
+                          <DropdownMenuItem
+                            className="text-destructive"
+                            onClick={() => handleDeleteClick(lead.id)}
+                          >
                             <Trash2 className="h-4 w-4 mr-2" />
                             Delete
                           </DropdownMenuItem>

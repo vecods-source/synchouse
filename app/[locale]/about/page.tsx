@@ -73,10 +73,10 @@ export default function AboutPage() {
             <div className="mb-6 inline-block border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
               {t("about.badge")}
             </div>
-            <h1 className="mb-6">
+            <h1 className={`font-bold mb-6 ${isRTL ? "text-2xl md:text-4xl leading-relaxed" : "text-3xl md:text-5xl"}`}>
               {t("about.title")}
             </h1>
-            <p className="text-muted-foreground">
+            <p className={`text-muted-foreground ${isRTL ? "text-sm md:text-lg leading-loose" : "text-base md:text-xl"}`}>
               {t("about.description")}
             </p>
           </motion.div>
@@ -88,10 +88,10 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-16 p-8 bg-card/50 rounded-2xl border border-border/30"
           >
-            <h2 className="mb-4">
+            <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
               {t("about.story.title")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm md:text-base"}`}>
               {t("about.story.content")}
             </p>
           </motion.div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="text-center"
+                className={`font-bold text-center ${isRTL ? "text-lg md:text-2xl" : "text-xl md:text-3xl"}`}
               >
                 {t("about.commitment.title1")}{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500">
@@ -145,7 +145,7 @@ export default function AboutPage() {
 
             {/* Bottom Text */}
             <div className="absolute z-[20] bottom-8 px-[5px]">
-              <p className="font-medium text-center text-muted-foreground">
+              <p className={`font-medium text-center text-muted-foreground ${isRTL ? "text-sm md:text-base leading-loose" : "text-base md:text-lg"}`}>
                 {t("about.commitment.description")}
               </p>
             </div>
@@ -170,10 +170,10 @@ export default function AboutPage() {
             animate="visible"
             className="mb-16"
           >
-            <h2 className="mb-8 text-center">
+            <h2 className={`font-bold mb-8 text-center ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
               {t("about.valuesTitle")}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
@@ -185,10 +185,10 @@ export default function AboutPage() {
                       <value.icon className="h-6 w-6 text-accent" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="mb-2 group-hover:text-accent transition-colors">
+                      <h3 className={`font-semibold mb-2 group-hover:text-accent transition-colors ${isRTL ? "text-base leading-relaxed" : "text-lg"}`}>
                         {value.title}
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm"}`}>
                         {value.description}
                       </p>
                     </div>
@@ -205,19 +205,19 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-16"
           >
-            <h2 className="mb-6 text-center">
+            <h2 className={`font-bold mb-6 text-center ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
               {t("about.locations.title")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-6 bg-card/30 keep-card rounded-xl border border-border/30 text-center">
                 <div className="text-3xl mb-3">🇶🇦</div>
-                <h3 className="mb-1">{t("about.locations.doha")}</h3>
-                <p className="text-muted-foreground">{t("about.locations.dohaDesc")}</p>
+                <h3 className={`font-semibold mb-1 ${isRTL ? "text-base leading-relaxed" : "text-lg"}`}>{t("about.locations.doha")}</h3>
+                <p className={`text-muted-foreground ${isRTL ? "text-xs leading-loose" : "text-sm"}`}>{t("about.locations.dohaDesc")}</p>
               </div>
               <div className="p-6 bg-card/30 keep-card rounded-xl border border-border/30 text-center">
                 <div className="text-3xl mb-3">🇩🇪</div>
-                <h3 className="mb-1">{t("about.locations.berlin")}</h3>
-                <p className="text-muted-foreground">{t("about.locations.berlinDesc")}</p>
+                <h3 className={`font-semibold mb-1 ${isRTL ? "text-base leading-relaxed" : "text-lg"}`}>{t("about.locations.berlin")}</h3>
+                <p className={`text-muted-foreground ${isRTL ? "text-xs leading-loose" : "text-sm"}`}>{t("about.locations.berlinDesc")}</p>
               </div>
             </div>
           </motion.div>
@@ -229,10 +229,10 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="p-8 keep-card bg-secondary rounded-2xl text-center"
           >
-            <h2 className="mb-4">
+            <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
               {t("about.cta.title")}
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className={`text-muted-foreground mb-6 ${isRTL ? "text-sm md:text-base leading-loose" : "text-base md:text-lg"}`}>
               {t("about.cta.description")}
             </p>
             <Link

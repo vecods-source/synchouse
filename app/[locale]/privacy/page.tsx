@@ -25,56 +25,56 @@ export default function PrivacyPage() {
             {t("legal.backHome")}
           </Link>
 
-          <h1 className="mb-6">
+          <h1 className={`font-bold mb-6 ${isRTL ? "text-2xl md:text-4xl leading-relaxed" : "text-3xl md:text-5xl"}`}>
             {t("legal.privacy.title")}
           </h1>
 
-          <p className="text-muted-foreground mb-8">
+          <p className={`text-muted-foreground mb-8 ${isRTL ? "text-sm md:text-base leading-loose" : "text-base md:text-lg"}`}>
             {t("legal.privacy.lastUpdated")}: {t("legal.privacy.date")}
           </p>
 
           <div className="prose prose-lg max-w-none">
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.privacy.sections.intro.title")}
               </h2>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm md:text-base"}`}>
                 {t("legal.privacy.sections.intro.content")}
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.privacy.sections.dataCollection.title")}
               </h2>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm md:text-base"}`}>
                 {t("legal.privacy.sections.dataCollection.content")}
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.privacy.sections.dataUse.title")}
               </h2>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm md:text-base"}`}>
                 {t("legal.privacy.sections.dataUse.content")}
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.privacy.sections.dataSecurity.title")}
               </h2>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm md:text-base"}`}>
                 {t("legal.privacy.sections.dataSecurity.content")}
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.privacy.sections.contact.title")}
               </h2>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${isRTL ? "text-xs md:text-sm leading-loose" : "text-sm md:text-base"}`}>
                 {t("legal.privacy.sections.contact.content")}
               </p>
             </section>

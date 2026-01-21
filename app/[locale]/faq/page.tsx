@@ -41,11 +41,11 @@ export default function FAQPage() {
             {t("legal.backHome")}
           </Link>
 
-          <h1 className="mb-6">
+          <h1 className={`font-bold mb-6 ${isRTL ? "text-2xl md:text-4xl leading-relaxed" : "text-3xl md:text-5xl"}`}>
             {t("faq.title")}
           </h1>
 
-          <p className="text-muted-foreground mb-12">
+          <p className={`text-muted-foreground mb-12 ${isRTL ? "text-sm md:text-lg leading-loose" : "text-base md:text-xl"}`}>
             {t("faq.subtitle")}
           </p>
 
@@ -67,10 +67,10 @@ export default function FAQPage() {
           </Accordion>
 
           <div className="mt-16 p-8 keep-card bg-secondary rounded-2xl text-center">
-            <h2 className="mb-4">
+            <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
               {t("faq.stillHaveQuestions")}
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className={`text-muted-foreground mb-6 ${isRTL ? "text-sm md:text-base leading-loose" : "text-base md:text-lg"}`}>
               {t("faq.contactUs")}
             </p>
             <Link

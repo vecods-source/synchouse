@@ -159,7 +159,7 @@ export function HeroSection() {
 
       <div className="container relative mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className={`mb-4 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-balance ${isRTL ? "leading-relaxed" : "leading-tight"}`}>
+          <h1 className={`hero-title mb-4 md:mb-6 font-bold tracking-tight text-balance ${isRTL ? "leading-relaxed" : "leading-tight"}`}>
             {t("title1")}
             <br />
             <span className="text-accent">

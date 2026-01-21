@@ -142,50 +142,49 @@ html::-webkit-scrollbar {
     background: transparent;
   }
 
-  /* Arabic font for RTL content */
-  [dir="rtl"],
-  [dir="rtl"] * {
-    font-family: var(--font-arabic), var(--font-geist-sans), system-ui, sans-serif;
-  }
-
   /* Global Typography - LTR (English/German) */
   h1 {
     @apply text-3xl md:text-5xl font-bold;
   }
-
+  h1.hero-title {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+  }
   h2 {
     @apply text-xl md:text-2xl font-bold;
   }
-
   h3 {
     @apply text-lg md:text-xl font-semibold;
   }
-
   p {
     @apply text-base md:text-lg;
   }
 
   /* Global Typography - RTL (Arabic) */
   [dir="rtl"] h1 {
-    @apply text-xl md:text-2xl leading-relaxed;
+    @apply text-2xl md:text-4xl font-bold leading-relaxed;
   }
-
+  [dir="rtl"] h1.hero-title {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
   [dir="rtl"] h2 {
-    @apply text-base md:text-lg leading-relaxed;
+    @apply text-lg md:text-xl font-bold leading-relaxed;
   }
-
   [dir="rtl"] h3 {
-    @apply text-sm md:text-base leading-relaxed;
+    @apply text-base md:text-lg font-semibold leading-relaxed;
   }
-
   [dir="rtl"] p {
     @apply text-xs md:text-sm leading-loose;
   }
-
-  /* Links in RTL */
   [dir="rtl"] a {
     @apply text-xs md:text-sm;
   }
+
+  /* Arabic font for RTL content */
+  [dir="rtl"],
+  [dir="rtl"] * {
+    font-family: var(--font-arabic), var(--font-geist-sans), system-ui, sans-serif;
+  }
+
 
   /* Hide card backgrounds and borders on mobile, reduce padding/margin */
   @media (max-width: 767px) {
@@ -215,7 +214,7 @@ html::-webkit-scrollbar {
     }
 
     .gap-6 {
-      gap: 0.75rem !important;
+      gap: 1.5rem !important;
     }
 
     .mb-3 {

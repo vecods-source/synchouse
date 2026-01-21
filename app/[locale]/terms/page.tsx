@@ -25,17 +25,17 @@ export default function TermsPage() {
             {t("legal.backHome")}
           </Link>
 
-          <h1 className="mb-6">
+          <h1 className={`font-bold mb-6 ${isRTL ? "text-2xl md:text-4xl leading-relaxed" : "text-3xl md:text-5xl"}`}>
             {t("legal.terms.title")}
           </h1>
 
-          <p className="text-muted-foreground mb-8">
+          <p className={`text-muted-foreground mb-8 ${isRTL ? "text-sm md:text-base leading-loose" : "text-base md:text-lg"}`}>
             {t("legal.terms.lastUpdated")}: {t("legal.terms.date")}
           </p>
 
           <div className="prose prose-lg max-w-none">
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.terms.sections.acceptance.title")}
               </h2>
               <p className="text-muted-foreground">
@@ -44,7 +44,7 @@ export default function TermsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.terms.sections.services.title")}
               </h2>
               <p className="text-muted-foreground">
@@ -53,7 +53,7 @@ export default function TermsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.terms.sections.intellectual.title")}
               </h2>
               <p className="text-muted-foreground">
@@ -62,7 +62,7 @@ export default function TermsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.terms.sections.liability.title")}
               </h2>
               <p className="text-muted-foreground">
@@ -71,7 +71,7 @@ export default function TermsPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="mb-4">
+              <h2 className={`font-bold mb-4 ${isRTL ? "text-lg md:text-xl leading-relaxed" : "text-xl md:text-2xl"}`}>
                 {t("legal.terms.sections.changes.title")}
               </h2>
               <p className="text-muted-foreground">

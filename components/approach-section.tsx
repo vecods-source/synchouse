@@ -80,16 +80,42 @@ function ApproachCard({
   containerClassName,
 }: ApproachCardProps) {
   const [hovered, setHovered] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
-  const handleTouch = () => {
-    setHovered((prev) => !prev)
+  const handleTouchStart = () => {
+    setIsTouchDevice(true)
+    setHovered(true)
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    e.preventDefault()
+  }
+
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      setHovered(true)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      setHovered(false)
+    }
+  }
+
+  const handleClick = () => {
+    if (isTouchDevice) {
+      setHovered(true)
+    }
   }
 
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onClick={handleTouch}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onClick={handleClick}
       className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-xl border border-border/50 bg-card/50 keep-card backdrop-blur-sm p-4 transition-all duration-300 hover:border-accent/30 hover:shadow-lg lg:h-[28rem] cursor-pointer"
     >
       <Icon className="absolute -left-2 -top-2 h-5 w-5 text-muted-foreground/50 transition-colors group-hover/canvas-card:text-accent" />

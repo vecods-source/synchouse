@@ -21,13 +21,13 @@ export function WhyUsSection() {
       icon: Shield,
       title: t("reasons.security.title"),
       description: t("reasons.security.description"),
-      gradient: "from-blue-500/20 via-blue-500/5 to-transparent",
+      gradient: "from-accent/20 via-accent/5 to-transparent",
     },
     {
       icon: Headphones,
       title: t("reasons.support.title"),
       description: t("reasons.support.description"),
-      gradient: "from-purple-500/20 via-purple-500/5 to-transparent",
+      gradient: "from-accent/20 via-accent/5 to-transparent",
     },
   ];
 

@@ -26,39 +26,31 @@
     }
   },
   "portfolio": {
-    "badge": "BRANCHEN",
-    "title1": "Lösungen für",
-    "title2": "Verschiedene Branchen",
-    "description": "Wir haben erfolgreiche Projekte in diversen Sektoren umgesetzt und Unternehmen bei der Transformation unterstützt.",
-    "industries": {
-      "ecommerce": {
-        "title": "E-Commerce & Einzelhandel",
-        "description": "Online-Shops & Lagersysteme"
+    "badge": "UNSERE ARBEIT",
+    "title1": "Projekte die wir",
+    "title2": "Geliefert haben",
+    "description": "Hier sind einige der Projekte, die wir für unsere Kunden in Katar umgesetzt haben — nicht alle davon.",
+    "projects": {
+      "lazla": {
+        "name": "Lazla",
+        "type": "E-Commerce-Plattform",
+        "description": "Ein vollständiger Online-Shop für eine katarische Modemarke, spezialisiert auf handgefertigte traditionelle Kleider. Mit integrierter Zahlung, Lieferverfolgung und mobilem Einkaufserlebnis."
       },
-      "enterprise": {
-        "title": "Unternehmen & Konzerne",
-        "description": "ERP & Management-Plattformen"
+      "osoul": {
+        "name": "Osoul Qatar",
+        "type": "Immobilienplattform",
+        "description": "Ein umfassender Immobilienmarktplatz mit über 23 Immobilienkategorien in Katar. Mit erweiterter Suche, interaktiven Karten und direkter Kommunikation zwischen Käufer und Verkäufer."
       },
-      "education": {
-        "title": "Bildung & E-Learning",
-        "description": "Lernmanagementsysteme"
+      "qbf": {
+        "name": "QBF System",
+        "type": "Private Unternehmensplattform",
+        "description": "Ein maßgeschneidertes internes Kundenservice- und Betriebsmanagementsystem für die Qatar Battery Factory. Der Zugang ist auf autorisiertes Personal beschränkt."
       },
-      "fintech": {
-        "title": "FinTech & Banking",
-        "description": "Zahlungs- & Finanzsysteme"
-      },
-      "logistics": {
-        "title": "Logistik & Lieferkette",
-        "description": "Tracking- & Lieferplattformen"
-      },
-      "hospitality": {
-        "title": "Gastgewerbe & Gastronomie",
-        "description": "Buchungs- & Restaurantsysteme"
+      "bitaqa": {
+        "name": "Bitaqa",
+        "type": "Mobile App — iOS",
+        "description": "Eine elegante Event-Einladungs-App, mit der Benutzer Einladungen erstellen, sofort versenden, Teilnahme verfolgen und Erinnerungen teilen können — alles vom Handy aus."
       }
-    },
-    "cta": {
-      "description": "Möchten Sie relevante Arbeiten in Ihrer Branche sehen? Vereinbaren Sie eine private Demo.",
-      "button": "Fallstudien anfordern"
     }
   },
   "services": {

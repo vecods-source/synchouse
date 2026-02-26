@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ServicesSection } from "@/components/services-section"
-import { ApproachSection } from "@/components/approach-section"
 import { TechStackSection } from "@/components/tech-stack-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { WhyUsSection } from "@/components/why-us-section"
@@ -27,7 +26,6 @@ export default async function Home({ params }: Props) {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <ApproachSection />
         <TechStackSection />
         <PortfolioSection />
         <WhyUsSection />

@@ -5,7 +5,8 @@ import { useTranslations, useLocale } from "next-intl"
 import { useRouter, usePathname } from "next/navigation"
 import Link from "next/link"
 import { locales, localeNames, type Locale, isRtlLocale } from "@/i18n/config"
-import { ChevronDown, Briefcase, FolderOpen, Award, MessageCircle } from "lucide-react"
+import { ChevronDown, Users, Briefcase, FolderOpen, Award, MessageCircle, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +20,7 @@ export function Header() {
   const router = useRouter()
   const pathname = usePathname()
   const isRTL = isRtlLocale(locale)
+  const { theme, setTheme } = useTheme()
 
   // Check if we're on the home page
   const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
@@ -50,6 +52,7 @@ export function Header() {
   }
 
   const navItems = [
+    { id: "about-us", label: t("aboutUs"), icon: Users },
     { id: "services", label: t("services"), icon: Briefcase },
     { id: "portfolio", label: t("portfolio"), icon: FolderOpen },
     { id: "why-us", label: t("whyUs"), icon: Award },
@@ -83,6 +86,18 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
+            {/* Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8 md:h-9 md:w-9"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label="Toggle theme"
+            >
+              <Sun className="h-4 w-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+            </Button>
+
             {/* Language Switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

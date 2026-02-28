@@ -56,7 +56,7 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         {/* Teal blob #008080 */}
         <div
-          className="absolute -top-1/2 -left-1/4 w-[80%] h-[80%] opacity-50 dark:opacity-30 blur-3xl"
+          className="absolute -top-1/2 -left-1/4 w-[80%] h-[80%] opacity-15 dark:opacity-30 blur-3xl"
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #008080 0%, transparent 70%)',
             animation: 'aurora1 8s ease-in-out infinite',
@@ -65,7 +65,7 @@ export function HeroSection() {
         />
         {/* Navy blue blob #000080 */}
         <div
-          className="absolute -top-1/4 -right-1/4 w-[70%] h-[70%] opacity-50 dark:opacity-35 blur-3xl"
+          className="absolute -top-1/4 -right-1/4 w-[70%] h-[70%] opacity-15 dark:opacity-35 blur-3xl"
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #000080 0%, transparent 70%)',
             animation: 'aurora2 10s ease-in-out infinite',
@@ -74,7 +74,7 @@ export function HeroSection() {
         />
         {/* Teal blob bottom */}
         <div
-          className="absolute bottom-0 left-1/4 w-[60%] h-[60%] opacity-40 dark:opacity-25 blur-3xl"
+          className="absolute bottom-0 left-1/4 w-[60%] h-[60%] opacity-10 dark:opacity-25 blur-3xl"
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #008080 0%, transparent 70%)',
             animation: 'aurora3 12s ease-in-out infinite',
@@ -83,7 +83,7 @@ export function HeroSection() {
         />
         {/* Navy blue blob bottom right */}
         <div
-          className="absolute -bottom-1/4 right-0 w-[50%] h-[50%] opacity-45 dark:opacity-30 blur-3xl"
+          className="absolute -bottom-1/4 right-0 w-[50%] h-[50%] opacity-10 dark:opacity-30 blur-3xl"
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #000080 0%, transparent 70%)',
             animation: 'aurora4 9s ease-in-out infinite',
@@ -92,7 +92,7 @@ export function HeroSection() {
         />
         {/* Center blend */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-25 dark:opacity-20 blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] opacity-10 dark:opacity-20 blur-3xl"
           style={{
             background: 'radial-gradient(ellipse 80% 60% at 50% 50%, #008080 0%, #000080 50%, transparent 80%)',
             animation: 'aurora5 15s ease-in-out infinite',

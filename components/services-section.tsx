@@ -34,7 +34,7 @@ export function ServicesSection() {
         </div>
 
         {/* Mobile: horizontal scroll */}
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide sm:hidden px-[12.5vw]" dir={isRTL ? "rtl" : "ltr"}>
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide sm:hidden px-0" dir={isRTL ? "rtl" : "ltr"}>
           {services.map((service) => (
             <div
               key={service.key}

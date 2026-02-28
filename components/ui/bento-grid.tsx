@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
 import { IoCopyOutline } from "react-icons/io5"
 import dynamic from "next/dynamic"
 import { useTranslations, useLocale } from "next-intl"
@@ -58,6 +59,8 @@ export function BentoGridItem({
   const t = useTranslations("bento")
   const locale = useLocale() as Locale
   const isRTL = isRtlLocale(locale)
+  const { theme } = useTheme()
+  const isDark = theme === "dark"
 
   const handleCopy = () => {
     navigator.clipboard.writeText("synchouse26@gmail.com")
@@ -77,7 +80,7 @@ export function BentoGridItem({
   return (
     <div
       className={cn(
-        "group/bento relative row-span-1 flex flex-col justify-between space-y-4 overflow-hidden rounded-3xl border border-white/[0.1] shadow-input transition duration-200 hover:shadow-xl dark:shadow-none",
+        "group/bento relative row-span-1 flex flex-col justify-between space-y-4 overflow-hidden rounded-3xl border border-border/30 shadow-input transition duration-200 hover:shadow-xl dark:border-white/[0.1] dark:shadow-none",
         className
       )}
       style={{
@@ -122,14 +125,14 @@ export function BentoGridItem({
 
         {id === 6 && (
           <BackgroundGradientAnimation
-            gradientBackgroundStart="rgb(0, 77, 77)"
-            gradientBackgroundEnd="rgb(0, 0, 77)"
-            firstColor="0, 128, 128"
-            secondColor="0, 100, 100"
-            thirdColor="0, 0, 128"
-            fourthColor="0, 77, 77"
-            fifthColor="0, 50, 100"
-            pointerColor="0, 128, 128"
+            gradientBackgroundStart={isDark ? "rgb(0, 77, 77)" : "rgb(230, 245, 245)"}
+            gradientBackgroundEnd={isDark ? "rgb(0, 0, 77)" : "rgb(225, 230, 250)"}
+            firstColor={isDark ? "0, 128, 128" : "0, 180, 180"}
+            secondColor={isDark ? "0, 100, 100" : "0, 150, 150"}
+            thirdColor={isDark ? "0, 0, 128" : "80, 80, 200"}
+            fourthColor={isDark ? "0, 77, 77" : "0, 140, 140"}
+            fifthColor={isDark ? "0, 50, 100" : "60, 100, 180"}
+            pointerColor={isDark ? "0, 128, 128" : "0, 180, 180"}
           />
         )}
 

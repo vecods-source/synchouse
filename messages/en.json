@@ -4,7 +4,8 @@
     "portfolio": "Our Work",
     "whyUs": "Why Us",
     "contact": "Contact",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "aboutUs": "About Us"
   },
   "hero": {
     "title1": "Digital Solutions",
@@ -24,6 +25,31 @@
       "support": "24/7 Support",
       "communication": "Direct Contact"
     }
+  },
+  "aboutUs": {
+    "badge": "ABOUT US",
+    "title1": "Your Local",
+    "title2": "App Studio",
+    "description": "SyncHouse is an app development studio based in Lusail, Qatar. We build mobile apps, web platforms, and admin panels — with 5+ delivered projects and apps serving 1,000+ users in real estate, events, and e-commerce. No overseas agencies. Just a local team you can meet face to face.",
+    "highlights": {
+      "local": {
+        "title": "Based in Qatar",
+        "description": "Meet us in person in Lusail. No overseas delays or miscommunication."
+      },
+      "pricing": {
+        "title": "Fixed Pricing",
+        "description": "The price we agree on is the price you pay. No hidden fees, no mid-project changes."
+      },
+      "maintenance": {
+        "title": "3 Months Free Maintenance",
+        "description": "Every project includes 3 months of free bug fixes, updates, and support after launch."
+      },
+      "guarantee": {
+        "title": "Delay Guarantee",
+        "description": "If we're late, you get 10% off for every week of delay. We put our money where our mouth is."
+      }
+    },
+    "cta": "Chat with Us"
   },
   "portfolio": {
     "badge": "OUR WORK",

@@ -26,7 +26,7 @@ export function MagicButton({
       onClick={handleClick}
       tabIndex={asChild ? -1 : undefined}
     >
-      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#008080_0%,#000080_50%,#008080_100%)]" />
+      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#3b82f6_50%,#06b6d4_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#008080_0%,#000080_50%,#008080_100%)]" />
       <span
         className={cn(
           "inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-card px-7 text-sm font-medium text-foreground backdrop-blur-3xl",

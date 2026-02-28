@@ -103,7 +103,7 @@ export function WhyUsSection() {
                     <div className="relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-accent/10 border border-accent/20 group-hover:border-accent/40 group-hover:bg-accent/20 transition-all duration-500">
                       <reason.icon
                         className="h-5 w-5 md:h-6 md:w-6 text-accent transition-transform duration-500 group-hover:scale-110"
-                        style={{ filter: 'drop-shadow(0 0 8px rgba(0,128,128,0.6))' }}
+                        style={{ filter: 'drop-shadow(0 0 6px rgba(0,128,128,0.3))' }}
                       />
                     </div>
                     {/* Glow effect */}

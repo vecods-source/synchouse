@@ -4,7 +4,8 @@
     "portfolio": "Unsere Arbeit",
     "whyUs": "Warum Wir",
     "contact": "Kontakt",
-    "getStarted": "Loslegen"
+    "getStarted": "Loslegen",
+    "aboutUs": "Über Uns"
   },
   "hero": {
     "title1": "Digitale Lösungen",
@@ -24,6 +25,31 @@
       "support": "24/7 Support",
       "communication": "Direkter Kontakt"
     }
+  },
+  "aboutUs": {
+    "badge": "ÜBER UNS",
+    "title1": "Ihr lokales",
+    "title2": "App-Studio",
+    "description": "SyncHouse ist ein App-Entwicklungsstudio in Lusail, Katar. Wir entwickeln mobile Apps, Web-Plattformen und Admin-Panels — mit über 5 abgeschlossenen Projekten und Apps für mehr als 1.000 Nutzer in Immobilien, Events und E-Commerce. Keine Offshore-Agenturen. Ein lokales Team, das Sie persönlich treffen können.",
+    "highlights": {
+      "local": {
+        "title": "In Katar ansässig",
+        "description": "Treffen Sie uns persönlich in Lusail. Keine Verzögerungen oder Missverständnisse mit Offshore-Firmen."
+      },
+      "pricing": {
+        "title": "Festpreise",
+        "description": "Der vereinbarte Preis ist der Endpreis. Keine versteckten Gebühren, keine Änderungen während des Projekts."
+      },
+      "maintenance": {
+        "title": "3 Monate kostenlose Wartung",
+        "description": "Jedes Projekt beinhaltet 3 Monate kostenlose Fehlerbehebung, Updates und Support nach dem Launch."
+      },
+      "guarantee": {
+        "title": "Liefergarantie",
+        "description": "Bei Verzögerung erhalten Sie 10% Rabatt pro Woche. Wir stehen zu unserem Wort."
+      }
+    },
+    "cta": "Kontakt aufnehmen"
   },
   "portfolio": {
     "badge": "UNSERE ARBEIT",

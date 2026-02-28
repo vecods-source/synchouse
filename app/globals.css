@@ -320,7 +320,16 @@ html::-webkit-scrollbar {
   .animate-pulse-subtle,
   .animate-scroll,
   .animate-scroll-rtl,
-  .animate-float {
+  .animate-float,
+  .animate-first,
+  .animate-second,
+  .animate-third,
+  .animate-fourth,
+  .animate-fifth,
+  .animate-spotlight,
+  .animate-orbit,
+  .animate-spin-slow,
+  .animate-gradient-x {
     animation: none !important;
   }
 }
@@ -479,22 +488,27 @@ html {
 
 .animate-first {
   animation: moveVertical 30s ease infinite;
+  will-change: transform;
 }
 
 .animate-second {
   animation: moveInCircle 20s reverse infinite;
+  will-change: transform;
 }
 
 .animate-third {
   animation: moveInCircle 40s linear infinite;
+  will-change: transform;
 }
 
 .animate-fourth {
   animation: moveHorizontal 40s ease infinite;
+  will-change: transform;
 }
 
 .animate-fifth {
   animation: moveInCircle 20s ease infinite;
+  will-change: transform;
 }
 
 /* Gradient animation for stat cards */

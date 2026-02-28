@@ -36,10 +36,12 @@ export function BackgroundGradientAnimation({
   containerClassName?: string
 }) {
   const interactiveRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const curX = useRef(0)
   const curY = useRef(0)
   const tgX = useRef(0)
   const tgY = useRef(0)
+  const isVisible = useRef(false)
 
   useEffect(() => {
     document.body.style.setProperty(
@@ -72,9 +74,25 @@ export function BackgroundGradientAnimation({
   ])
 
   useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible.current = entry.isIntersecting },
+      { rootMargin: "50px" }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
     let animationFrameId: number
 
     const move = () => {
+      if (!isVisible.current) {
+        animationFrameId = requestAnimationFrame(move)
+        return
+      }
       if (!interactiveRef.current) {
         animationFrameId = requestAnimationFrame(move)
         return
@@ -106,6 +124,7 @@ export function BackgroundGradientAnimation({
 
   return (
     <div
+      ref={containerRef}
       className={cn(
         "absolute left-0 top-0 h-full w-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
         containerClassName

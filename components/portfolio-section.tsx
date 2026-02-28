@@ -45,11 +45,10 @@ export function PortfolioSection() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
         duration: 0.6,
         ease: [0.25, 0.4, 0.25, 1],
@@ -115,6 +114,7 @@ export function PortfolioSection() {
                         alt={t(`projects.${project.key}.name`)}
                         width={48}
                         height={48}
+                        loading="lazy"
                         className="object-contain w-10 h-10 md:w-12 md:h-12"
                       />
                     </div>

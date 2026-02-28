@@ -1,22 +1,34 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0)
+  const rafId = useRef(0)
+  const ticking = useRef(false)
 
   useEffect(() => {
     const updateProgress = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
       const scrolled = window.scrollY
-      const progress = (scrolled / scrollHeight) * 100
-      setProgress(progress)
+      setProgress((scrolled / scrollHeight) * 100)
+      ticking.current = false
     }
 
-    window.addEventListener("scroll", updateProgress)
+    const onScroll = () => {
+      if (!ticking.current) {
+        ticking.current = true
+        rafId.current = requestAnimationFrame(updateProgress)
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
     updateProgress()
 
-    return () => window.removeEventListener("scroll", updateProgress)
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      cancelAnimationFrame(rafId.current)
+    }
   }, [])
 
   return (

@@ -92,6 +92,7 @@ export function BentoGridItem({
               height={541}
               src={img}
               alt=""
+              loading="lazy"
               className={cn(
                 "object-cover object-center",
                 imgClassName,
@@ -113,6 +114,7 @@ export function BentoGridItem({
               height={96}
               src={spareImg}
               alt=""
+              loading="lazy"
               className="h-full w-full object-cover object-center"
             />
           )}

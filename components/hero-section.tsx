@@ -60,6 +60,7 @@ export function HeroSection() {
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #008080 0%, transparent 70%)',
             animation: 'aurora1 8s ease-in-out infinite',
+            willChange: 'transform',
           }}
         />
         {/* Navy blue blob #000080 */}
@@ -68,6 +69,7 @@ export function HeroSection() {
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #000080 0%, transparent 70%)',
             animation: 'aurora2 10s ease-in-out infinite',
+            willChange: 'transform',
           }}
         />
         {/* Teal blob bottom */}
@@ -76,6 +78,7 @@ export function HeroSection() {
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #008080 0%, transparent 70%)',
             animation: 'aurora3 12s ease-in-out infinite',
+            willChange: 'transform',
           }}
         />
         {/* Navy blue blob bottom right */}
@@ -84,6 +87,7 @@ export function HeroSection() {
           style={{
             background: 'radial-gradient(ellipse 100% 100% at 50% 50%, #000080 0%, transparent 70%)',
             animation: 'aurora4 9s ease-in-out infinite',
+            willChange: 'transform',
           }}
         />
         {/* Center blend */}
@@ -92,6 +96,7 @@ export function HeroSection() {
           style={{
             background: 'radial-gradient(ellipse 80% 60% at 50% 50%, #008080 0%, #000080 50%, transparent 80%)',
             animation: 'aurora5 15s ease-in-out infinite',
+            willChange: 'transform',
           }}
         />
       </div>

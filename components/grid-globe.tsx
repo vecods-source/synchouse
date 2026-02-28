@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { Suspense } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
 
 const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ssr: false,
@@ -13,6 +13,20 @@ const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
 })
 
 export function GridGlobe() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: "100px" }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
   const globeConfig = {
     pointSize: 4,
     globeColor: "#001a4d", // Navy blue for Synchouse
@@ -161,13 +175,15 @@ export function GridGlobe() {
   ]
 
   return (
-    <div className="absolute -left-5 top-36 flex h-full w-full items-center justify-center md:top-40">
+    <div ref={containerRef} className="absolute -left-5 top-36 flex h-full w-full items-center justify-center md:top-40">
       <div className="relative mx-auto h-96 w-full max-w-7xl overflow-hidden px-4">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-background" />
         <div className="absolute z-10 h-72 w-full md:h-full">
-          <Suspense fallback={<div className="h-full w-full animate-pulse rounded-full bg-accent/10" />}>
-            <World data={sampleArcs} globeConfig={globeConfig} />
-          </Suspense>
+          {isVisible && (
+            <Suspense fallback={<div className="h-full w-full animate-pulse rounded-full bg-accent/10" />}>
+              <World data={sampleArcs} globeConfig={globeConfig} />
+            </Suspense>
+          )}
         </div>
       </div>
     </div>

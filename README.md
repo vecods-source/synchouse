@@ -1,6 +1,6 @@
-# Synchouse Agency Website
+# Shara Agency Website
 
-A modern, professional landing page for Synchouse - a software agency specializing in digital solutions. The website features a unique blend of retro pixel aesthetics inspired by classic Windows interfaces with contemporary design principles.
+A modern, professional landing page for Shara - a software agency specializing in digital solutions. The website features a unique blend of retro pixel aesthetics inspired by classic Windows interfaces with contemporary design principles.
 
 ## 🎨 Design Philosophy
 
@@ -156,4 +156,4 @@ To customize the website:
 
 ## 📄 License
 
-© 2025 Synchouse. All rights reserved.
+© 2026 Shara Software Development W.L.L. All rights reserved.

@@ -1,26 +1,27 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Noto_Kufi_Arabic } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { ThemeProvider } from "@/components/theme-provider"
+import localFont from "next/font/local"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import "./globals.css"
 
-const notoKufiArabic = Noto_Kufi_Arabic({
-  subsets: ["arabic"],
-  variable: "--font-arabic",
-  display: "block",
-  preload: true,
+const poppins = localFont({
+  src: [
+    { path: "../brand/fonts/en/Poppins-Light.woff2", weight: "300", style: "normal" },
+    { path: "../brand/fonts/en/Poppins-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../brand/fonts/en/Poppins-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../brand/fonts/en/Poppins-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../brand/fonts/en/Poppins-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-poppins",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Synchouse - Digital Solutions Synchronized",
-  description:
-    "Enterprise-grade software solutions including ERP, CRM, E-Commerce, Mobile Apps, AI Agents, and Appointment Management Systems",
+  title: "Shara",
   icons: {
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20design%20%287%29-s9g2TccXOz5oRKVDabl7LjfxxjMyCF.png",
-    apple: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20design%20%287%29-s9g2TccXOz5oRKVDabl7LjfxxjMyCF.png",
+    icon: "/logo/logo-dark.png",
+    apple: "/logo/logo-dark.png",
   },
 }
 
@@ -30,39 +31,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" dir="ltr" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/notokufiarabic/v21/CSRp4ydQnPyaDxEXLFF6LZVLKrodhu8t57o1kDc5Wh5v3obPnLSmf5yD.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var path = window.location.pathname;
-                var isArabic = path.startsWith('/ar') || path === '/ar';
-                if (isArabic) {
-                  document.documentElement.lang = 'ar';
-                  document.documentElement.dir = 'rtl';
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body
-        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${notoKufiArabic.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
-        </ThemeProvider>
-        <Analytics />
+    <html lang="en" className={poppins.variable}>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   )

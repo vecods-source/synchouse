@@ -1,64 +1,50 @@
 import Image from "next/image"
 import Link from "next/link"
-
-const CONTACT_HREF = `mailto:contact@shara.qa?subject=${encodeURIComponent("Project enquiry")}`
+import { HeroHeadline } from "@/components/hero-headline"
+import { WhatsAppButton } from "@/components/whatsapp-gate"
 
 export function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-white">
-      <div className="relative h-[60vh] w-full">
-        {/* Full-width background image */}
-        <Image
-          src="/hero/hero-render.png"
-          alt="Shara"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#0f0a1f] px-6 pb-16 pt-24">
+      {/* brand glow behind Koba */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(circle at 50% 36%, rgba(84,55,217,0.35), transparent 60%)" }}
+      />
 
-        {/* Soft white scrim for text legibility */}
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.6),rgba(255,255,255,0.2))]"
-        />
+      {/* Koba — big, standing, glowing */}
+      <div className="relative flex flex-col items-center">
+        <div className="relative h-[60vh] max-h-[680px] w-[clamp(320px,84vw,620px)]">
+          <Image
+            src="/koba.png"
+            alt="Koba — Shara's mascot"
+            fill
+            priority
+            sizes="(min-width: 640px) 620px, 84vw"
+            className="object-contain drop-shadow-[0_25px_50px_rgba(84,55,217,0.45)]"
+          />
+        </div>
+        {/* glowing ground shadow */}
+        <div aria-hidden className="-mt-1 h-7 w-60 rounded-[100%] bg-[#5437d9]/45 blur-2xl" />
+      </div>
 
-        {/* Frosted blur behind the text, faded smoothly via a radial mask */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[440px] w-[820px] max-w-[96vw] -translate-x-1/2 -translate-y-1/2 backdrop-blur-2xl"
-          style={{
-            WebkitMaskImage:
-              "radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 72%)",
-            maskImage:
-              "radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 72%)",
-          }}
-        />
-
-        {/* Text overlaid on the image */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 pt-12 text-center">
-          <h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[1.04] tracking-tight text-[#0f0a1f] sm:text-6xl lg:text-7xl">
-            Software that <span className="text-[#5437d9]">ships</span>
-          </h1>
-
-          <p className="mt-5 max-w-md text-balance text-lg text-neutral-700 sm:text-xl">
-            Built in Qatar. Owned by you.
-          </p>
-
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href={CONTACT_HREF}
-              className="inline-flex w-full items-center justify-center rounded-full bg-[#5437d9] px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
-            >
-              Start a project
-            </Link>
-            <Link
-              href="#work"
-              className="inline-flex w-full items-center justify-center gap-1 rounded-full px-7 py-3 text-[15px] font-medium text-[#5437d9] transition-colors hover:text-[#3b2b85] sm:w-auto"
-            >
-              See our work <span aria-hidden>›</span>
-            </Link>
-          </div>
+      {/* Text under Koba */}
+      <div className="relative -mt-2 flex flex-col items-center text-center">
+        <HeroHeadline />
+        <p className="mt-5 max-w-md text-balance text-lg text-white/65 sm:text-xl">
+          Built in Qatar. Owned by you.
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+          <WhatsAppButton className="inline-flex w-full items-center justify-center rounded-full bg-[#5437d9] px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90 sm:w-auto">
+            Start a project
+          </WhatsAppButton>
+          <Link
+            href="#work"
+            className="inline-flex w-full items-center justify-center gap-1 rounded-full border border-white/20 px-7 py-3 text-[15px] font-medium text-white transition-colors hover:bg-white/10 sm:w-auto"
+          >
+            See our work <span aria-hidden>›</span>
+          </Link>
         </div>
       </div>
     </section>

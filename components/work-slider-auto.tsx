@@ -1,21 +1,74 @@
 "use client"
 
-import Link from "next/link"
-import { MEETING_HREF, PROJECTS, type WorkProject } from "./work-data"
+import { useEffect, useRef, type PointerEvent as RPointerEvent } from "react"
+import { PROJECTS, type WorkProject } from "./work-data"
+import { useWhatsApp } from "@/components/whatsapp-gate"
 
-// OPTION A — a single row of project cards that glides continuously,
-// left to right, and pauses when you hover. Smooth, calm, "always moving".
+// OPTION A — project cards that glide continuously, but it's a real scroll
+// container: pauses on hover or while you hold/touch it, and you can swipe
+// (phone) or drag (desktop) to scroll through it manually.
 export function WorkSliderAuto() {
   const loop = [...PROJECTS, ...PROJECTS]
+  const ref = useRef<HTMLDivElement>(null)
+  const paused = useRef(false)
+  const drag = useRef({ active: false, startX: 0, startScroll: 0 })
+  const pos = useRef(0) // float accumulator (scrollLeft rounds to int and would stall)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    pos.current = el.scrollLeft
+    let raf = 0
+    const step = () => {
+      const node = ref.current
+      if (node) {
+        if (!paused.current && !drag.current.active) {
+          const half = node.scrollWidth / 2 || 1
+          pos.current += 0.7
+          if (pos.current >= half) pos.current -= half // seamless loop (list is duplicated)
+          node.scrollLeft = pos.current
+        } else {
+          pos.current = node.scrollLeft // stay in sync while paused / dragging / swiping
+        }
+      }
+      raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  const onPointerDown = (e: RPointerEvent<HTMLDivElement>) => {
+    paused.current = true
+    if (e.pointerType === "mouse" && ref.current) {
+      drag.current = { active: true, startX: e.clientX, startScroll: ref.current.scrollLeft }
+    }
+  }
+  const onPointerMove = (e: RPointerEvent<HTMLDivElement>) => {
+    if (!drag.current.active || !ref.current) return
+    ref.current.scrollLeft = drag.current.startScroll - (e.clientX - drag.current.startX)
+  }
+  const endPress = () => {
+    drag.current.active = false
+    paused.current = false
+  }
+
   return (
     <section id="work" className="relative w-full overflow-hidden bg-white py-24 sm:py-32">
       <Header />
 
-      <div className="group relative mt-14">
+      <div className="relative mt-14">
         <div
-          data-marquee
-          className="flex w-max gap-5 will-change-transform group-hover:[animation-play-state:paused]"
-          style={{ animation: "marquee-x 70s linear infinite" }}
+          ref={ref}
+          onMouseEnter={() => (paused.current = true)}
+          onMouseLeave={() => {
+            if (!drag.current.active) paused.current = false
+          }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endPress}
+          onPointerCancel={endPress}
+          className="flex cursor-grab select-none gap-5 overflow-x-auto active:cursor-grabbing [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {loop.map((p, i) => (
             <Card key={`${p.slug}-${i}`} p={p} />
@@ -82,6 +135,7 @@ export function Header() {
 }
 
 export function Cta() {
+  const { open } = useWhatsApp()
   return (
     <div className="mx-auto mt-16 flex max-w-xl flex-col items-center px-6 text-center">
       <p className="text-balance text-xl font-medium tracking-tight text-[#0f0a1f] sm:text-2xl">
@@ -90,12 +144,13 @@ export function Cta() {
       <p className="mt-3 text-balance text-base text-neutral-500">
         We’ll walk you through any of these — and what we’d build for you.
       </p>
-      <Link
-        href={MEETING_HREF}
+      <button
+        type="button"
+        onClick={() => open({ title: "Ask for a meeting", brief: "I’d like a quick call about a project." })}
         className="mt-7 inline-flex items-center gap-1.5 rounded-full bg-[#5437d9] px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
       >
         Ask for a meeting <span aria-hidden>›</span>
-      </Link>
+      </button>
     </div>
   )
 }

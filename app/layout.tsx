@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { WhatsAppProvider } from "@/components/whatsapp-gate"
 import "./globals.css"
 
 const poppins = localFont({
@@ -33,9 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <WhatsAppProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </WhatsAppProvider>
       </body>
     </html>
   )

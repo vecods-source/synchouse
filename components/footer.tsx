@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { WhatsAppButton } from "@/components/whatsapp-gate"
 
 const LINKS = [
   { label: "Work", href: "#work" },
@@ -7,7 +8,6 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ]
 
-const WHATSAPP_HREF = "https://wa.me/97466012332"
 const INSTAGRAM_HREF = "https://instagram.com/shara.qa"
 const EMAIL = "contact@shara.qa"
 
@@ -46,9 +46,9 @@ export function Footer() {
               <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-neutral-400">Connect</p>
               <ul className="mt-4 flex flex-col gap-3">
                 <li>
-                  <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="text-[15px] text-neutral-600 transition-colors hover:text-[#5437d9]">
+                  <WhatsAppButton className="text-[15px] text-neutral-600 transition-colors hover:text-[#5437d9]">
                     WhatsApp
-                  </a>
+                  </WhatsAppButton>
                 </li>
                 <li>
                   <a href={INSTAGRAM_HREF} target="_blank" rel="noopener noreferrer" className="text-[15px] text-neutral-600 transition-colors hover:text-[#5437d9]">

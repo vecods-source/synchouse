@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { useWhatsApp } from "@/components/whatsapp-gate"
 
 const links = [
   { label: "Services", href: "#services" },
@@ -14,9 +15,9 @@ const links = [
 ]
 
 const CONTACT_EMAIL = "contact@shara.qa"
-const CONTACT_HREF = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Project enquiry")}`
 
 export function Navbar() {
+  const { open: openGate } = useWhatsApp()
   const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
 
@@ -75,12 +76,13 @@ export function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <Link
-          href={CONTACT_HREF}
+        <button
+          type="button"
+          onClick={() => openGate()}
           className="hidden rounded-full bg-[#5437d9] px-4 py-1.5 text-[13px] font-medium text-white transition-opacity hover:opacity-90 md:inline-flex"
         >
           Start a project
-        </Link>
+        </button>
 
         {/* Mobile burger toggle */}
         <button
@@ -126,13 +128,16 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href={CONTACT_HREF}
-            onClick={close}
-            className="mt-8 block rounded-full bg-[#5437d9] px-5 py-3 text-center text-[14px] font-medium tracking-tight text-white transition-opacity hover:opacity-90"
+          <button
+            type="button"
+            onClick={() => {
+              close()
+              openGate()
+            }}
+            className="mt-8 block w-full rounded-full bg-[#5437d9] px-5 py-3 text-center text-[14px] font-medium tracking-tight text-white transition-opacity hover:opacity-90"
           >
             Start a project
-          </Link>
+          </button>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             onClick={close}

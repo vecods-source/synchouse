@@ -9,6 +9,18 @@ body {
   font-family: var(--font-poppins), system-ui, sans-serif;
 }
 
+/* Hide scrollbar (keep scrolling) */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 @keyframes marquee-up {
   from {
     transform: translateY(0);
@@ -53,6 +65,39 @@ body {
   }
 }
 
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-12px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(220px) rotate(340deg);
+    opacity: 0;
+  }
+}
+
 @keyframes float {
   0%,
   100% {
@@ -79,7 +124,9 @@ body {
   [data-marquee],
   [data-signal],
   [data-glow],
-  [data-float] {
+  [data-float],
+  [data-pop],
+  [data-caret] {
     animation: none !important;
   }
 }

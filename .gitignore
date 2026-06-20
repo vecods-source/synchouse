@@ -29,3 +29,17 @@ next-env.d.ts
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# Local Claude session progress (managed by /finish)
+PROGRESS.md
+SESSION.md
+.progress.md
+.session.md
+
+# Claude config — local only
+/.claude/
+
+# scratch / asset-extraction artifacts — local only
+/_frames/
+/_pdf_extract/
+extract_pdf_images.cjs

@@ -1,50 +1,52 @@
-import Image from "next/image"
 import Link from "next/link"
-import { HeroHeadline } from "@/components/hero-headline"
+import { AnimatedGradient } from "@/components/animated-gradient"
+import { HeroVideo } from "@/components/hero-video"
 import { WhatsAppButton } from "@/components/whatsapp-gate"
+import { t, type Lang } from "@/components/i18n"
 
-export function HeroSection() {
+export function HeroSection({ lang }: { lang: Lang }) {
+  const tr = t[lang].hero
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#0f0a1f] px-6 pb-16 pt-24">
-      {/* brand glow behind Koba */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(circle at 50% 36%, rgba(84,55,217,0.35), transparent 60%)" }}
-      />
+    <section className="sticky top-0 z-0 flex min-h-0 w-full items-center overflow-hidden bg-white px-4 pb-12 pt-24 md:min-h-[100svh] md:pb-16 md:pt-28">
+      {/* flowing gradient */}
+      <AnimatedGradient className="absolute inset-0" />
+      {/* faded 3-clip crossfade on top of the gradient */}
+      <HeroVideo className="opacity-25 mix-blend-multiply" />
+      {/* white veil for legibility */}
+      <div aria-hidden className="absolute inset-0 bg-white/55 md:hidden" />
+      <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-r from-white via-white/80 to-white/40 md:block" />
 
-      {/* Koba — big, standing, glowing */}
-      <div className="relative flex flex-col items-center">
-        <div className="relative h-[60vh] max-h-[680px] w-[clamp(320px,84vw,620px)]">
-          <Image
-            src="/koba.png"
-            alt="Koba — Shara's mascot"
-            fill
-            priority
-            sizes="(min-width: 640px) 620px, 84vw"
-            className="object-contain drop-shadow-[0_25px_50px_rgba(84,55,217,0.45)]"
-          />
-        </div>
-        {/* glowing ground shadow */}
-        <div aria-hidden className="-mt-1 h-7 w-60 rounded-[100%] bg-[#5437d9]/45 blur-2xl" />
-      </div>
-
-      {/* Text under Koba */}
-      <div className="relative -mt-2 flex flex-col items-center text-center">
-        <HeroHeadline />
-        <p className="mt-5 max-w-md text-balance text-lg text-white/65 sm:text-xl">
-          Built in Qatar. Owned by you.
-        </p>
-        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-          <WhatsAppButton className="inline-flex w-full items-center justify-center rounded-full bg-[#5437d9] px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90 sm:w-auto">
-            Start a project
-          </WhatsAppButton>
-          <Link
-            href="#work"
-            className="inline-flex w-full items-center justify-center gap-1 rounded-full border border-white/20 px-7 py-3 text-[15px] font-medium text-white transition-colors hover:bg-white/10 sm:w-auto"
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
+        <div className="max-w-xl text-center md:max-w-[80%] md:text-start">
+          <p className="text-[15px] font-medium text-neutral-500">{tr.label}</p>
+          <p
+            data-slide
+            className="hero-font mt-6 text-balance font-medium leading-[1.25] tracking-tight text-[#0f0a1f]"
+            style={{ animation: "fade-in 0.8s ease-out 0.15s both" }}
           >
-            See our work <span aria-hidden>›</span>
-          </Link>
+            {tr.prefix}
+            {tr.accent}
+            {tr.suffix}
+            {/* Long descriptive line is desktop-only; mobile shows just the short sentence (~2 lines) */}
+            <span className="hidden md:inline text-[#8a84c4]"> {tr.sub}</span>
+          </p>
+          <div
+            data-slide
+            className="mt-8 flex items-center justify-center gap-3 md:justify-start"
+            style={{ animation: "fade-in 0.8s ease-out 0.3s both" }}
+          >
+            {/* primary — wide */}
+            <WhatsAppButton className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-[5px] bg-[#5437d9] px-5 py-3.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90 sm:flex-none sm:px-7">
+              {tr.start} <span aria-hidden>{lang === "ar" ? "‹" : "›"}</span>
+            </WhatsAppButton>
+            {/* secondary — compact */}
+            <Link
+              href="#work"
+              className="inline-flex shrink-0 items-center justify-center rounded-[5px] border border-black/15 bg-white/70 px-5 py-3.5 text-[15px] font-semibold text-[#0f0a1f] backdrop-blur transition-colors hover:bg-black/5 sm:px-7"
+            >
+              {tr.work}
+            </Link>
+          </div>
         </div>
       </div>
     </section>

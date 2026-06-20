@@ -11,7 +11,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Software studio · Qatar",
+      "eyebrow": "Software company · Qatar",
       "titleLead": "We build software that",
       "titleAccent": "ships",
       "lede": "Mobile apps, web platforms, ERP, e-commerce and AI agents. Built locally in Qatar. Owned by you.",
@@ -896,7 +896,7 @@
     "label": "Documents",
     "profile": {
       "title": "Company profile",
-      "description": "Our full studio dossier — story, services, process, portfolio.",
+      "description": "Our full company dossier — story, services, process, portfolio.",
       "preview": "Preview",
       "download": "Download"
     },

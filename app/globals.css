@@ -9,10 +9,27 @@ body {
   font-family: var(--font-poppins), system-ui, sans-serif;
 }
 
-/* Hide scrollbar (keep scrolling) */
+/* Site-wide hero font sizing variables (defaults) */
+:root {
+  --hero-font-flex: 5vw;
+  --hero-font-max: 2.75rem;
+  --hero-font-min: 2rem;
+}
+.hero-font {
+  font-size: max(min(var(--hero-font-flex), var(--hero-font-max)), var(--hero-font-min));
+}
+
+/* Arabic / RTL uses the Arabic face */
+[dir="rtl"] {
+  font-family: var(--font-arabic), var(--font-poppins), system-ui, sans-serif;
+}
+
+/* Hide scrollbar (keep scrolling) + anchor offset for the fixed navbar */
 html {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -48,6 +65,15 @@ body::-webkit-scrollbar {
   }
 }
 
+@keyframes check-draw {
+  from {
+    stroke-dashoffset: 30;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes signal-travel {
   0% {
     left: -2%;
@@ -65,14 +91,140 @@ body::-webkit-scrollbar {
   }
 }
 
-@keyframes caret-blink {
-  0%,
-  49% {
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
-  50%,
+}
+
+/* Tech grid: a soft signal-glow that sweeps tile to tile. Opacity only, so it
+   runs on the compositor (no layout/paint) and pauses while off-screen. Each
+   tile is offset by a negative animation-delay so the band travels across. */
+@keyframes tech-glow {
+  0%,
+  22%,
   100% {
     opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+}
+
+/* Starfield twinkle — opacity only (composited), staggered per star via delay. */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* A card swiping into view — slides in from the side + fades. */
+@keyframes swipe-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Chat "typing…" dots — bounce + fade, staggered per dot. Transform/opacity only. */
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+/* A request/signal travelling down a connector line */
+@keyframes flow-down {
+  0% { top: -12%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 112%; opacity: 0; }
+}
+
+@keyframes text-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Hero light entrance — the gradient glow rises up from the side on load */
+@keyframes light-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(9%, 22%, 0) scale(1.14);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Stripe-style flowing gradient blobs */
+@keyframes blob-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-14%, 10%) scale(1.2); }
+}
+@keyframes blob-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12%, -12%) scale(1.15); }
+}
+@keyframes blob-3 {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-10%, -8%) scale(0.95); }
+}
+@keyframes blob-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(14%, 8%) scale(1.25); }
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Koba eyelid blink — lid drops from the top to cover the eye, then lifts */
+@keyframes blink {
+  0%,
+  84% {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+  92% {
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-blink] {
+    animation: none !important;
   }
 }
 
@@ -120,13 +272,221 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Analytics browser — live dashboard charts */
+@keyframes bar-live {
+  0%,
+  100% {
+    transform: scaleY(0.82);
+  }
+  50% {
+    transform: scaleY(1.06);
+  }
+}
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 620;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* Reveal the whole chart (area + lines together) left → right, perfectly in sync. */
+@keyframes chart-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes scale-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scale-dot {
+  0%,
+  84% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scan-x {
+  0% {
+    left: -8%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: 108%;
+    opacity: 0;
+  }
+}
+@keyframes ping-soft {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* A data packet travelling along a connector — pure transform, runs on the GPU.
+   Distance is set per-connector via the --flow-d custom property. */
+@keyframes flow-x {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(var(--flow-d, 48px));
+    opacity: 0;
+  }
+}
+
+/* Usage meter filling in (scaleX from the left) and chart bars rising (scaleY
+   from the bottom) — both transform-only, so they composite on the GPU. */
+@keyframes meter-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes bar-rise {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* GPS marker gliding along a route via CSS motion path (offset-path). The
+   browser drives it with a composited translate, so it stays buttery smooth. */
+@keyframes gps-move {
+  0% {
+    offset-distance: 0%;
+  }
+  90% {
+    offset-distance: 100%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Dotted connector "drawing" itself — the dashes march toward the card. */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+/* Track glow flicker — irregular opacity pulse, like a live signal. */
+@keyframes glow-flick {
+  0%, 100% { opacity: 0.5; }
+  18% { opacity: 0.95; }
+  30% { opacity: 0.6; }
+  48% { opacity: 1; }
+  63% { opacity: 0.66; }
+  80% { opacity: 0.9; }
+}
+
+/* A packet flowing along a curved connector — fades in/out at the ends so the
+   loop has no visible jump. Pure offset-path + opacity, composited on the GPU. */
+@keyframes flow-curve {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+/* Banner image — slow Ken Burns drift (zoom held, gentle left/right pan) */
+@keyframes banner-pan {
+  from {
+    transform: scale(1.14) translateX(2.5%);
+  }
+  to {
+    transform: scale(1.14) translateX(-2.5%);
+  }
+}
+
+/* Planet gently levitating — a slow infinite bob with a faint tilt */
+@keyframes planet-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(1.2deg);
+  }
+}
+
+/* Gradient hairline that slides across on hover (stat cards) */
+@keyframes line-slide {
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   [data-marquee],
   [data-signal],
   [data-glow],
   [data-float],
   [data-pop],
-  [data-caret] {
+  [data-caret],
+  [data-anim],
+  [data-rise],
+  [data-slide],
+  [data-blink] {
     animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
   }
 }

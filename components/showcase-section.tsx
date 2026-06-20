@@ -8,7 +8,7 @@ import { t, type Lang } from "@/components/i18n"
 export function ShowcaseSection({ lang }: { lang: Lang }) {
   const tr = t[lang].showcase
   return (
-    <section className="sticky top-0 flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-24 sm:py-32">
+    <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-24 sm:sticky sm:top-0 sm:py-32">
       {/* flickering grid on the sides — continues from the Work section */}
       <AnimatedGridPattern
         numSquares={42}

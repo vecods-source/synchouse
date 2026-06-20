@@ -19,7 +19,7 @@ export function StarterSection({ lang }: { lang: Lang }) {
   const { open } = useWhatsApp()
 
   return (
-    <section id="starter" className="sticky top-0 flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-24 sm:py-32">
+    <section id="starter" className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-24 sm:sticky sm:top-0 sm:py-32">
       {/* flickering side-grid — continues from the section above */}
       <AnimatedGridPattern
         numSquares={42}

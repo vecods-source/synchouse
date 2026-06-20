@@ -16,7 +16,7 @@ const CALL_HREF = "tel:+97466012332"
 export function ContactSection({ lang }: { lang: Lang }) {
   const tr = t[lang].contact
   return (
-    <section id="contact" className="sticky top-0 flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-32 sm:py-40">
+    <section id="contact" className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-32 sm:sticky sm:top-0 sm:py-40">
       {/* flickering side-grid — continues from the section above */}
       <AnimatedGridPattern
         numSquares={42}

@@ -4,19 +4,20 @@ export const dir = (lang: Lang) => (lang === "ar" ? "rtl" : "ltr")
 
 export const t = {
   en: {
-    nav: { services: "Services", work: "Work", process: "Process", contact: "Contact", start: "Start a project", other: "العربية" },
-    hero: { label: "A software company in Qatar", prefix: "Software and apps to ", accent: "grow", suffix: " your business.", sub: "We design, build and ship mobile apps, web platforms and AI — fixed price, you own the code, built for performance.", start: "Start a project", work: "See our work", integrations: "We build apps that plug into the platforms you run on" },
+    nav: { solutions: "Solutions", services: "Services", packages: "Packages", work: "Work", contact: "Contact", start: "Start a project", other: "العربية" },
+    hero: { label: "A software company in Qatar", prefix: "Software for ", accent: "Qatar’s digital future", suffix: ".", sub: "Apps, platforms and AI for businesses moving with Vision 2030 — your technical partner in the digital world.", start: "Start a project", work: "See our work", integrations: "We build apps that plug into the platforms you run on" },
     stack: { eyebrow: "Technology", title: "The stack we build with", lede: "Modern, proven tools — chosen for speed, scale and staying power.", teamTitle: "The team", roles: ["Engineering", "Design", "Product", "QA & support"], techTitle: "The stack" },
     backbone: {
-      eyebrow: "Who we are",
-      title: "A software company you can actually visit.",
+      eyebrow: "After launch",
+      title: "We don’t disappear after launch.",
       lede: "Commitments we write into every contract — not marketing.",
       cta: "Start a project",
-      location: "Marina Twin Towers B · Lusail, Qatar",
+      location: "Marina Twin Tower A · Floor 13 · Lusail, Qatar",
       brandLine: "Shara — a signal that reaches its destination.",
       brandTag: "Send it.",
       story:
-        "We’re Shara, based in the Marina Twin Towers in Lusail. We build mobile apps, websites and platforms for businesses across Qatar. The price is agreed up front, the code is yours to keep, and whatever we promise goes into the contract.",
+        "Most teams ship the project and vanish. We stay — fixing, updating and answering, 9 to 9, every day. Your product keeps a team that actually knows it, for as long as you run it, so a small change never means starting over with a stranger.",
+      storyShort: "Most teams ship and disappear. We stay — fixing, updating and answering, 9 to 9, every day.",
       visit: "Come say hi",
       waiting: "we’re waiting for you",
       mapBtn: "Open in Maps",
@@ -58,11 +59,11 @@ export const t = {
     ticker: "Real products · Shipped from Qatar · You own the code · Replies in 3h",
     showcase: { line1: "FROM IDEA", line2: "TO LIVE", caption: "From an idea on paper to a product people actually use." },
     solutions: {
-      title1: "Software shaped to your business.",
-      title2: " Apps, platforms, dashboards and AI — built to work on their own, or all together.",
+      title1: "Your project’s success is our first goal.",
+      title2: " We don’t just launch an app — we build one that wins customers and delivers real results.",
       cardA: "Built-in payments that just work",
       cardB: "After-sales service that has your back",
-      cardC: "AI agents that reason, not just follow rules",
+      cardC: "AI agents that think — and get it done",
       duo: {
         agent: "Shara Agent", status: "Autonomous",
         convoLabel: "Conversation", runLabel: "Agent reasoning", generating: "Generating reply…",
@@ -125,10 +126,11 @@ export const t = {
       rev: { label: "Revenue today", live: "Live", orders: "Orders", added: "+QAR 96.89", period: "Updated live" },
       care: {
         plans: [
-          { name: "Basic", price: "QAR 750", per: "/mo", tag: "", extra: "", features: ["Security & dependency updates", "Daily backups", "Uptime monitoring", "Bug fixes · 3-day response"] },
-          { name: "Care", price: "QAR 1,600", per: "/mo", tag: "Popular", extra: "Each month: 1 small feature + 1 UI change (up to 1 screen)", features: ["Everything in Basic", "Priority fixes · 24h response", "24/7 support"] },
-          { name: "Pro", price: "QAR 3,000", per: "/mo", tag: "", extra: "", features: ["Everything in Care", "A dedicated developer", "Same-day fixes", "Monthly roadmap call"] },
+          { name: "Basic", price: "QAR 750", per: "/mo", priceYear: "QAR 7,500", priceYearWas: "QAR 9,000", priceYearMonthly: "QAR 625", tag: "", extra: "", features: ["Managed hosting & auto-scaling", "24/7 security & uptime monitoring", "Daily backups", "Response within 48h"], details: [{ t: "Managed hosting & auto-scaling" }, { t: "24/7 uptime & security monitoring" }, { t: "Security patches & vulnerability scans" }, { t: "Daily backups + disaster recovery" }, { t: "Dependency & iOS/Android updates" }, { t: "Response within 48h · resolve by severity", k: "sla" }] },
+          { name: "Care", price: "QAR 1,600", per: "/mo", priceYear: "QAR 16,000", priceYearWas: "QAR 19,200", priceYearMonthly: "QAR 1,333", tag: "Popular", extra: "Each month: 1 small feature + 1 UI change (up to 1 screen)", features: ["Everything in Basic", "Priority response · within 24h", "Admin dashboard management", "24/7 support · WhatsApp & email"], details: [{ t: "Everything in Basic", k: "inc" }, { t: "Priority response · within 24h", k: "sla" }, { t: "Admin dashboard management", k: "new" }, { t: "Ongoing content & data updates", k: "new" }, { t: "24/7 support · WhatsApp & email", k: "new" }, { t: "App-store compliance & releases", k: "new" }, { t: "Monthly performance report", k: "new" }] },
+          { name: "Pro", price: "QAR 3,000", per: "/mo", priceYear: "QAR 30,000", priceYearWas: "QAR 36,000", priceYearMonthly: "QAR 2,500", tag: "", extra: "Your own team on standby", features: ["Everything in Care", "Dedicated developer + manager", "We run your dashboard for you", "Same-day fixes"], details: [{ t: "Everything in Care", k: "inc" }, { t: "Critical response · within 1 hour", k: "sla" }, { t: "Same-day fixes", k: "new" }, { t: "Dedicated developer + account manager", k: "new" }, { t: "Brand & graphic design services", k: "new" }, { t: "We run your admin dashboard for you", k: "new" }, { t: "Daily ops · products, orders, customers", k: "new" }, { t: "Full release management & store publishing", k: "new" }, { t: "Integrations kept healthy · payments, push, maps", k: "new" }, { t: "Monthly roadmap call + performance reviews", k: "new" }] },
         ],
+        fromLabel: "From", ctaLabel: "Get started today", yearlyNote: "2 months free", perYear: "/yr", billMonthly: "Monthly", billYearly: "Yearly", billedYearly: "billed yearly", freeMonthNote: "Pay yearly and get 2 months free — 12 months for the price of 10", newLabel: "New", callLabel: "Call us", detailsLabel: "See full plan", planEyebrow: "Maintenance plan", planIntro: "Everything we do to keep your product fast, secure and growing — month after month.", billingTitle: "Choose how you pay", featuresTitle: "What’s included", confirmEyebrow: "You’re choosing", confirmSub: "Here’s what’s included. Continue on WhatsApp and we’ll get you set up.",
         appName: "Your app", status: "Support online", uptime: "Average first reply, every workday", uptimeVal: "< 3h", monitored: "Monitored 24/7", team: "Support team", online: "Online", ask: "Can you add Pay Later to the payment methods?", done: "Done — it’s live ✓", shipped: "Shipped in 18 min", screenTitle: "Payment methods", mCard: "Card", mWallet: "Apple Pay", payLater: "Pay later", newTag: "New",
         monitor: {
           live: "Live · service monitor", uptime: "60 days, no downtime",
@@ -175,10 +177,13 @@ export const t = {
       guarantees: ["Support 9am–9pm", "Critical safety net", "10% off per week late"],
     },
     starter: {
-      eyebrow: "Pricing",
-      startupOnly: "For start-ups only",
-      title: "Find the package that fits you.",
-      sub: "From a quick storefront to a full shopping app — pick what suits you, and we set it all up.",
+      eyebrow: "Starter pricing",
+      startupOnly: "Start-ups & fresh ideas only",
+      title: "Find the package that",
+      titleAccent: "fits you.",
+      titleStrict: "Start-ups only.",
+      sub: "Starter packages for new companies and first ideas — not our full project pricing. Pick one and we set it all up.",
+      subShort: "Starter packages for new companies — pick one, we set it up.",
       options: [
         { name: "Shopify store", price: "From QAR 3,000", desc: "Launch fast on Shopify, ready to sell.", tag: "Shopify" },
         { name: "Custom store", price: "From QAR 5,000", desc: "A tailored online store, built your way.", tag: "" },
@@ -197,7 +202,7 @@ export const t = {
       process: "Process",
       contact: "Contact",
       legal: "© 2026 Shara Software Development W.L.L. · CR 240369",
-      address: "Marina Twin Towers B, Lusail · Doha, Qatar",
+      address: "Marina Twin Tower A, Floor 13, Lusail · Doha, Qatar",
     },
     gate: {
       title: "Start a project",
@@ -215,19 +220,20 @@ export const t = {
     },
   },
   ar: {
-    nav: { services: "الخدمات", work: "أعمالنا", process: "آلية العمل", contact: "تواصل", start: "ابدأ مشروعك", other: "EN" },
-    hero: { label: "شركة برمجيات في قطر", prefix: "برمجيات وتطبيقات ", accent: "تُنمّي", suffix: " أعمالك.", sub: "نصمّم ونبني ونُطلق تطبيقات الجوال ومنصّات الويب والذكاء الاصطناعي — بسعر ثابت، ملكية كاملة، وأداءٍ عالٍ.", start: "ابدأ مشروعك", work: "شاهد أعمالنا", integrations: "نبني تطبيقات تتكامل مع المنصّات التي تعتمد عليها" },
+    nav: { solutions: "حلولنا", services: "الخدمات", packages: "الباقات", work: "أعمالنا", contact: "تواصل", start: "ابدأ مشروعك", other: "EN" },
+    hero: { label: "شارة لتطوير البرمجيات", prefix: "برمجيات تبني ", accent: "مستقبل قطر الرقمي", suffix: ".", sub: "تطبيقات ومنصّات رقمية ذكية لأعمالٍ تتقدّم مع رؤية قطر 2030 — شريكك التقني في العالم الرقمي.", start: "ابدأ مشروعك", work: "شاهد أعمالنا", integrations: "نبني تطبيقات تتكامل مع المنصّات التي تعتمد عليها" },
     stack: { eyebrow: "التقنيات", title: "الأدوات التي نبني بها", lede: "أدوات حديثة ومُجرّبة — مُختارة للسرعة والتوسّع والاستمرارية.", teamTitle: "الفريق", roles: ["هندسة", "تصميم", "منتج", "جودة ودعم"], techTitle: "الأدوات" },
     backbone: {
-      eyebrow: "من نحن",
-      title: "شركة برمجيات يمكنك زيارتها فعلاً.",
+      eyebrow: "بعد الإطلاق",
+      title: "لا نختفي بعد الإطلاق.",
       lede: "التزامات نكتبها في كل عقد — لا مجرّد تسويق.",
       cta: "ابدأ مشروعك",
-      location: "أبراج المارينا التوأم B · لوسيل، قطر",
+      location: "برج المارينا التوأم A · الطابق 13 · لوسيل، قطر",
       brandLine: "شارة — إشارة تصل إلى وجهتها.",
       brandTag: "أرسلها.",
       story:
-        "نحن شارة، ومقرّنا في أبراج المارينا التوأم بلوسيل. نبني تطبيقات الجوال والمواقع والمنصّات لأعمال في مختلف أنحاء قطر. السعر يُتّفق عليه مسبقًا، والكود مِلكك تحتفظ به، وكل ما نَعِد به يُكتب في العقد.",
+        "نركّز على إنشاء بنية قوية وقابلة للنمو لتطبيقك أو موقعك، إيمانًا منا بأن نجاحه يعكس جودة ما نقدّمه. وبعد الإطلاق، يبقى فريقنا مستعدًا للتطوير المستمر، والتوسّع عند الحاجة، وتحسين المنتج مع نمو أعمالك. يمكنكم زيارتنا في توين تاور A بلوسيل في أي وقت.",
+      storyShort: "نبني بنية قوية تنمو معك، ويبقى فريقنا بعد الإطلاق للتطوير والتحسين مع نمو أعمالك.",
       visit: "مرّ علينا",
       waiting: "في انتظارك",
       mapBtn: "افتح في الخرائط",
@@ -252,7 +258,7 @@ export const t = {
     },
     infra: {
       title1: "كل ما يدير عملك في مكان واحد.",
-      title2: " بلا أي خبرة تقنية — نجهّز لك كل شيء.",
+      title2: " بلا أي تعقيدات تقنية — نجهّز لك كل شيء.",
       ctaPrimary: "ابدأ مشروعك",
       ctaSecondary: "شاهد أعمالنا",
       connectTitle: "يعمل مع الأدوات التي تستخدمها أصلًا.",
@@ -269,11 +275,11 @@ export const t = {
     ticker: "منتجات حقيقية · صُنعت في قطر · الكود مِلكك · ردّ خلال 3 ساعات",
     showcase: { line1: "من الفكرة", line2: "إلى الإطلاق", caption: "من فكرة على الورق إلى منتج يستخدمه الناس فعلاً." },
     solutions: {
-      title1: "برمجيات مُفصّلة على أعمالك.",
-      title2: " تطبيقات ومنصّات ولوحات تحكم وذكاء اصطناعي — تعمل وحدها أو معًا.",
+      title1: "نجاح مشروعك هو هدفنا الأول.",
+      title2: " لا نُطلق تطبيقًا فحسب — بل نبنيه ليكسب عملاءك ويحقّق نتائج فعلية.",
       cardA: "مدفوعات مدمجة تعمل ببساطة",
       cardB: "خدمة ما بعد البيع التي تدعمك دائمًا",
-      cardC: "وكلاء ذكاء اصطناعي يفكّرون لا يتّبعون قواعد فقط",
+      cardC: "مساعدك الذكي 24 ساعة",
       duo: {
         agent: "وكيل شارة", status: "ذاتي بالكامل",
         convoLabel: "المحادثة", runLabel: "تفكير الوكيل", generating: "يُنشئ الردّ…",
@@ -336,10 +342,11 @@ export const t = {
       rev: { label: "إيراد اليوم", live: "مباشر", orders: "الطلبات", added: "+96.89 ر.ق", period: "تحديث مباشر" },
       care: {
         plans: [
-          { name: "أساسي", price: "QAR 750", per: "/شهر", tag: "", extra: "", features: ["تحديثات الأمان والاعتماديات", "نسخ احتياطي يومي", "مراقبة التشغيل", "إصلاح الأخطاء · خلال 3 أيام"] },
-          { name: "متكامل", price: "QAR 1,600", per: "/شهر", tag: "الأكثر طلبًا", extra: "شهريًا: ميزة صغيرة + تعديل واجهة (حتى شاشة واحدة)", features: ["كل ما في الأساسي", "إصلاحات بأولوية · خلال 24 ساعة", "دعم على مدار الساعة"] },
-          { name: "احترافي", price: "QAR 3,000", per: "/شهر", tag: "", extra: "", features: ["كل ما في المتكامل", "مطوّر مخصّص", "إصلاح في نفس اليوم", "مكالمة خطة شهرية"] },
+          { name: "أساسي", price: "QAR 750", per: "/شهر", priceYear: "QAR 7,500", priceYearWas: "QAR 9,000", priceYearMonthly: "QAR 625", tag: "", extra: "", features: ["استضافة مُدارة وتوسّع تلقائي", "مراقبة الأمان والتشغيل على مدار الساعة", "نسخ احتياطي يومي", "استجابة خلال 48 ساعة"], details: [{ t: "استضافة مُدارة وتوسّع تلقائي" }, { t: "مراقبة التشغيل والأمان على مدار الساعة" }, { t: "تحديثات وإصلاحات أمنية وفحص الثغرات" }, { t: "نسخ احتياطي يومي وخطة تعافٍ من الكوارث" }, { t: "تحديث الاعتماديات والتوافق مع iOS وأندرويد" }, { t: "استجابة خلال 48 ساعة · معالجة حسب الخطورة", k: "sla" }] },
+          { name: "متكامل", price: "QAR 1,600", per: "/شهر", priceYear: "QAR 16,000", priceYearWas: "QAR 19,200", priceYearMonthly: "QAR 1,333", tag: "الأكثر طلبًا", extra: "شهريًا: ميزة صغيرة + تعديل واجهة (حتى شاشة واحدة)", features: ["كل ما في الأساسي", "استجابة بأولوية · خلال 24 ساعة", "مساعدة في إدارة لوحة التحكم", "دعم على مدار الساعة"], details: [{ t: "كل ما في الأساسي", k: "inc" }, { t: "استجابة بأولوية · خلال 24 ساعة", k: "sla" }, { t: "إدارة لوحة التحكم", k: "new" }, { t: "تحديث المحتوى والبيانات باستمرار", k: "new" }, { t: "دعم على مدار الساعة · واتساب وبريد", k: "new" }, { t: "الالتزام بسياسات المتاجر وإدارة الإصدارات", k: "new" }, { t: "تقرير أداء شهري", k: "new" }] },
+          { name: "احترافي", price: "QAR 3,000", per: "/شهر", priceYear: "QAR 30,000", priceYearWas: "QAR 36,000", priceYearMonthly: "QAR 2,500", tag: "", extra: "فريقك الخاص في الانتظار", features: ["كل ما في المتكامل", "مطوّر مخصّص + مدير حساب", "ندير لوحة تحكمك نيابةً عنك", "إصلاح في نفس اليوم"], details: [{ t: "كل ما في المتكامل", k: "inc" }, { t: "استجابة للأعطال الحرجة · خلال ساعة", k: "sla" }, { t: "إصلاح في نفس اليوم", k: "new" }, { t: "مطوّر مخصّص + مدير حساب", k: "new" }, { t: "خدمات تصميم الهوية والجرافيك", k: "new" }, { t: "ندير لوحة التحكم بالكامل نيابةً عنك", k: "new" }, { t: "تشغيل يومي · المنتجات والطلبات والعملاء", k: "new" }, { t: "إدارة كاملة للإصدارات والنشر على المتاجر", k: "new" }, { t: "صيانة التكاملات · الدفع والإشعارات والخرائط", k: "new" }, { t: "مكالمة خطة شهرية ومراجعات أداء", k: "new" }] },
         ],
+        fromLabel: "يبدأ من", ctaLabel: "ابدأ اليوم", yearlyNote: "شهران مجانًا", perYear: "/سنة", billMonthly: "شهري", billYearly: "سنوي", billedYearly: "تُدفع سنويًا", freeMonthNote: "ادفع سنويًا واحصل على شهرين مجانًا — 12 شهرًا بسعر 10", newLabel: "جديد", callLabel: "اتصل بنا", detailsLabel: "عرض الباقة كاملة", planEyebrow: "باقة الصيانة", planIntro: "كل ما نقوم به لإبقاء منتجك سريعًا وآمنًا وينمو — شهرًا بعد شهر.", billingTitle: "اختر طريقة الدفع", featuresTitle: "ما الذي تتضمّنه", confirmEyebrow: "اخترت", confirmSub: "هذا ما تتضمّنه الباقة. تابِع عبر واتساب ونجهّز لك كل شيء.",
         appName: "تطبيقك", status: "الدعم متصل", uptime: "متوسّط أول ردّ، كل يوم عمل", uptimeVal: "< 3h", monitored: "مراقبة على مدار الساعة", team: "فريق الدعم", online: "متصل", ask: "ممكن تضيفون باي ليتر إلى طرق الدفع؟", done: "تمّ — صار مباشرًا ✓", shipped: "نُشِر خلال 18 دقيقة", screenTitle: "طرق الدفع", mCard: "بطاقة", mWallet: "Apple Pay", payLater: "الدفع لاحقًا", newTag: "جديد",
         monitor: {
           live: "مباشر · مراقبة الخدمة", uptime: "60 يومًا دون انقطاع",
@@ -386,10 +393,13 @@ export const t = {
       guarantees: ["دعم 9ص–9م", "شبكة أمان للحالات الحرجة", "خصم 10% عن كل أسبوع تأخير"],
     },
     starter: {
-      eyebrow: "الأسعار",
-      startupOnly: "للشركات الناشئة فقط",
-      title: "اعثر على الباقة التي تناسبك.",
-      sub: "من متجر سريع إلى تطبيق تسوّق متكامل — اختر ما يناسبك ونجهّزه لك بالكامل.",
+      eyebrow: "أسعار البداية",
+      startupOnly: "للشركات الناشئة والأفكار الجديدة فقط",
+      title: "اعثر على الباقة التي",
+      titleAccent: "تناسبك.",
+      titleStrict: "للشركات الناشئة فقط.",
+      sub: "باقات بداية للشركات الناشئة والأفكار الأولى — وليست أسعار مشاريعنا الكاملة. اختر ما يناسبك ونجهّزه لك بالكامل.",
+      subShort: "باقات بداية للشركات الناشئة. اختر ما يناسبك ونجهّزه لك.",
       options: [
         { name: "متجر Shopify", price: "من QAR 3,000", desc: "انطلق بسرعة على Shopify وجاهز للبيع.", tag: "Shopify" },
         { name: "متجر مخصّص", price: "من QAR 5,000", desc: "متجر إلكتروني مُفصّل على طريقتك.", tag: "" },
@@ -408,7 +418,7 @@ export const t = {
       process: "آلية العمل",
       contact: "تواصل",
       legal: "© 2026 شركة شارة لتطوير البرمجيات ذ.م.م. · س.ت. 240369",
-      address: "أبراج المارينا التوأم B، لوسيل · الدوحة، قطر",
+      address: "برج المارينا التوأم A، الطابق 13، لوسيل · الدوحة، قطر",
     },
     gate: {
       title: "ابدأ مشروعك",

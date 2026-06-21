@@ -15,7 +15,7 @@ export function ShowcaseSection({ lang }: { lang: Lang }) {
         maxOpacity={0.09}
         duration={3}
         repeatDelay={1}
-        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
+        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_8%,transparent_92%,#000)] md:[mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
       />
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <h2 className="text-balance text-4xl font-semibold leading-[1.15] tracking-tight text-[#0f0a1f] sm:text-6xl">

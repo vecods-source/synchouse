@@ -11,36 +11,42 @@ export function BackboneSection({ lang }: { lang: Lang }) {
   const isRtl = lang === "ar"
 
   return (
-    <section id="proof" className="relative isolate flex min-h-[420px] w-full items-center overflow-hidden px-4 py-24 sm:min-h-[480px]">
-      <div className={`absolute inset-0 -z-20 overflow-hidden ${isRtl ? "-scale-x-100" : ""}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={IMG}
-          alt={IMG_ALT}
-          loading="lazy"
-          className="h-full w-full select-none object-cover"
-          style={{ objectPosition: "50% 38%" }}
+    <section id="proof" className="relative isolate flex min-h-[58svh] w-full items-start overflow-hidden px-4 py-10 sm:min-h-[480px] sm:items-center sm:py-24">
+      {/* image as an inset, rounded card on phones; full-bleed from sm up */}
+      <div className="absolute inset-4 -z-10 overflow-hidden rounded-[15px] sm:inset-0 sm:rounded-none">
+        <div className={`absolute inset-0 ${isRtl ? "-scale-x-100" : ""}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* tall vertical crop on phones (shows the towers/Koba side of the wide shot),
+              the full wide framing from sm up */}
+          <img
+            src={IMG}
+            alt={IMG_ALT}
+            loading="lazy"
+            className="h-full w-full select-none object-cover object-[80%_45%] sm:object-[50%_38%]"
+          />
+        </div>
+        {/* Scrim weighted toward the text side (left in LTR, right in RTL) */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to ${isRtl ? "left" : "right"}, rgba(8,5,20,0.82) 0%, rgba(8,5,20,0.62) 40%, rgba(8,5,20,0.25) 72%, rgba(8,5,20,0.12) 100%)`,
+          }}
         />
       </div>
-      {/* Scrim weighted toward the text side (left in LTR, right in RTL) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          background: `linear-gradient(to ${isRtl ? "left" : "right"}, rgba(8,5,20,0.82) 0%, rgba(8,5,20,0.62) 40%, rgba(8,5,20,0.25) 72%, rgba(8,5,20,0.12) 100%)`,
-        }}
-      />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl">
-        <div className="max-w-xl">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-7 pt-6 sm:px-0 sm:pt-0">
+        <div className="max-w-xl md:max-w-3xl">
           <p className="flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.14em] text-[#c9b8ff]">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#a78bfa]" />
             {tr.eyebrow}
           </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-4 text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl sm:leading-[1.05]">
             {tr.title}
           </h2>
-          <p className="mt-5 text-balance text-base leading-relaxed text-white/80 sm:text-lg">{tr.story}</p>
+          {/* short on mobile (~2 lines), full story from sm up */}
+          <p className="mt-4 max-w-xl text-balance text-base leading-relaxed text-white/80 sm:hidden">{tr.storyShort}</p>
+          <p className="mt-5 hidden max-w-xl text-balance text-lg leading-relaxed text-white/80 sm:block">{tr.story}</p>
         </div>
       </div>
     </section>

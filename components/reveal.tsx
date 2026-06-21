@@ -22,7 +22,9 @@ export function Reveal({ children }: { children: ReactNode }) {
           io.disconnect()
         }
       },
-      { threshold: 0.12 },
+      // reveal as soon as any sliver enters the viewport (so a peeking section
+      // never shows up empty), with a small pre-trigger margin
+      { threshold: 0, rootMargin: "0px 0px 10% 0px" },
     )
     io.observe(el)
     return () => io.disconnect()

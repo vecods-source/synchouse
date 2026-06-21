@@ -58,14 +58,14 @@ export function InfraSection({ lang }: { lang: Lang }) {
   const tr = t[lang].infra
 
   return (
-    <section id="infra" className="relative w-full overflow-hidden bg-white px-4 py-24 sm:py-32">
+    <section id="infra" className="relative w-full overflow-hidden bg-white px-4 py-28 sm:py-32">
       {/* animated grid on the sides — continues from the neighbouring sections */}
       <AnimatedGridPattern
         numSquares={42}
         maxOpacity={0.09}
         duration={3}
         repeatDelay={1}
-        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
+        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_8%,transparent_92%,#000)] md:[mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
       />
 
       <div className="relative z-10 mx-auto max-w-6xl">
@@ -165,7 +165,7 @@ export function InfraSection({ lang }: { lang: Lang }) {
 // A stacked, reflowable version of the orchestration diagram for phones.
 function MobileDiagram({ tr }: { tr: (typeof t)[Lang]["infra"] }) {
   return (
-    <div className="mt-12 md:hidden">
+    <div className="mt-16 md:hidden">
       <div className="mx-auto max-w-sm rounded-2xl border border-black/[0.07] bg-white p-5">
         {/* systems that feed in */}
         <div className="grid grid-cols-2 gap-2">

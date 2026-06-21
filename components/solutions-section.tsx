@@ -6,7 +6,7 @@ import { t, type Lang } from "@/components/i18n"
 export function SolutionsSection({ lang }: { lang: Lang }) {
   const tr = t[lang].solutions
   return (
-    <section id="solutions" className="relative w-full overflow-hidden bg-[#f6f7fb] px-4 py-20 sm:py-28">
+    <section id="solutions" className="relative w-full overflow-hidden bg-[#f6f7fb] px-4 pb-24 pt-16 sm:py-28">
       {/* minimal static decoration so the section doesn't feel empty (sits behind the cards) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
         <div
@@ -30,10 +30,11 @@ export function SolutionsSection({ lang }: { lang: Lang }) {
       <div className="relative z-10 mx-auto max-w-6xl">
         <h2 className="max-w-3xl text-balance text-[28px] font-semibold leading-[1.2] tracking-tight sm:text-4xl">
           <span className="text-[#0f0a1f]">{tr.title1}</span>
-          <span className="text-[#8a84c4]">{tr.title2}</span>
+          {/* long descriptive clause is desktop-only; mobile shows just the short sentence */}
+          <span className="hidden text-[#8a84c4] sm:inline">{tr.title2}</span>
         </h2>
 
-        <div className="mt-12">
+        <div className="mt-16 sm:mt-12">
           <PaymentFlow lang={lang} />
         </div>
 

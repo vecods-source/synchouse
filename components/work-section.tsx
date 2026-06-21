@@ -26,14 +26,14 @@ export function WorkSection({ lang }: { lang: Lang }) {
   }, [])
 
   return (
-    <section id="work" className="relative w-full overflow-hidden bg-white px-4 py-24 sm:py-32">
+    <section id="work" className="relative w-full overflow-hidden bg-white px-4 py-28 sm:py-32">
       {/* flickering grid, masked to the left/right edges (sides only) */}
       <AnimatedGridPattern
         numSquares={42}
         maxOpacity={0.09}
         duration={3}
         repeatDelay={1}
-        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
+        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_8%,transparent_92%,#000)] md:[mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
       />
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* Header */}
@@ -42,7 +42,7 @@ export function WorkSection({ lang }: { lang: Lang }) {
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#5437d9]" />
             {tr.eyebrow}
           </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-[#0f0a1f] sm:text-5xl">{tr.title}</h2>
+          <h2 className={`mt-4 text-balance text-4xl font-semibold tracking-tight text-[#0f0a1f] sm:text-5xl ${lang === "ar" ? "leading-[1.45]" : ""}`}>{tr.title}</h2>
           <p className="mt-4 max-w-xl text-balance text-lg text-neutral-500">{tr.lede}</p>
         </div>
 
@@ -75,9 +75,9 @@ function PixelFill({ cols, rows }: { cols: number; rows: number }) {
   )
 }
 
-function SkeletonTile({ big = false }: { big?: boolean }) {
+function SkeletonTile({ big = false, className = "" }: { big?: boolean; className?: string }) {
   return (
-    <div className={`relative overflow-hidden rounded-[5px] border border-black/[0.07] bg-white ${big ? "col-span-2 row-span-2" : ""}`}>
+    <div className={`relative overflow-hidden rounded-[5px] border border-black/[0.07] bg-white ${big ? "col-span-2 row-span-2" : ""} ${className}`}>
       <PixelFill cols={big ? 14 : 8} rows={big ? 10 : 6} />
     </div>
   )
@@ -85,10 +85,11 @@ function SkeletonTile({ big = false }: { big?: boolean }) {
 
 function WorkSkeleton() {
   return (
-    <div className="mt-12 grid auto-rows-[10.5rem] grid-cols-2 gap-4 sm:grid-cols-4">
+    // shorter on phones: smaller rows + fewer tiles; full grid from sm up
+    <div className="mt-16 grid auto-rows-[7rem] grid-cols-2 gap-4 sm:auto-rows-[10.5rem] sm:grid-cols-4">
       <SkeletonTile big />
       {Array.from({ length: 6 }).map((_, i) => (
-        <SkeletonTile key={i} />
+        <SkeletonTile key={i} className={i >= 4 ? "hidden sm:block" : ""} />
       ))}
     </div>
   )
@@ -141,16 +142,23 @@ function WorkLock({ now, lang }: { now: number | null; lang: Lang }) {
         </div>
 
         {/* line + minimal text CTA */}
-        <p className="mt-6 text-sm text-neutral-500">
-          {ar ? "دراسات الحالة الكاملة — تُكشف قريبًا." : "Full case studies — revealing soon."}
+        <p className="mt-6 text-sm leading-relaxed text-neutral-500">
+          {/* short on phones, full from sm up */}
+          <span className="sm:hidden">{ar ? "أغلب أعمالنا سرّيّة بطلب عملائنا." : "Most of our work is private — by client request."}</span>
+          <span className="hidden sm:inline">
+            {ar
+              ? "أغلب ما بنيناه يبقى سرّيًا بطلبٍ من عملائنا — والسبب قصةٌ تستحقّ أن تُروى."
+              : "Most of what we’ve built stays private — at our clients’ request. The reason is a story worth hearing."}
+          </span>
         </p>
         <button
           type="button"
           onClick={() => open({ title: brief, brief })}
           className="group mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-[#5437d9]"
         >
-          {ar ? "أو شاهدها على الطبيعة" : "Or see it in person"}
-          <span aria-hidden className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5">{ar ? "←" : "→"}</span>
+          <span className="sm:hidden">{ar ? "زُرنا لتراها على الطبيعة" : "Visit us to see it live"}</span>
+          <span className="hidden sm:inline">{ar ? "زُرنا لتراها على الطبيعة — واعرف السبب" : "Visit us to see it live — and hear why"}</span>
+          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
         </button>
       </div>
     </div>
@@ -166,7 +174,7 @@ function WorkBento({ lang }: { lang: Lang }) {
   return (
     <>
       {/* Bento mosaic */}
-      <div className="mt-12 grid auto-rows-[10.5rem] grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="mt-16 grid auto-rows-[10.5rem] grid-cols-2 gap-4 sm:grid-cols-4">
         {PROJECTS.map((p, i) => {
           const big = i === 0
           const Wrapper = p.url ? "a" : "div"
@@ -257,7 +265,7 @@ function Cta({ lang }: { lang: Lang }) {
         onClick={() => open({ title: tr.meeting, brief: tr.meeting })}
         className="mt-7 inline-flex items-center gap-1.5 rounded-[5px] bg-[#5437d9] px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
       >
-        {tr.meeting} <span aria-hidden>{lang === "ar" ? "‹" : "›"}</span>
+        {tr.meeting} <span aria-hidden>›</span>
       </button>
     </div>
   )

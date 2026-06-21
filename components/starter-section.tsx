@@ -26,18 +26,22 @@ export function StarterSection({ lang }: { lang: Lang }) {
         maxOpacity={0.09}
         duration={3}
         repeatDelay={1}
-        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
+        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_8%,transparent_92%,#000)] md:[mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
       />
       <DotPattern className={cn("z-0 [mask-image:radial-gradient(440px_circle_at_center,white,transparent)] fill-[#5437d9]/25")} />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <span className="inline-flex items-center gap-1.5 rounded-[5px] bg-[#5437d9]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#5437d9] ring-1 ring-[#5437d9]/15">
-          {tr.startupOnly}
+          {tr.eyebrow}
         </span>
 
-        <h2 className="mx-auto mt-5 whitespace-nowrap text-[clamp(1.25rem,5vw,3rem)] font-semibold tracking-tight text-[#0f0a1f]">
-          <Highlighter action="highlight" color="#d9ccff" padding={6} animationDuration={700} isView>
-            {tr.title}
+        <h2 className="mx-auto mt-5 text-balance text-3xl font-semibold tracking-tight text-[#0f0a1f] sm:text-5xl">
+          {tr.title}{" "}
+          <Highlighter action="highlight" color="#d9ccff" padding={4} animationDuration={700} isView>
+            {tr.titleAccent}
+          </Highlighter>{" "}
+          <Highlighter action="underline" color="#5437d9" strokeWidth={3} padding={3} animationDuration={800} isView>
+            {tr.titleStrict}
           </Highlighter>
         </h2>
 
@@ -65,7 +69,7 @@ export function StarterSection({ lang }: { lang: Lang }) {
           onClick={() => open({ title: tr.cta, brief: tr.ctaBrief })}
           className="mt-10 inline-flex items-center gap-1.5 rounded-[5px] bg-[#5437d9] px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
         >
-          {tr.cta} <span aria-hidden>{lang === "ar" ? "‹" : "›"}</span>
+          {tr.cta} <span aria-hidden>›</span>
         </button>
       </div>
     </section>

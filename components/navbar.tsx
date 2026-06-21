@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useWhatsApp } from "@/components/whatsapp-gate"
 import { t, type Lang } from "@/components/i18n"
@@ -13,11 +14,19 @@ export function Navbar({ lang }: { lang: Lang }) {
 
   const nav = t[lang].nav
   const home = lang === "ar" ? "/ar" : "/"
-  const otherHref = lang === "ar" ? "/" : "/ar"
+  // switch language but stay on the same page (e.g. /maintenance/care ↔ /ar/maintenance/care)
+  const pathname = usePathname() || "/"
+  const otherHref =
+    lang === "ar"
+      ? pathname.replace(/^\/ar(?=\/|$)/, "") || "/"
+      : pathname === "/"
+        ? "/ar"
+        : `/ar${pathname}`
   const links = [
+    { label: nav.solutions, href: "#solutions" },
     { label: nav.services, href: "#services" },
+    { label: nav.packages, href: "#starter" },
     { label: nav.work, href: "#work" },
-    { label: nav.process, href: "#process" },
     { label: nav.contact, href: "#contact" },
   ]
 
@@ -58,7 +67,7 @@ export function Navbar({ lang }: { lang: Lang }) {
             <ul className="hidden items-center gap-7 md:flex lg:gap-10">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-[15px] font-normal text-neutral-600 transition-colors hover:text-neutral-900">
+                  <Link href={`${home}${link.href}`} className="text-[15px] font-normal text-neutral-600 transition-colors hover:text-neutral-900">
                     {link.label}
                   </Link>
                 </li>
@@ -120,7 +129,7 @@ export function Navbar({ lang }: { lang: Lang }) {
           {links.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={`${home}${link.href}`}
               onClick={close}
               className="border-b border-black/5 py-4 text-[22px] font-medium tracking-tight text-neutral-900 transition-colors hover:text-neutral-500"
             >

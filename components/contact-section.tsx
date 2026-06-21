@@ -23,7 +23,7 @@ export function ContactSection({ lang }: { lang: Lang }) {
         maxOpacity={0.09}
         duration={3}
         repeatDelay={1}
-        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
+        className="z-0 [mask-image:linear-gradient(to_right,#000,transparent_8%,transparent_92%,#000)] md:[mask-image:linear-gradient(to_right,#000,transparent_24%,transparent_76%,#000)] fill-[#5437d9]/20 stroke-[#5437d9]/20"
       />
       <DotPattern className={cn("z-0 [mask-image:radial-gradient(440px_circle_at_center,white,transparent)] fill-[#5437d9]/25")} />
 

@@ -23,7 +23,7 @@ export function TechStackSection({ lang }: { lang: Lang }) {
   const tr = t[lang].stack
 
   return (
-    <section id="stack" className="relative w-full overflow-hidden bg-white px-4 py-24 sm:py-32">
+    <section id="stack" className="relative w-full overflow-hidden bg-white px-4 py-28 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.14em] text-[#5437d9]">
@@ -34,7 +34,7 @@ export function TechStackSection({ lang }: { lang: Lang }) {
           <p className="mt-4 max-w-xl text-balance text-lg text-neutral-500">{tr.lede}</p>
         </div>
 
-        <div className="mt-12 grid grid-cols-3 gap-3 sm:mt-16 sm:grid-cols-6 sm:gap-4">
+        <div className="mt-16 grid grid-cols-3 gap-3 sm:mt-16 sm:grid-cols-6 sm:gap-4">
           {TECH.map((tech, i) => (
             <div
               key={tech.file}

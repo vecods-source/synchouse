@@ -7,7 +7,7 @@ import { t, type Lang } from "@/components/i18n"
 export function HeroSection({ lang }: { lang: Lang }) {
   const tr = t[lang].hero
   return (
-    <section className="sticky top-0 z-0 flex min-h-0 w-full items-center overflow-hidden bg-white px-4 pb-12 pt-24 md:min-h-[100svh] md:pb-16 md:pt-28">
+    <section className="relative z-0 flex min-h-[55svh] w-full items-center overflow-hidden bg-white px-4 pb-12 pt-24 md:sticky md:top-0 md:min-h-[100svh] md:pb-16 md:pt-28">
       {/* flowing gradient */}
       <AnimatedGradient className="absolute inset-0" />
       {/* faded 3-clip crossfade on top of the gradient */}
@@ -21,7 +21,7 @@ export function HeroSection({ lang }: { lang: Lang }) {
           <p className="text-[15px] font-medium text-neutral-500">{tr.label}</p>
           <p
             data-slide
-            className="hero-font mt-6 text-balance font-medium leading-[1.25] tracking-tight text-[#0f0a1f]"
+            className={`hero-font mt-6 text-balance font-medium tracking-tight text-[#0f0a1f] ${lang === "ar" ? "leading-[1.6]" : "leading-[1.25]"}`}
             style={{ animation: "fade-in 0.8s ease-out 0.15s both" }}
           >
             {tr.prefix}
@@ -32,12 +32,12 @@ export function HeroSection({ lang }: { lang: Lang }) {
           </p>
           <div
             data-slide
-            className="mt-8 flex items-center justify-center gap-3 md:justify-start"
+            className="mt-10 flex items-center justify-center gap-3 md:mt-8 md:justify-start"
             style={{ animation: "fade-in 0.8s ease-out 0.3s both" }}
           >
             {/* primary — wide */}
             <WhatsAppButton className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-[5px] bg-[#5437d9] px-5 py-3.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90 sm:flex-none sm:px-7">
-              {tr.start} <span aria-hidden>{lang === "ar" ? "‹" : "›"}</span>
+              {tr.start} <span aria-hidden>›</span>
             </WhatsAppButton>
             {/* secondary — compact */}
             <Link

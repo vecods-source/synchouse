@@ -4,7 +4,7 @@ import { t, type Lang } from "@/components/i18n"
 export function ProcessSection({ lang }: { lang: Lang }) {
   const tr = t[lang].process
   return (
-    <section id="process" className="relative w-full overflow-hidden bg-[#0f0a1f] px-4 py-24 sm:py-32">
+    <section id="process" className="relative w-full overflow-hidden bg-[#0f0a1f] px-4 py-28 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <p className="flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.14em] text-[#9d86ff]">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#9d86ff]" />

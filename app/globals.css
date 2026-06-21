@@ -222,6 +222,13 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Arabic is a connected script — any letter-spacing breaks the joins.
+   Force it off everywhere on the RTL pages (overrides Tailwind tracking-* utils). */
+[dir="rtl"],
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-blink] {
     animation: none !important;

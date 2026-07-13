@@ -41,11 +41,12 @@ export function BackboneSection({ lang }: { lang: Lang }) {
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#a78bfa]" />
             {tr.eyebrow}
           </p>
+          {/* punchy 2–3 word title on mobile; full headline from sm up */}
           <h2 className="mt-4 text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl sm:leading-[1.05]">
-            {tr.title}
+            <span className="sm:hidden">{tr.titleShort}</span>
+            <span className="hidden sm:inline">{tr.title}</span>
           </h2>
-          {/* short on mobile (~2 lines), full story from sm up */}
-          <p className="mt-4 max-w-xl text-balance text-base leading-relaxed text-white/80 sm:hidden">{tr.storyShort}</p>
+          {/* title only on mobile; full story from sm up */}
           <p className="mt-5 hidden max-w-xl text-balance text-lg leading-relaxed text-white/80 sm:block">{tr.story}</p>
         </div>
       </div>

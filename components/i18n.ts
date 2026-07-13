@@ -10,6 +10,8 @@ export const t = {
     backbone: {
       eyebrow: "After launch",
       title: "We don’t disappear after launch.",
+      titleShort: "We stay.",
+      subShort: "Fixing, updating, answering.",
       lede: "Commitments we write into every contract — not marketing.",
       cta: "Start a project",
       location: "Marina Twin Tower A · Floor 13 · Lusail, Qatar",
@@ -226,6 +228,8 @@ export const t = {
     backbone: {
       eyebrow: "بعد الإطلاق",
       title: "لا نختفي بعد الإطلاق.",
+      titleShort: "نبقى معك.",
+      subShort: "نُصلح، ونُحدّث، ونردّ.",
       lede: "التزامات نكتبها في كل عقد — لا مجرّد تسويق.",
       cta: "ابدأ مشروعك",
       location: "برج المارينا التوأم A · الطابق 13 · لوسيل، قطر",
